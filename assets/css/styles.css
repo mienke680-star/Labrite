@@ -331,6 +331,12 @@ strong { color: var(--black); }
   flex-shrink: 0;
 }
 .logo-row { display: inline-flex; align-items: center; gap: 3px; }
+.logo-img { width: 190px; height: auto; display: block; }
+.logo.size-lg .logo-img { width: 340px; }
+@media (max-width: 640px) {
+  .logo-img { width: 160px; }
+  .logo.size-lg .logo-img { width: 240px; }
+}
 .logo-word {
   font-weight: 800;
   font-size: 1.65rem;

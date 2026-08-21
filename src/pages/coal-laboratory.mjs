@@ -1,4 +1,5 @@
-import { mediaPlaceholder, renderLogo } from '../partials/render.mjs';
+import { renderLogo, productMedia } from '../partials/render.mjs';
+import { getProduct } from '../data/products.mjs';
 
 const main = `
     <section class="hero-simple">
@@ -24,7 +25,7 @@ const main = `
           <p>The Coal Laboratory prepares and tests coal samples through a structured sequence of crushing, sieving, drying and analysis — each stage designed to protect the accuracy of the final result.</p>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Coal sample', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used as laboratory test material" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -76,17 +77,23 @@ const main = `
           <a class="btn btn-secondary" href="/equipment/">Browse laboratory equipment</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Laboratory equipment', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          ${productMedia(getProduct('sample-crusher'))}
         </div>
       </div>
     </section>
 
     <section class="section section-alt">
-      <div class="container">
-        <span class="eyebrow">Quality &amp; Accreditation</span>
-        <h2>Accreditation information</h2>
-        <div class="notice">
-          <strong>Published only where confirmed.</strong> Any SANAS accreditation logo, symbol, accreditation number, scope or claim will be displayed here strictly as supplied and approved by Labrite. See the <a href="/accreditation.html" style="color:var(--red-accessible);font-weight:600;">Accreditation &amp; Quality</a> page for current status.
+      <div class="container split">
+        <div class="split-content">
+          <span class="eyebrow">Quality &amp; Accreditation</span>
+          <h2>SANAS-accredited testing laboratory</h2>
+          <p>The Labrite Coal Laboratory operates as a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>.</p>
+          <div class="notice">
+            Full accreditation scope and schedule are published on the dedicated <a href="/accreditation.html" style="color:var(--red-accessible);font-weight:600;">Accreditation &amp; Quality</a> page. This symbol is used exactly as supplied by Labrite and is not applied to services outside its confirmed scope.
+          </div>
+        </div>
+        <div class="split-media">
+          <div class="media ratio-4-3" style="background:var(--white);"><img src="/assets/images/brand/sanas-accreditation.png" alt="SANAS Testing Laboratory accreditation mark, number T1091" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
         </div>
       </div>
     </section>
@@ -100,9 +107,9 @@ const main = `
           </div>
         </div>
         <div class="grid grid-3">
-          ${mediaPlaceholder({ title: 'Sample preparation', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
-          ${mediaPlaceholder({ title: 'Laboratory testing', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
-          ${mediaPlaceholder({ title: 'Laboratory equipment', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory sample preparation area" loading="lazy" /></div>
+          <div class="media ratio-4-3"><img src="/assets/images/site/lab-bench-glassware.jpg" alt="Labrite laboratory testing bench with glassware" loading="lazy" /></div>
+          ${productMedia(getProduct('analytical-balance'))}
         </div>
       </div>
     </section>

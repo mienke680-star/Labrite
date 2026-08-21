@@ -1,4 +1,3 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
 import { COMPANY } from '../data/company.mjs';
 
 const main = `
@@ -19,7 +18,7 @@ const main = `
           <p>Across every part of the business, Labrite is presented under one consistent corporate identity — recognisable, technically credible, and built around accuracy rather than decoration.</p>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Labrite laboratory', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/entrance-lobby.jpg" alt="Labrite office entrance" loading="lazy" /></div>
         </div>
       </div>
     </section>

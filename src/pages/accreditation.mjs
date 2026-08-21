@@ -8,15 +8,16 @@ const main = `
     </section>
 
     <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>SANAS accreditation</h2>
-            <p class="section-intro">Accreditation status for the Coal Laboratory.</p>
+      <div class="container split">
+        <div class="split-content">
+          <h2>SANAS accreditation</h2>
+          <p>The Labrite Coal Laboratory is a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>. The symbol shown is used exactly as supplied by Labrite, unmodified.</p>
+          <div class="notice">
+            <strong>Scope pending.</strong> The detailed scope of accreditation (which specific test methods it covers) has not been supplied and is not stated here. No accreditation logo or claim is used elsewhere on this website for services outside this confirmed scope.
           </div>
         </div>
-        <div class="notice">
-          <strong>Published only where confirmed.</strong> Any SANAS logo, accreditation symbol, accreditation number, scope of accreditation or related claim will be displayed on this page only once officially supplied and approved by Labrite. No accreditation logos, symbols or scope statements are used elsewhere on this website unless confirmed for that specific service.
+        <div class="split-media">
+          <div class="media ratio-4-3" style="background:var(--white);"><img src="/assets/images/brand/sanas-accreditation.png" alt="SANAS Testing Laboratory accreditation mark, number T1091" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
         </div>
       </div>
     </section>

@@ -1,11 +1,19 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
+import { mediaPlaceholder, productMedia } from '../partials/render.mjs';
 import { BUSINESS_AREAS } from '../data/nav.mjs';
 import { getProduct } from '../data/products.mjs';
+
+const BUSINESS_CARD_MEDIA = {
+  'Coal Laboratory': productMedia(getProduct('test-sieves')),
+  'Equipment & Instruments': productMedia(getProduct('top-loading-balance')),
+  'Chemicals': mediaPlaceholder({ title: 'Chemicals', note: 'Photograph to be added', ratio: 'ratio-4-3' }),
+  'Repairs & Maintenance': `<div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory preparation area" loading="lazy" /></div>`,
+  'Agencies & Distribution': `<div class="media ratio-4-3"><img src="/assets/images/site/reception-desk.jpg" alt="Labrite reception area" loading="lazy" /></div>`,
+};
 
 const businessCards = BUSINESS_AREAS.map(
   (a) => `
       <article class="card business-card">
-        ${mediaPlaceholder({ title: a.label, note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+        ${BUSINESS_CARD_MEDIA[a.label]}
         <div class="card-body">
           <h3>${a.label}</h3>
           <p>${a.desc}</p>
@@ -22,7 +30,7 @@ const featuredCards = featuredSlugs
   .map(
     (p) => `
       <article class="card">
-        ${mediaPlaceholder({ title: p.name, note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+        ${productMedia(p)}
         <div class="card-body">
           <span class="card-category">${p.category}</span>
           <h3>${p.name}</h3>
@@ -38,7 +46,7 @@ const featuredCards = featuredSlugs
 const main = `
     <section class="hero">
       <div class="hero-media">
-        ${mediaPlaceholder({ title: 'Labrite laboratory photography', note: 'Hero photograph to be added', ratio: '' })}
+        <img src="/assets/images/site/lab-two-story.jpg" alt="Labrite laboratory space" />
       </div>
       <div class="container hero-content">
         <span class="eyebrow">Laboratory · Equipment · Chemicals · Technical Support</span>
@@ -60,7 +68,7 @@ const main = `
           <a class="btn btn-secondary" href="/about.html">Learn more about Labrite</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Labrite laboratory environment', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/boardroom.jpg" alt="Labrite boardroom" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -89,7 +97,7 @@ const main = `
           <a class="btn btn-secondary" href="/coal-laboratory.html">Visit the Coal Laboratory</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Coal Laboratory', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used in Labrite Coal Laboratory testing" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -119,7 +127,7 @@ const main = `
           <a class="btn btn-secondary" href="/repairs-maintenance.html">Repairs &amp; Maintenance</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Repairs & Maintenance', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/corridor.jpg" alt="Labrite laboratory corridor" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -133,7 +141,7 @@ const main = `
           <a class="btn btn-secondary" href="/agencies.html">Agencies &amp; Distribution</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Agencies & Distribution', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/open-office.jpg" alt="Labrite office" loading="lazy" /></div>
         </div>
       </div>
     </section>

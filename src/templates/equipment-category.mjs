@@ -1,4 +1,4 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
+import { productMedia } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 
 export function renderEquipmentCategoryPage(range, products) {
@@ -8,7 +8,7 @@ export function renderEquipmentCategoryPage(range, products) {
     .map(
       (p) => `
         <article class="card">
-          ${mediaPlaceholder({ title: p.name, note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          ${productMedia(p)}
           <div class="card-body">
             <span class="card-category">${p.category}</span>
             <h3>${p.name}</h3>

@@ -55,66 +55,74 @@ Implements the supplied Labrite Brand Identity & Website Style Guide:
   `#30373F`, White, Light Neutral `#F5F6F7`, Border Grey `#D9DDE1`.
 - **Type** — Inter (loaded from Google Fonts, falls back to Arial/Helvetica) at the
   guide's specified weights and size ranges for H1/H2/H3/body/nav.
-- **One master identity** — a single coded wordmark (`renderLogo` in
-  `src/partials/render.mjs`) is used everywhere; the Coal Laboratory business-unit
-  lock-up (word + "Coal Laboratory" + the approved tagline) is only used on Coal
-  Laboratory content, never permanently fused to the master logo.
+- **One master identity** — the real supplied Labrite wordmark+tick artwork
+  (`assets/images/brand/labrite-logo.png`, trimmed and made transparent — pixels
+  untouched) renders via `renderLogo()` everywhere the logo appears on a light
+  background. The Coal Laboratory business-unit lock-up (that same mark + "Coal
+  Laboratory" + the approved tagline) is only used on Coal Laboratory content, never
+  permanently fused to the master logo.
 - **Supporting "L" device** — a restrained red/charcoal corner accent (`.l-frame` in
   `styles.css`) used sparingly to frame media, never as a logo substitute.
 
-### The logo is a placeholder — replace before launch
+### Logo status
 
-No vector master artwork was supplied. `renderLogo()` renders a coded text+tick lockup
-that follows the guide's construction rules (wordmark + tick, correct clear space and
-colour behaviour, reverse variant for dark backgrounds) as a stand-in. **Before launch,
-replace it with the approved SVG/EPS master** — swap the implementation in
-`src/partials/render.mjs` (`renderLogo`) rather than screenshotting the artwork in.
-The favicon (`assets/images/site/favicon.svg`) is a plain "L" monogram for the same
-reason — deliberately not a redrawn tick — and should also be replaced with the approved
-favicon once supplied.
+The real master logo file is in use (see above). The one gap: **no reverse (white-on-dark)
+file was supplied**, so the dark footer still renders a coded text+tick stand-in
+(`renderLogo({ reverse: true })` in `src/partials/render.mjs`) rather than the real
+artwork — swap that in once Labrite supplies an approved reverse/white version. The
+favicon (`assets/images/site/favicon.svg`) is a plain "L" monogram for the same
+reason — deliberately not a redrawn tick — pending an approved favicon file.
 
 ## The product catalogue
 
 `src/data/products.mjs` lists the 12 distinct pieces of equipment identified from the
-photographs supplied in this project, organised into five ranges (Weighing & Calibration,
-Moisture & Drying, Sample Preparation & Sieving, Testing & Analysis, Laboratory Support).
-Multiple photos of the same item were treated as one product with a gallery, not separate
+supplied photographs, organised into five ranges (Weighing & Calibration, Moisture &
+Drying, Sample Preparation & Sieving, Testing & Analysis, Laboratory Support). Multiple
+photos of the same item were treated as one product with a gallery, not separate
 listings. Where a product's exact model or specifications weren't confirmed (e.g. the
 U-Therm analyzer), it's deliberately listed under a general, safe title rather than a
-guessed one.
+guessed one. Real photography for every product lives in `assets/images/products/`
+(resized/compressed from the originals — see `productMedia()` in `render.mjs`).
 
 **Technical specifications are intentionally omitted, not guessed.** Every product page
 has a clearly labelled "not yet supplied" notice instead of invented capacity, accuracy,
 power, dimensions or model numbers — fill these in once Labrite confirms them.
 
-### Adding real photographs
+## Photography & brand assets
 
-Every product/section image on the site is currently a styled placeholder tile (built with
-`mediaPlaceholder()` in `render.mjs`) labelled with the item's name — because pasted chat
-images aren't saved to a file this build can read or commit. To drop in the real photos:
+`assets/images/` holds the real supplied assets:
 
-1. Save each photo as the path already referenced in `src/data/products.mjs`, e.g.
-   `assets/images/products/analytical-balance.jpg`, `assets/images/products/muffle-furnace.jpg`, etc.
-   (see the `image` field for each product for its exact expected filename).
-2. Replace the corresponding `mediaPlaceholder(...)` call with a real `<img>` tag (or ask
-   for this to be wired up) — the `imageAlt` text is already written for each product.
-3. Section-level photography (hero, About, Coal Laboratory, business-area cards) has no
-   fixed filename yet; add files under `assets/images/site/` and update the relevant
-   `src/pages/*.mjs` module.
-4. Run `npm run build` again.
+- `brand/` — the master Labrite logo, the SANAS Testing Laboratory accreditation mark
+  (T1091, used unmodified), and two represented-brand logos (U-Therm, Maglev Africa).
+  An Alibaba storefront badge was also supplied (`badge-alibaba.png`) but isn't placed
+  on any page yet — no confirmed Alibaba profile URL to link it to.
+- `products/` — one photo per catalogue product.
+- `site/` — corporate/lab photography (reception, boardroom, lab spaces, corridor,
+  entrance) plus the coal sample image, distributed across Home, About, Coal
+  Laboratory, Chemicals and Contact.
+
+All photos were resized (max 1600px) and re-encoded as JPEG to keep the site fast —
+originals were several MB each as supplied.
 
 ## Content deliberately left as placeholders
 
 Per the brief's rule against inventing Labrite-specific facts, the following are shown as
 clearly marked "to be supplied" placeholders rather than guessed:
 
-- Phone numbers, email addresses, physical address and business hours (Contact page, footer)
-- Company history / "Our Experience" (About page)
-- SANAS accreditation logo, number, scope and any related claim (Coal Laboratory page,
-  dedicated Accreditation & Quality page) — add only official, approved wording and artwork
-- Chemicals product list (Chemicals page)
-- Represented brands/manufacturers (Agencies page)
+- Email address and business hours (Contact page, footer) — phone and address are now
+  shown, sourced from Labrite's public LinkedIn listing for confirmation (see below)
+- Fuller company history / "Our Experience" beyond the founding year (About page)
+- SANAS accreditation **scope** — the logo, "SANAS-accredited Testing Laboratory" and
+  accreditation number T1091 are now shown (real, supplied artwork/number), but which
+  specific test methods the accreditation covers has not been supplied and is not stated
+- Chemicals product list (Chemicals page — no chemical photos or products were supplied)
+- Further represented brands beyond U-Therm and Maglev Africa (Agencies page)
 - Privacy Policy and Terms of Use body copy
+
+Contact phone (013 650 0394) and address (6 Dorinda Avenue, Extension 18, eMalahleni)
+in `src/data/company.mjs` were sourced from Labrite's LinkedIn company page and
+corroborating directories, not confirmed directly by Labrite — see the notices next to
+them on the Contact/footer, and confirm before treating them as final.
 
 The contact form is fully built and client-side validated but has no live submission
 endpoint yet (see the comment in `assets/js/main.js`) — connect it to Labrite's email/CRM

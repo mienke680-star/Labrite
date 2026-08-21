@@ -1,12 +1,16 @@
 import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
 import { COMPANY } from '../data/company.mjs';
 
-// Coded placeholder for the approved master Labrite wordmark (Labrite + red tick).
-// Replace with the official SVG/EPS master artwork once supplied — see README.
+// Master Labrite wordmark: the supplied logo file (trimmed, background made
+// transparent — artwork itself untouched) for light backgrounds. No reverse
+// (white-on-dark) file was supplied, so the dark-footer variant remains a
+// coded text+tick stand-in until Labrite provides an approved reverse asset.
 export function renderLogo({ reverse = false, size = null, subLabel = null, tagline = null, href = '/' } = {}) {
   const classes = ['logo', reverse ? 'reverse' : '', size ? `size-${size}` : ''].filter(Boolean).join(' ');
   const label = subLabel ? `Labrite ${subLabel} — home` : 'Labrite — home';
-  return `
+
+  if (reverse) {
+    return `
     <a class="${classes}" href="${href}" aria-label="${label}">
       <span class="logo-row">
         <span class="logo-word">Labrite</span>
@@ -14,6 +18,14 @@ export function renderLogo({ reverse = false, size = null, subLabel = null, tagl
           <path d="M4 20 L14 30 L28 8" />
         </svg>
       </span>
+      ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
+      ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
+    </a>`;
+  }
+
+  return `
+    <a class="${classes}" href="${href}" aria-label="${label}">
+      <img class="logo-img" src="/assets/images/brand/labrite-logo.png" alt="Labrite" width="1320" height="350" />
       ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
       ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
     </a>`;
@@ -133,6 +145,10 @@ ${renderFooter()}
 </body>
 </html>
 `;
+}
+
+export function productMedia(product, { ratio = 'ratio-4-3' } = {}) {
+  return `<div class="media ${ratio}"><img src="${product.image}" alt="${product.imageAlt}" loading="lazy" /></div>`;
 }
 
 export function mediaPlaceholder({ title, note = 'Photograph to be added', ratio = 'ratio-4-3' }) {

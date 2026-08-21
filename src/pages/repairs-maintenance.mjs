@@ -1,4 +1,5 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
+import { productMedia } from '../partials/render.mjs';
+import { getProduct } from '../data/products.mjs';
 
 const main = `
     <section class="hero-simple">
@@ -86,7 +87,7 @@ const main = `
           <a class="btn btn-secondary" href="/contact.html">Discuss your equipment</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Equipment servicing', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          ${productMedia(getProduct('muffle-furnace'))}
         </div>
       </div>
     </section>

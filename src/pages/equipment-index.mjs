@@ -1,11 +1,12 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
+import { productMedia } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
-import { PRODUCTS } from '../data/products.mjs';
+import { PRODUCTS, getProductsByRange } from '../data/products.mjs';
 
-const rangeCards = EQUIPMENT_RANGES.map(
-  (r) => `
+const rangeCards = EQUIPMENT_RANGES.map((r) => {
+  const rep = getProductsByRange(r.key)[0];
+  return `
       <article class="card">
-        ${mediaPlaceholder({ title: r.label, note: 'Range photograph to be added', ratio: 'ratio-4-3' })}
+        ${productMedia(rep)}
         <div class="card-body">
           <span class="card-category">Equipment Range</span>
           <h3>${r.label}</h3>
@@ -14,8 +15,8 @@ const rangeCards = EQUIPMENT_RANGES.map(
             <a class="link-primary" href="${r.href}">View range →</a>
           </div>
         </div>
-      </article>`
-).join('\n');
+      </article>`;
+}).join('\n');
 
 const filterChips = [
   `<button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All Equipment</button>`,
@@ -27,7 +28,7 @@ const filterChips = [
 const productCards = PRODUCTS.map(
   (p) => `
         <article class="card" data-category="${p.range}">
-          ${mediaPlaceholder({ title: p.name, note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          ${productMedia(p)}
           <div class="card-body">
             <span class="card-category">${p.category}</span>
             <h3>${p.name}</h3>

@@ -1,4 +1,4 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
+import { productMedia } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { PRODUCTS } from '../data/products.mjs';
 
@@ -15,7 +15,7 @@ export function renderProductPage(product) {
         .map(
           (p) => `
         <article class="card">
-          ${mediaPlaceholder({ title: p.name, note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          ${productMedia(p)}
           <div class="card-body">
             <span class="card-category">${p.category}</span>
             <h3>${p.name}</h3>
@@ -47,7 +47,7 @@ export function renderProductPage(product) {
     <section class="section">
       <div class="container split l-frame">
         <div class="split-media">
-          ${mediaPlaceholder({ title: product.name, note: product.imageAlt, ratio: 'ratio-4-3' })}
+          ${productMedia(product)}
         </div>
         <div class="split-content">
           <h2>Overview</h2>

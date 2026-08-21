@@ -1,5 +1,3 @@
-import { mediaPlaceholder } from '../partials/render.mjs';
-
 const main = `
     <section class="hero-simple">
       <div class="container hero-content">
@@ -31,7 +29,7 @@ const main = `
           <a class="btn btn-secondary" href="/equipment/">View laboratory equipment</a>
         </div>
         <div class="split-media l-frame">
-          ${mediaPlaceholder({ title: 'Laboratory chemicals', note: 'Photograph to be added', ratio: 'ratio-4-3' })}
+          <div class="media ratio-4-3"><img src="/assets/images/site/lab-bench-glassware.jpg" alt="Labrite laboratory glassware and reagents" loading="lazy" /></div>
         </div>
       </div>
     </section>
