@@ -1,4 +1,5 @@
 import { mediaPlaceholder } from '../partials/render.mjs';
+import { COMPANY } from '../data/company.mjs';
 
 const main = `
     <section class="hero-simple">
@@ -27,8 +28,9 @@ const main = `
       <div class="container">
         <span class="eyebrow">Our Experience</span>
         <h2>Background</h2>
+        <p class="section-intro">Labrite CC was established in ${COMPANY.founded}, serving laboratories in the mining industry across Southern Africa and exporting into Africa.</p>
         <div class="notice">
-          <strong>Content pending.</strong> Labrite's company history and background will be published here once confirmed — this section is intentionally left ready for that content rather than an invented history.
+          <strong>Founding facts sourced, fuller history pending.</strong> The founding year above is drawn from Labrite's public LinkedIn listing for confirmation. A fuller company history and milestones will be published here once Labrite supplies them.
         </div>
       </div>
     </section>

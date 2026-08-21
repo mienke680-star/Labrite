@@ -1,4 +1,5 @@
 import { renderLinkedInLink } from '../partials/render.mjs';
+import { COMPANY } from '../data/company.mjs';
 
 const main = `
     <section class="hero-simple">
@@ -54,28 +55,21 @@ const main = `
         <div class="split-content">
           <h2>Contact details</h2>
           <div class="notice" style="margin-bottom:1.5rem;">
-            <strong>Contact details to be supplied.</strong> Labrite's phone number, email address, physical address and business hours will be published here once confirmed.
+            Address and phone number below are sourced from Labrite's public LinkedIn listing for confirmation — labrite.co.za was unreachable when this site was built. An email address and business hours have not been confirmed yet.
           </div>
           <div class="grid grid-2" style="gap:1.5rem;">
             <div class="card business-card">
               <div class="card-body">
-                <h3>General &amp; Product Enquiries</h3>
-                <p>[Phone number to be supplied]</p>
+                <h3>Head Office</h3>
+                <p>${COMPANY.addressLines.join('<br>')}</p>
+                <p><a href="${COMPANY.phoneHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.phoneDisplay}</a></p>
                 <p>[Email address to be supplied]</p>
               </div>
             </div>
             <div class="card business-card">
               <div class="card-body">
-                <h3>Coal Laboratory</h3>
-                <p>[Phone number to be supplied]</p>
-                <p>[Email address to be supplied]</p>
-              </div>
-            </div>
-            <div class="card business-card">
-              <div class="card-body">
-                <h3>Repairs &amp; Maintenance</h3>
-                <p>[Phone number to be supplied]</p>
-                <p>[Email address to be supplied]</p>
+                <h3>Enquiry Routing</h3>
+                <p>Product, Coal Laboratory, repairs and maintenance, chemicals and agency enquiries all currently route through the head office number and the form opposite — select the relevant enquiry type so it reaches the right team.</p>
               </div>
             </div>
             <div class="card business-card">
@@ -103,10 +97,20 @@ const main = `
         <div class="section-head">
           <div>
             <h2>Location</h2>
-            <p class="section-intro">Location details will be published here once confirmed.</p>
+            <p class="section-intro">${COMPANY.addressLines.join(', ')} — <a href="${COMPANY.mapsSearchUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">view on Google Maps</a>.</p>
           </div>
         </div>
-        <div class="notice">Location and map information to be supplied.</div>
+        <div class="media ratio-21-9" style="border:1px solid var(--border-grey);">
+          <iframe
+            src="${COMPANY.mapsEmbedSrc}"
+            title="Map showing the Labrite head office address"
+            width="100%"
+            height="100%"
+            style="border:0; display:block;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
     </section>`;
 

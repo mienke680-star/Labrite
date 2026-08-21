@@ -1,4 +1,5 @@
 import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
+import { COMPANY } from '../data/company.mjs';
 
 // Coded placeholder for the approved master Labrite wordmark (Labrite + red tick).
 // Replace with the official SVG/EPS master artwork once supplied — see README.
@@ -101,7 +102,10 @@ export function renderFooter() {
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <address class="footer-placeholder">Contact details to be supplied.</address>
+        <address>
+          ${COMPANY.addressLines.join('<br>')}<br>
+          <a href="${COMPANY.phoneHref}">${COMPANY.phoneDisplay}</a>
+        </address>
       </div>
     </div>
     <div class="container footer-bottom">

@@ -250,6 +250,7 @@ strong { color: var(--black); }
 .ratio-16-9 { aspect-ratio: 16 / 9; }
 .ratio-1-1 { aspect-ratio: 1 / 1; }
 .ratio-3-4 { aspect-ratio: 3 / 4; }
+.ratio-21-9 { aspect-ratio: 21 / 9; }
 
 /* Placeholder tile shown until the real supplied photograph is dropped in */
 .media-placeholder {
@@ -624,15 +625,8 @@ table.data-table { min-width: 560px; }
 .footer-col a { color: #C9CDD2; font-size: 0.9375rem; transition: color var(--transition-fast); }
 .footer-col a:hover { color: var(--white); }
 .footer-col address { font-style: normal; color: #C9CDD2; font-size: 0.9375rem; line-height: 1.7; }
-.footer-placeholder {
-  display: block;
-  font-style: normal;
-  font-size: 0.875rem;
-  color: #9CA3AB;
-  border: 1.5px dashed rgba(255, 255, 255, 0.25);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-sm);
-}
+.footer-col address a { color: inherit; }
+.footer-col address a:hover { color: var(--white); }
 
 /* Social links (LinkedIn) — icon + text, both fully clickable */
 .social-links { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-6); }

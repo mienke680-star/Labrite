@@ -48,7 +48,32 @@ const main = `
           </article>
         </div>
         <div class="notice" style="margin-top:2rem;">
-          <strong>Note.</strong> Only the services Labrite has confirmed are listed here. Specific certifications, turnaround times or brand-specific service authorisations will be added once confirmed.
+          <strong>Note.</strong> Labrite's public LinkedIn listing specifically names furnace repair and calibration, and custom element design and manufacture, among its services — shown below for confirmation. Specific certifications, turnaround times or brand-specific service authorisations will be added once confirmed.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Specialist repair services</h2>
+            <p class="section-intro">Sourced from Labrite's public LinkedIn listing.</p>
+          </div>
+        </div>
+        <div class="grid grid-2">
+          <article class="card business-card">
+            <div class="card-body">
+              <h3>Furnace Repair &amp; Calibration</h3>
+              <p>Repair and calibration of laboratory furnaces, keeping high-temperature testing equipment running accurately.</p>
+            </div>
+          </article>
+          <article class="card business-card">
+            <div class="card-body">
+              <h3>Custom Element Design &amp; Manufacture</h3>
+              <p>Design and manufacture of custom heating elements for laboratory equipment.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
