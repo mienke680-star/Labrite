@@ -1,0 +1,11 @@
+{
+  "name": "labrite-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Labrite corporate website — static site (no framework, no build dependencies).",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "type": "module"
+}

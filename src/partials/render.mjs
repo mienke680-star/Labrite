@@ -1,0 +1,140 @@
+import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
+
+// Coded placeholder for the approved master Labrite wordmark (Labrite + red tick).
+// Replace with the official SVG/EPS master artwork once supplied — see README.
+export function renderLogo({ reverse = false, size = null, subLabel = null, tagline = null, href = '/' } = {}) {
+  const classes = ['logo', reverse ? 'reverse' : '', size ? `size-${size}` : ''].filter(Boolean).join(' ');
+  const label = subLabel ? `Labrite ${subLabel} — home` : 'Labrite — home';
+  return `
+    <a class="${classes}" href="${href}" aria-label="${label}">
+      <span class="logo-row">
+        <span class="logo-word">Labrite</span>
+        <svg class="logo-tick" viewBox="0 0 32 40" aria-hidden="true" focusable="false">
+          <path d="M4 20 L14 30 L28 8" />
+        </svg>
+      </span>
+      ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
+      ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
+    </a>`;
+}
+
+export function renderHead({ title, description, canonicalPath = '/' }) {
+  return `<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${title}</title>
+  <meta name="description" content="${description}" />
+  <link rel="canonical" href="${canonicalPath}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Labrite" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <link rel="icon" href="/assets/images/site/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />`;
+}
+
+export function renderHeader(activeKey) {
+  const items = NAV_ITEMS.map((item) => {
+    const current = item.key === activeKey ? ' aria-current="page"' : '';
+    return `<li><a class="nav-link" href="${item.href}"${current}>${item.label}</a></li>`;
+  }).join('\n            ');
+
+  return `
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container">
+      ${renderLogo()}
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          ${items}
+        </ul>
+        <div class="header-cta">
+          <a class="btn btn-primary btn-sm" href="/contact.html">Contact Labrite</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <svg class="menu-lines" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        <svg class="x-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>`;
+}
+
+const LINKEDIN_ICON = `<svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>`;
+
+// Reusable LinkedIn link — icon + text together are one fully clickable target.
+// Always the confirmed official Labrite company page, opened in a new tab.
+export function renderLinkedInLink({ text = 'Follow us on LinkedIn', className = 'social-link' } = {}) {
+  return `<a class="${className}" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer" aria-label="Visit Labrite on LinkedIn (opens in a new tab)">${LINKEDIN_ICON}<span>${text}</span></a>`;
+}
+
+export function renderFooter() {
+  const businessLinks = BUSINESS_AREAS.map((a) => `<li><a href="${a.href}">${a.label}</a></li>`).join('\n              ');
+  const legalLinks = FOOTER_LEGAL_LINKS.map((l) => `<a href="${l.href}">${l.label}</a>`).join('\n          ');
+
+  return `
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        ${renderLogo({ reverse: true })}
+        <p>Laboratory services, equipment, chemicals, repairs and maintenance — one Labrite identity across every business area.</p>
+        <div class="social-links">
+          ${renderLinkedInLink()}
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Business Areas</h4>
+        <ul>
+          ${businessLinks}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Labrite</a></li>
+          <li><a href="/accreditation.html">Accreditation &amp; Quality</a></li>
+          <li><a href="/contact.html">Contact &amp; Enquiries</a></li>
+          <li><a href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer" aria-label="Visit Labrite on LinkedIn (opens in a new tab)">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address class="footer-placeholder">Contact details to be supplied.</address>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-year>2026</span> Labrite CC. All rights reserved.</p>
+      <div class="legal-links">
+          ${legalLinks}
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js" defer></script>`;
+}
+
+export function renderPage({ title, description, canonicalPath, activeKey, bodyClass = '', main }) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+${renderHead({ title, description, canonicalPath })}
+</head>
+<body class="${bodyClass}">
+${renderHeader(activeKey)}
+  <main id="main">
+${main}
+  </main>
+${renderFooter()}
+</body>
+</html>
+`;
+}
+
+export function mediaPlaceholder({ title, note = 'Photograph to be added', ratio = 'ratio-4-3' }) {
+  return `<div class="media ${ratio}"><div class="media-placeholder">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M3 16l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    <span class="ph-title">${title}</span>
+    <span class="ph-note">${note}</span>
+  </div></div>`;
+}
