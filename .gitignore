@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+
+# Local Netlify CLI link state (machine-specific, not project source)
+.netlify/
