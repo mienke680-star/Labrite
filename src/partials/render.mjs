@@ -1,5 +1,5 @@
 import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
-import { COMPANY } from '../data/company.mjs';
+import { COMPANY, SITE_URL } from '../data/company.mjs';
 
 // Master Labrite wordmark: the supplied logo file (trimmed, background made
 // transparent — artwork itself untouched) for light backgrounds. No reverse
@@ -32,20 +32,58 @@ export function renderLogo({ reverse = false, size = null, subLabel = null, tagl
 }
 
 export function renderHead({ title, description, canonicalPath = '/' }) {
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   return `<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
-  <link rel="canonical" href="${canonicalPath}" />
+  <link rel="canonical" href="${canonicalUrl}" />
+  <meta name="theme-color" content="#30373F" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Labrite" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
+  <meta property="og:url" content="${canonicalUrl}" />
+  <meta property="og:image" content="${SITE_URL}/assets/images/brand/labrite-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="${SITE_URL}/assets/images/brand/labrite-logo.png" />
   <link rel="icon" href="/assets/images/site/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />`;
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  ${renderStructuredData()}`;
+}
+
+function renderStructuredData() {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: COMPANY.legalName,
+    url: SITE_URL,
+    logo: `${SITE_URL}/assets/images/brand/labrite-logo.png`,
+    image: `${SITE_URL}/assets/images/brand/labrite-logo.png`,
+    telephone: COMPANY.phoneDisplay,
+    email: COMPANY.emailDisplay,
+    foundingDate: COMPANY.founded,
+    sameAs: [LINKEDIN_URL],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: COMPANY.addressLines[0],
+      addressLocality: 'eMalahleni (Witbank)',
+      addressRegion: 'Mpumalanga',
+      addressCountry: 'ZA',
+    },
+    openingHoursSpecification: COMPANY.hoursSchema.map((h) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: h.day,
+      opens: h.opens,
+      closes: h.closes,
+    })),
+  };
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 }
 
 export function renderHeader(activeKey) {
@@ -125,17 +163,32 @@ export function renderFooter() {
       <p>© <span data-year>2026</span> Labrite CC. All rights reserved.</p>
       <div class="legal-links">
           ${legalLinks}
+          <button type="button" class="cookie-reopen" data-reopen-cookie-banner>Cookie preferences</button>
       </div>
     </div>
   </footer>
   <script src="/assets/js/main.js" defer></script>`;
 }
 
-export function renderPage({ title, description, canonicalPath, activeKey, bodyClass = '', main }) {
+export function renderCookieBanner() {
+  return `
+  <div class="cookie-banner" data-cookie-banner role="region" aria-label="Cookie notice" hidden>
+    <p>This website uses cookies for essential functionality and from embedded content such as the Google Maps location on the Contact page. See the <a href="/privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-primary" data-cookie-accept>Accept</button>
+    </div>
+  </div>`;
+}
+
+export function renderPage({ title, description, canonicalPath, activeKey, bodyClass = '', main, structuredData }) {
+  const extraSchema = (structuredData || [])
+    .map((obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`)
+    .join('\n');
   return `<!doctype html>
 <html lang="en">
 <head>
 ${renderHead({ title, description, canonicalPath })}
+  ${extraSchema}
 </head>
 <body class="${bodyClass}">
 ${renderHeader(activeKey)}
@@ -143,9 +196,24 @@ ${renderHeader(activeKey)}
 ${main}
   </main>
 ${renderFooter()}
+${renderCookieBanner()}
 </body>
 </html>
 `;
+}
+
+// BreadcrumbList schema matching a page's visible breadcrumb trail.
+export function breadcrumbSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url ? `${SITE_URL}${item.url}` : undefined,
+    })),
+  };
 }
 
 export function productMedia(product, { ratio = 'ratio-4-3' } = {}) {

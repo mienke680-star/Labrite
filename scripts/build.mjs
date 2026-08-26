@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { renderPage } from '../src/partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../src/data/nav.mjs';
 import { PRODUCTS, getProductsByRange } from '../src/data/products.mjs';
+import { SITE_URL } from '../src/data/company.mjs';
 
 import homePage from '../src/pages/home.mjs';
 import aboutPage from '../src/pages/about.mjs';
@@ -58,13 +59,24 @@ async function writePage(pageDef) {
   return pageDef.outPath;
 }
 
+async function writeSitemap() {
+  const urls = allPages
+    .map((p) => p.canonicalPath)
+    .sort()
+    .map((path) => `  <url><loc>${SITE_URL}${path}</loc></url>`)
+    .join('\n');
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  await writeFile(join(ROOT, 'sitemap.xml'), xml, 'utf8');
+}
+
 async function build() {
   const written = [];
   for (const page of allPages) {
     written.push(await writePage(page));
   }
+  await writeSitemap();
   written.sort();
-  console.log(`Built ${written.length} pages:`);
+  console.log(`Built ${written.length} pages + sitemap.xml:`);
   written.forEach((p) => console.log('  /' + p.replace(/^\/+/, '')));
 }
 

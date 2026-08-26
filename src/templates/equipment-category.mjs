@@ -1,4 +1,4 @@
-import { productMedia } from '../partials/render.mjs';
+import { productMedia, breadcrumbSchema } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 
 export function renderEquipmentCategoryPage(range, products) {
@@ -75,6 +75,12 @@ export function renderEquipmentCategoryPage(range, products) {
       </div>
     </section>`;
 
+  const crumbs = breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Equipment & Instruments', url: '/equipment/' },
+    { name: range.label },
+  ]);
+
   return {
     title: `${range.label} | Labrite Equipment & Instruments`,
     description: range.desc,
@@ -82,5 +88,6 @@ export function renderEquipmentCategoryPage(range, products) {
     activeKey: 'equipment',
     outPath: `equipment/${range.key}.html`,
     main,
+    structuredData: [crumbs],
   };
 }

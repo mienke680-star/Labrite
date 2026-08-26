@@ -63,7 +63,7 @@ const main = `
         <div class="split-content">
           <h2>Contact details</h2>
           <div class="notice" style="margin-bottom:1.5rem;">
-            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built. Business hours have not been confirmed yet.
+            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built.
           </div>
           <div class="grid grid-2" style="gap:1.5rem;">
             <div class="card business-card">
@@ -83,7 +83,12 @@ const main = `
             <div class="card business-card">
               <div class="card-body">
                 <h3>Business Hours</h3>
-                <p>[Business hours to be supplied]</p>
+                <p class="hours-status" data-hours-status data-hours='${JSON.stringify(COMPANY.hoursSchema)}' data-timezone="${COMPANY.timeZone}" hidden></p>
+                <ul class="hours-list">
+                  ${COMPANY.hoursSummary
+                    .map((h) => `<li><span>${h.label}</span><span>${h.value}</span></li>`)
+                    .join('\n                  ')}
+                </ul>
               </div>
             </div>
           </div>

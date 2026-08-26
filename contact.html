@@ -5,16 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Labrite | Enquiries, Products, Laboratory & Repairs</title>
   <meta name="description" content="Contact Labrite for general enquiries, product and equipment enquiries, Coal Laboratory enquiries, or repairs and maintenance requests." />
-  <link rel="canonical" href="/contact.html" />
+  <link rel="canonical" href="https://labrite-website.netlify.app/contact.html" />
+  <meta name="theme-color" content="#30373F" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Labrite" />
   <meta property="og:title" content="Contact Labrite | Enquiries, Products, Laboratory & Repairs" />
   <meta property="og:description" content="Contact Labrite for general enquiries, product and equipment enquiries, Coal Laboratory enquiries, or repairs and maintenance requests." />
+  <meta property="og:url" content="https://labrite-website.netlify.app/contact.html" />
+  <meta property="og:image" content="https://labrite-website.netlify.app/assets/images/brand/labrite-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Labrite | Enquiries, Products, Laboratory & Repairs" />
+  <meta name="twitter:description" content="Contact Labrite for general enquiries, product and equipment enquiries, Coal Laboratory enquiries, or repairs and maintenance requests." />
+  <meta name="twitter:image" content="https://labrite-website.netlify.app/assets/images/brand/labrite-logo.png" />
   <link rel="icon" href="/assets/images/site/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Labrite CC","url":"https://labrite-website.netlify.app","logo":"https://labrite-website.netlify.app/assets/images/brand/labrite-logo.png","image":"https://labrite-website.netlify.app/assets/images/brand/labrite-logo.png","telephone":"013 650 0394","email":"info@labrite.co.za","foundingDate":"1999","sameAs":["https://www.linkedin.com/company/labrite/"],"address":{"@type":"PostalAddress","streetAddress":"6 Dorinda Avenue, Extension 18","addressLocality":"eMalahleni (Witbank)","addressRegion":"Mpumalanga","addressCountry":"ZA"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"07:45","closes":"16:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"07:45","closes":"16:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"07:45","closes":"16:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"07:45","closes":"16:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:45","closes":"16:30"}]}</script>
+  
 </head>
 <body class="">
 
@@ -111,7 +120,7 @@
         <div class="split-content">
           <h2>Contact details</h2>
           <div class="notice" style="margin-bottom:1.5rem;">
-            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built. Business hours have not been confirmed yet.
+            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built.
           </div>
           <div class="grid grid-2" style="gap:1.5rem;">
             <div class="card business-card">
@@ -131,7 +140,11 @@
             <div class="card business-card">
               <div class="card-body">
                 <h3>Business Hours</h3>
-                <p>[Business hours to be supplied]</p>
+                <p class="hours-status" data-hours-status data-hours='[{"day":"Monday","opens":"07:45","closes":"16:30"},{"day":"Tuesday","opens":"07:45","closes":"16:30"},{"day":"Wednesday","opens":"07:45","closes":"16:30"},{"day":"Thursday","opens":"07:45","closes":"16:30"},{"day":"Friday","opens":"07:45","closes":"16:30"}]' data-timezone="Africa/Johannesburg" hidden></p>
+                <ul class="hours-list">
+                  <li><span>Monday – Friday</span><span>7:45 AM – 4:30 PM</span></li>
+                  <li><span>Saturday – Sunday</span><span>Closed</span></li>
+                </ul>
               </div>
             </div>
           </div>
@@ -223,9 +236,17 @@
       <div class="legal-links">
           <a href="/privacy-policy.html">Privacy Policy</a>
           <a href="/terms-of-use.html">Terms of Use</a>
+          <button type="button" class="cookie-reopen" data-reopen-cookie-banner>Cookie preferences</button>
       </div>
     </div>
   </footer>
   <script src="/assets/js/main.js" defer></script>
+
+  <div class="cookie-banner" data-cookie-banner role="region" aria-label="Cookie notice" hidden>
+    <p>This website uses cookies for essential functionality and from embedded content such as the Google Maps location on the Contact page. See the <a href="/privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-primary" data-cookie-accept>Accept</button>
+    </div>
+  </div>
 </body>
 </html>

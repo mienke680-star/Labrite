@@ -1,6 +1,7 @@
-import { productMedia } from '../partials/render.mjs';
+import { productMedia, breadcrumbSchema } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { PRODUCTS } from '../data/products.mjs';
+import { SITE_URL } from '../data/company.mjs';
 
 export function renderProductPage(product) {
   const range = EQUIPMENT_RANGES.find((r) => r.key === product.range);
@@ -105,6 +106,22 @@ export function renderProductPage(product) {
       </div>
     </section>`;
 
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.shortDescription,
+    image: `${SITE_URL}${product.image}`,
+    category: product.category,
+    brand: { '@type': 'Organization', name: 'Labrite' },
+  };
+  const crumbs = breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Equipment & Instruments', url: '/equipment/' },
+    { name: range.label, url: range.href },
+    { name: product.name },
+  ]);
+
   return {
     title: `${product.name} | Labrite Equipment`,
     description: product.shortDescription,
@@ -112,5 +129,6 @@ export function renderProductPage(product) {
     activeKey: 'equipment',
     outPath: `equipment/products/${product.slug}.html`,
     main,
+    structuredData: [productSchema, crumbs],
   };
 }

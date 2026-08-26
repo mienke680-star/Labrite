@@ -78,4 +78,74 @@
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  // Cookie consent banner — shown once until accepted, reopenable from the footer.
+  var COOKIE_CONSENT_KEY = 'labrite_cookie_consent';
+  var cookieBanner = document.querySelector('[data-cookie-banner]');
+  if (cookieBanner) {
+    var showBanner = function () {
+      cookieBanner.hidden = false;
+      requestAnimationFrame(function () { cookieBanner.classList.add('is-visible'); });
+    };
+    var hideBanner = function () {
+      cookieBanner.classList.remove('is-visible');
+      window.setTimeout(function () { cookieBanner.hidden = true; }, 250);
+    };
+    var hasConsent = false;
+    try {
+      hasConsent = window.localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted';
+    } catch (e) {
+      hasConsent = false;
+    }
+    if (!hasConsent) showBanner();
+
+    var acceptBtn = cookieBanner.querySelector('[data-cookie-accept]');
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        try { window.localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted'); } catch (e) {}
+        hideBanner();
+      });
+    }
+
+    document.querySelectorAll('[data-reopen-cookie-banner]').forEach(function (btn) {
+      btn.addEventListener('click', function () { showBanner(); });
+    });
+  }
+
+  // Live "open now" / "closed now" badge, computed in Labrite's own timezone
+  // so it's correct regardless of the visitor's local time.
+  document.querySelectorAll('[data-hours-status]').forEach(function (el) {
+    try {
+      var hours = JSON.parse(el.getAttribute('data-hours') || '[]');
+      var timeZone = el.getAttribute('data-timezone');
+      var now = new Date();
+      var weekday = new Intl.DateTimeFormat('en-US', { timeZone: timeZone, weekday: 'long' }).format(now);
+      var hhmm = new Intl.DateTimeFormat('en-GB', {
+        timeZone: timeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+      }).format(now);
+      var today = hours.find(function (h) { return h.day === weekday; });
+      var isOpen = !!today && hhmm >= today.opens && hhmm < today.closes;
+
+      function to12h(hhmmStr) {
+        var parts = hhmmStr.split(':');
+        var h = parseInt(parts[0], 10);
+        var suffix = h >= 12 ? 'PM' : 'AM';
+        var h12 = h % 12 || 12;
+        return h12 + ':' + parts[1] + ' ' + suffix;
+      }
+
+      el.textContent = isOpen
+        ? 'Open now — closes ' + to12h(today.closes)
+        : today
+        ? 'Closed now — opens ' + to12h(today.opens)
+        : 'Closed now';
+      el.classList.toggle('is-closed', !isOpen);
+      el.hidden = false;
+    } catch (e) {
+      // Leave the element hidden if the schedule can't be parsed.
+    }
+  });
 })();
