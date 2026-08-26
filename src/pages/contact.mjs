@@ -53,13 +53,17 @@ const main = `
             </div>
             <button class="btn btn-primary btn-block" type="submit">Send enquiry</button>
             <div class="form-status" role="status" aria-live="polite"></div>
-            <p class="hint" style="margin-top:1rem;">This form requires an email or CRM connection to be configured before it can deliver enquiries — contact Labrite directly in the meantime using the details opposite.</p>
+            <p class="hint" style="margin-top:1rem;">This form requires an email or CRM connection to be configured before it can deliver enquiries — until then, email Labrite directly using the button below.</p>
           </form>
+          <a class="btn btn-secondary btn-block" href="${COMPANY.emailHref}" style="margin-top:1rem;">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="flex-shrink:0;"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3.5 7l8.5 6 8.5-6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Email Labrite directly
+          </a>
         </div>
         <div class="split-content">
           <h2>Contact details</h2>
           <div class="notice" style="margin-bottom:1.5rem;">
-            Address and phone number below are sourced from Labrite's public LinkedIn listing for confirmation — labrite.co.za was unreachable when this site was built. An email address and business hours have not been confirmed yet.
+            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built. Business hours have not been confirmed yet.
           </div>
           <div class="grid grid-2" style="gap:1.5rem;">
             <div class="card business-card">
@@ -67,7 +71,7 @@ const main = `
                 <h3>Head Office</h3>
                 <p>${COMPANY.addressLines.join('<br>')}</p>
                 <p><a href="${COMPANY.phoneHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.phoneDisplay}</a></p>
-                <p>[Email address to be supplied]</p>
+                <p><a href="${COMPANY.emailHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.emailDisplay}</a></p>
               </div>
             </div>
             <div class="card business-card">

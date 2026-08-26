@@ -8,6 +8,8 @@ export const COMPANY = {
   founded: '1999',
   phoneDisplay: '013 650 0394',
   phoneHref: 'tel:+27136500394',
+  emailDisplay: 'info@labrite.co.za',
+  emailHref: 'mailto:info@labrite.co.za',
   addressLines: ['6 Dorinda Avenue, Extension 18', 'eMalahleni (Witbank), Mpumalanga', 'South Africa'],
   addressSingleLine: '6 Dorinda Avenue, Extension 18, eMalahleni (Witbank), Mpumalanga, South Africa',
   mapsSearchUrl:

@@ -116,7 +116,8 @@ export function renderFooter() {
         <h4>Contact</h4>
         <address>
           ${COMPANY.addressLines.join('<br>')}<br>
-          <a href="${COMPANY.phoneHref}">${COMPANY.phoneDisplay}</a>
+          <a href="${COMPANY.phoneHref}">${COMPANY.phoneDisplay}</a><br>
+          <a href="${COMPANY.emailHref}">${COMPANY.emailDisplay}</a>
         </address>
       </div>
     </div>
