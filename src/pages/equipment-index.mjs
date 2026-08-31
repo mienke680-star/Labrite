@@ -58,7 +58,7 @@ const main = `
             <p class="section-intro">Browse by range, or filter the full catalogue below.</p>
           </div>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           ${rangeCards}
         </div>
       </div>
@@ -75,7 +75,7 @@ const main = `
         <div class="filter-bar" data-filter-bar role="group" aria-label="Filter equipment by range">
           ${filterChips}
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           ${productCards}
         </div>
       </div>

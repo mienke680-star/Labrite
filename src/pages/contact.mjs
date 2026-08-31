@@ -65,8 +65,8 @@ const main = `
           <div class="notice" style="margin-bottom:1.5rem;">
             The address below is confirmed directly by Labrite. The phone and email are still sourced from Labrite's public LinkedIn listing and business directories, pending direct confirmation.
           </div>
-          <div class="grid grid-2" style="gap:1.5rem;">
-            <div class="card business-card">
+          <div class="grid grid-2 reveal-group" style="gap:1.5rem;">
+            <div class="card business-card card-plain">
               <div class="card-body">
                 <h3>Head Office</h3>
                 <p>${COMPANY.addressLines.join('<br>')}</p>
@@ -74,13 +74,13 @@ const main = `
                 <p><a href="${COMPANY.emailHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.emailDisplay}</a></p>
               </div>
             </div>
-            <div class="card business-card">
+            <div class="card business-card card-plain">
               <div class="card-body">
                 <h3>Enquiry Routing</h3>
                 <p>Product, Laboratory Services, repairs and maintenance, chemicals and agency enquiries all currently route through the head office number and the form opposite — select the relevant enquiry type so it reaches the right team.</p>
               </div>
             </div>
-            <div class="card business-card">
+            <div class="card business-card card-plain">
               <div class="card-body">
                 <h3>Business Hours</h3>
                 <p class="hours-status" data-hours-status data-hours='${JSON.stringify(COMPANY.hoursSchema)}' data-timezone="${COMPANY.timeZone}" hidden></p>

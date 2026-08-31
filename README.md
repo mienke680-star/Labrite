@@ -7,9 +7,9 @@ Distribution, presented under one master Labrite identity.
 Static site. No framework, no bundler, no runtime dependencies — plain HTML, CSS and
 vanilla JS, generated from a small set of reusable page/data modules by a zero-dependency
 Node build script. Originally built against the supplied Labrite Brand Identity & Website
-Style Guide; its palette was superseded site-wide by a coal-inspired luxury redesign brief
-(see "Coal-inspired luxury redesign" below) — content, structure and every component stayed
-the same, only the visual treatment changed.
+Style Guide; its palette has since been through two client-directed visual redesigns (see
+"Visual identity history" below) — content, structure and every component name stayed the
+same both times, only the visual treatment changed.
 
 ## Build & preview
 
@@ -53,23 +53,24 @@ assets/
 
 ## Brand system
 
-- **Colour** — see "Coal-inspired luxury redesign" below for the current palette. The
-  original Labrite Brand Identity & Website Style Guide's palette (Labrite Red `#FF0000`,
-  Accessible Red `#C70000`, Black, Technical Charcoal `#30373F`, White, Light Neutral
-  `#F5F6F7`, Border Grey `#D9DDE1`) is no longer in use for the visual layer.
-- **Type** — Playfair Display for headings, Inter for body/nav/buttons (both from Google
-  Fonts, Georgia/Arial fallbacks).
+- **Colour** — see "Visual identity history" below for the current palette and how it got
+  there. The original Labrite Brand Identity & Website Style Guide's palette (Labrite Red
+  `#FF0000`, Accessible Red `#C70000`, Black, Technical Charcoal `#30373F`, White, Light
+  Neutral `#F5F6F7`, Border Grey `#D9DDE1`) is no longer in use for the visual layer.
+- **Type** — Space Grotesk for headings/display, Inter for body/nav/buttons (both from
+  Google Fonts, Arial fallback).
 - **One master identity** — the real supplied Labrite wordmark+tick artwork
   (`assets/images/brand/labrite-logo.png`, trimmed and made transparent — pixels
   untouched) renders via `renderLogo()` everywhere the logo appears on a light
   background; the dark-background variant (`labrite-logo-reverse.png`) is the same
   file with only its grayscale wordmark pixels inverted to white, alpha-for-alpha —
   the red tick is untouched byte-for-byte, so proportions, spacing, tick size, angle
-  and position are identical in both. The Laboratory Services business-unit lock-up
-  (that same mark + "Laboratory Services" + the approved tagline) is only used on
-  Laboratory Services content, never permanently fused to the master logo.
-- **Supporting "L" device** — a restrained gold/oxblood corner accent (`.l-frame` in
-  `styles.css`) used sparingly to frame media, never as a logo substitute.
+  and position are identical in both. Since every background on the site is dark now,
+  only the reverse variant is actually used anywhere. The Laboratory Services
+  business-unit lock-up (that same mark + "Laboratory Services" + the approved tagline)
+  is only used on Laboratory Services content, never permanently fused to the master logo.
+- **Supporting "L" device** — a restrained accent corner (`.l-frame` in `styles.css`) used
+  sparingly to frame media, never as a logo substitute.
 
 ### Logo status
 
@@ -170,44 +171,73 @@ several site-wide standards were corrected in one pass rather than page by page:
 confirmed directly by Labrite; only the general company phone/email remain sourced (see
 below).
 
-## Coal-inspired luxury redesign
+## Visual identity history
 
-The entire visual layer was redesigned to a black / metallic-gold / deep-oxblood luxury
-identity, per an explicit client brief — **this supersedes the original Labrite Brand
-Identity Guide's palette** (which specified red/black/charcoal/white with no other
-corporate colours). Nothing else changed: every page, all wording, links, forms, the
-master logo artwork, and site structure are exactly as they were: `assets/css/styles.css`
-was rewritten but keeps every original selector and CSS custom-property name, so no
-content file needed to change for the palette shift alone.
+The visual layer has been through two client-directed redesigns since the original brand
+guide. Both times, **only `assets/css/styles.css`, `assets/js/main.js`, a handful of hero/
+CTA sections, and image assets changed** — every page's wording, links, forms, structure
+and the master logo artwork stayed exactly as they were, and every original CSS
+custom-property/selector name was kept so content files never needed touching for a
+palette shift alone.
 
-- **Palette** — Carbon Black `#050505` (page background), Soft Black `#101010` (cards,
-  tables, footer), Charcoal `#1A1A1A` (alternate sections), Deep Oxblood `#5C0A0A` and
-  Rich Burgundy `#780F18` (hover fills, atmospheric glows), Metallic Gold `#C7A45A` and
-  Champagne Gold `#D7BE82` (buttons, links, borders, headings accents), Warm White
-  `#F5F1E8` (body text). Every text/background combination actually used was verified
-  against WCAG AA (4.5:1) with a contrast script — the tightest is gold-on-charcoal at
-  7.36:1, well clear of the minimum.
-- **Logo on a dark header** — since the header (and now every section) is dark, it always
-  renders the reverse logo (`renderLogo({ reverse: true })`); the normal light-background
-  variant is no longer used anywhere.
-- **Typography** — Playfair Display (serif) for all headings, Inter (sans) unchanged for
-  body/nav/buttons. One word per hero heading is set in gold italic (`<em>`) for emphasis,
-  per the brief.
-- **Hero photography** — the Home, Chemicals, Laboratory Services and About pages use a
-  full-bleed photo from `assets/images/atmosphere/` behind a black gradient overlay (with
-  a slow, subtly-looping zoom — `@keyframes hero-kenburns`, disabled under
-  `prefers-reduced-motion`); the chemicals-page hero is the photo supplied specifically for
-  that page. Every other page keeps the shared `.hero-simple` treatment — a dark radial
-  burgundy glow with a thin gold rule at the base — so the palette is consistent everywhere
-  without needing a unique photo per page. Three CTA bands (Home, Chemicals, Laboratory
-  Services) reuse the same image set as a full-bleed background (`.cta-band-photo`).
-- **Header behaviour** — transparent over the hero, turning solid black on scroll (`>24px`,
-  see the scroll listener in `main.js`); purely presentational, the nav itself is unchanged.
-- **Components** — cards, tables, forms, notices and the filter bar all moved from white/
-  light-neutral panels to dark panels with fine gold borders, per the brief; buttons are
-  gold-fill/black-text (primary, hover → oxblood/warm-white) and gold-outline/transparent
-  (secondary). The SANAS mark and partner-brand logos keep a light (warm-white) backing
-  card, since those supplied logo files need a light background to read correctly.
+**1. Coal-inspired gold redesign (superseded).** A black / metallic-gold / deep-oxblood
+luxury identity (Playfair Display headings, gold-fill buttons). Superseded in full by the
+redesign below — no trace of it remains in `styles.css`.
+
+**2. Cinematic red/white/black redesign (current).** A full structural and visual rebuild
+— "smooth, cinematic and highly animated," not a colour swap — per an explicit client
+brief that also superseded the original brand guide's palette.
+
+- **Palette** — Carbon Black `#050505` (page background), Deep Charcoal `#101114`
+  (alternate sections, card/table panels), Deep Oxblood `#5C0A0A` and Rich Burgundy
+  `#780F18` (atmospheric glows, button hover), Bright Accent Red `#D71935` (the working
+  "red" accent — links, borders, buttons, icons, lines) and Luxury Red `#A8081E` (primary
+  button fill), Clean White `#FFFFFF` / Soft White `#F2F2F2` (headings/body text), Cool
+  Grey `#A9ADB4` (secondary text). **Verified against a WCAG contrast script**: neither red
+  clears 4.5:1 on any dark surface at body-text size (it tops out around 4:1), so red is
+  used only where that's fine — large headings (≥24px clears the 3:1 large-text minimum),
+  buttons (white-on-red or red-on-white, both 5:1+), borders, icons, and underlines — never
+  as small link/body text, which stays white or Cool Grey (9:1+) instead.
+- **No boxy cards** — `.card`'s image no longer sits in its own block above a separate
+  white text panel; the image is now an absolutely-positioned full-bleed background with
+  the text overlaid on a bottom gradient scrim (`.card::before`), so every card grid
+  site-wide (business areas, equipment ranges, the full product catalogue) reads as a
+  flowing image showcase, not a grid of identical rectangles — from one shared CSS rule,
+  no per-page markup changes needed. A `.card-plain` opt-out keeps genuinely non-visual
+  cards (contact-detail cards, the SANAS/partner-logo cards, abstract service-list cards
+  with no representative photo) as plain panels instead of forcing a mismatched image.
+- **Typography** — Space Grotesk (display) for all headings, Inter (sans, weight 300 for
+  leads/intros) for body/nav/buttons. One word per hero heading is a plain bold `<em>`,
+  styled red by a global rule.
+- **Motion** — hero text fades up in sequence (eyebrow → heading → rule → lead → buttons)
+  via CSS `@keyframes`; a self-drawing `.hero-rule`/`.l-rule.reveal-line` red line; card
+  grids fade up staggered by `:nth-child` delay once scrolled into view
+  (`.reveal-group`); a slow Ken Burns zoom on hero/CTA photos; a scroll-linked parallax
+  on hero/CTA images (`[class*="-media"]`, throttled via `requestAnimationFrame`,
+  skipped under `prefers-reduced-motion` and on narrow/mobile viewports, per the brief);
+  animated number counters on the Home statistics strip (`[data-count-to]`); a
+  cursor-following ambient glow on desktop pointers only (`.cursor-glow`, see
+  `[data-cursor-glow]` in `main.js`); a header that fades in on load and turns solid on
+  scroll; an animated red underline on nav links and card actions.
+- **Statistics strip** (Home page) — four real, already-published numbers presented as
+  large animated counters: equipment ranges (5), catalogued instruments (12), represented
+  brands (2), and the SANAS accreditation number (T1091) — no invented metrics.
+- **Hero photography** — Home, Chemicals, Laboratory Services and About use a full-bleed
+  photo from `assets/images/atmosphere/` behind a black gradient overlay; the chemicals
+  hero is the photo supplied specifically for that page. Every other page keeps the shared
+  `.hero-simple` treatment (a dark radial burgundy glow, no photo) so the palette is
+  consistent site-wide without forcing a photo onto every page. Three CTA bands (Home,
+  Chemicals, Laboratory Services) reuse the image set as a `.cta-band-photo` background.
+- **Header/nav** — transparent over the hero, solid black past a 24px scroll threshold.
+  **Careful CSS constraint**: the header must never receive a `transform`, `filter`,
+  `backdrop-filter` or `will-change` matching those, in any state — any of the four
+  creates a CSS containing block, which breaks the mobile nav's full-screen
+  `position: fixed` panel (nested inside the header). This is a repeat of a bug first
+  found and fixed earlier in this project (`backdrop-filter` on `.site-header`) —
+  reintroduced once in this redesign's first pass (both a `transform`-based header
+  entrance animation and a scroll `backdrop-filter` blur), caught in mobile QA, and fixed
+  by using opacity-only for the header's entrance fade and a solid (non-blurred)
+  background for its scrolled state.
 
 ## Content deliberately left as placeholders
 
@@ -245,5 +275,5 @@ The official LinkedIn URL (`https://www.linkedin.com/company/labrite/`) is defin
 `src/data/nav.mjs` (`LINKEDIN_URL`) and rendered everywhere via `renderLinkedInLink()` in
 `src/partials/render.mjs`, so every occurrence — footer social row, footer "Company" list,
 and the Contact page's social section — shares one implementation: icon and text as a single
-clickable link, `target="_blank"` + `rel="noopener noreferrer"`, an `aria-label`, and a gold
+clickable link, `target="_blank"` + `rel="noopener noreferrer"`, an `aria-label`, and a red
 hover state on both the icon and the text.

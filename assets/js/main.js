@@ -1,14 +1,61 @@
 (function () {
   'use strict';
 
-  // Header: transparent over the hero, solid once scrolled.
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var isNarrowViewport = window.matchMedia('(max-width: 760px)').matches;
+
+  // Header: fades in on load, transparent over the hero, solid once scrolled.
   var siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
+    requestAnimationFrame(function () { siteHeader.classList.add('is-ready'); });
     var updateHeaderState = function () {
       siteHeader.classList.toggle('is-solid', window.scrollY > 24);
     };
     updateHeaderState();
     window.addEventListener('scroll', updateHeaderState, { passive: true });
+  }
+
+  // Slow parallax on hero/CTA background images — scroll-linked transform
+  // only (no layout thrash), skipped entirely under reduced-motion or on
+  // small/touch viewports where the brief asks for simplified motion.
+  if (!prefersReducedMotion && !isNarrowViewport) {
+    var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('.hero-media, .cta-media'));
+    if (parallaxEls.length) {
+      var ticking = false;
+      var applyParallax = function () {
+        var vh = window.innerHeight;
+        parallaxEls.forEach(function (el) {
+          var rect = el.parentElement.getBoundingClientRect();
+          var progress = (rect.top) / vh; // ~0 when section top is at viewport top
+          var shift = Math.max(-1, Math.min(1, progress)) * 26;
+          el.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
+        });
+        ticking = false;
+      };
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(applyParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      applyParallax();
+    }
+  }
+
+  // Cursor-responsive ambient light — desktop with a real pointer only.
+  if (isFinePointer && !prefersReducedMotion) {
+    var glow = document.querySelector('[data-cursor-glow]');
+    if (glow) {
+      var glowTimeout;
+      window.addEventListener('mousemove', function (event) {
+        glow.style.setProperty('--mx', event.clientX + 'px');
+        glow.style.setProperty('--my', event.clientY + 'px');
+        glow.classList.add('is-active');
+        window.clearTimeout(glowTimeout);
+        glowTimeout = window.setTimeout(function () { glow.classList.remove('is-active'); }, 1400);
+      }, { passive: true });
+    }
   }
 
   // Mobile navigation toggle
@@ -26,8 +73,9 @@
     });
   }
 
-  // Gentle reveal-on-scroll
-  var revealEls = document.querySelectorAll('.reveal');
+  // Scroll reveals: fade-ups, staggered grids and self-drawing lines all
+  // share the same "add .is-visible once, then stop watching" behaviour.
+  var revealEls = document.querySelectorAll('.reveal, .reveal-group, .reveal-line');
   if ('IntersectionObserver' in window && revealEls.length) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -43,6 +91,47 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // Smooth number-counting animation for the statistics strip.
+  var counters = document.querySelectorAll('[data-count-to]');
+  if (counters.length) {
+    var animateCount = function (el) {
+      var target = parseFloat(el.getAttribute('data-count-to'));
+      if (!isFinite(target)) return;
+      if (prefersReducedMotion) {
+        el.textContent = target;
+        return;
+      }
+      var duration = 1600;
+      var start = null;
+      var step = function (timestamp) {
+        if (start === null) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(target * eased);
+        el.textContent = current;
+        if (progress < 1) window.requestAnimationFrame(step);
+        else el.textContent = target;
+      };
+      window.requestAnimationFrame(step);
+    };
+    if ('IntersectionObserver' in window) {
+      var countIo = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              countIo.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counters.forEach(function (el) { countIo.observe(el); });
+    } else {
+      counters.forEach(function (el) { el.textContent = el.getAttribute('data-count-to'); });
+    }
   }
 
   // Equipment catalogue filters

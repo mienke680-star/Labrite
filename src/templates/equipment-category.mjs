@@ -42,7 +42,7 @@ export function renderEquipmentCategoryPage(range, products) {
 
     <section class="section">
       <div class="container">
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           ${cards}
         </div>
       </div>

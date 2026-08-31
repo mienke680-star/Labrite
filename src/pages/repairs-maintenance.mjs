@@ -12,6 +12,7 @@ const main = `
           <a class="btn btn-secondary" href="/equipment/">View equipment</a>
         </div>
       </div>
+      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section">
@@ -22,26 +23,26 @@ const main = `
             <p class="section-intro">Technical support across the laboratory equipment lifecycle.</p>
           </div>
         </div>
-        <div class="grid grid-4">
-          <article class="card business-card">
+        <div class="grid grid-4 reveal-group">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Equipment Inspection</h3>
               <p>Technical inspection of laboratory equipment to identify servicing needs.</p>
             </div>
           </article>
-          <article class="card business-card">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Maintenance</h3>
               <p>Ongoing maintenance to help equipment perform reliably over time.</p>
             </div>
           </article>
-          <article class="card business-card">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Repairs</h3>
               <p>Technical repair of laboratory instruments and equipment.</p>
             </div>
           </article>
-          <article class="card business-card">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Technical Support</h3>
               <p>Practical, hands-on support for laboratory customers.</p>
@@ -62,14 +63,14 @@ const main = `
             <p class="section-intro">Sourced from Labrite's public LinkedIn listing.</p>
           </div>
         </div>
-        <div class="grid grid-2">
-          <article class="card business-card">
+        <div class="grid grid-2 reveal-group">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Furnace Repair &amp; Calibration</h3>
               <p>Repair and calibration of laboratory furnaces, keeping high-temperature testing equipment running accurately.</p>
             </div>
           </article>
-          <article class="card business-card">
+          <article class="card business-card card-plain">
             <div class="card-body">
               <h3>Custom Element Design &amp; Manufacture</h3>
               <p>Design and manufacture of custom heating elements for laboratory equipment.</p>
@@ -83,6 +84,7 @@ const main = `
       <div class="container split reverse">
         <div class="split-content">
           <h2>A technical support partner</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Beyond supplying equipment and chemicals, Labrite works alongside laboratories as a technical support partner — helping resolve equipment issues quickly and keep testing on schedule.</p>
           <a class="btn btn-secondary" href="/contact.html">Discuss your equipment</a>
         </div>

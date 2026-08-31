@@ -19,6 +19,7 @@ const main = `
           <a class="btn btn-secondary" href="/equipment/">View laboratory equipment</a>
         </div>
       </div>
+      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section">
@@ -30,8 +31,9 @@ const main = `
             <p class="section-intro">Structured to grow as Labrite adds laboratory disciplines beyond coal.</p>
           </div>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used as laboratory test material" loading="lazy" /></div>
             <div class="card-body">
               <h3>Coal Testing &amp; Analysis</h3>
               <p>Coal sample preparation, analysis and testing — Labrite's current laboratory discipline. Full detail below.</p>
@@ -52,6 +54,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Coal Testing &amp; Analysis</span>
           <h2>Purpose-built for coal testing</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Coal samples are prepared and tested through a structured sequence of crushing, sieving, drying and analysis — each stage designed to protect the accuracy of the final result.</p>
         </div>
         <div class="split-media l-frame">
@@ -69,26 +72,30 @@ const main = `
             <p class="section-intro">Coal moves through several dedicated stages of preparation and analysis.</p>
           </div>
         </div>
-        <div class="grid grid-4">
+        <div class="grid grid-4 reveal-group">
           <article class="card business-card">
+            ${productMedia(getProduct('sample-crusher'))}
             <div class="card-body">
               <h3>Sample Preparation</h3>
               <p>Raw coal samples are reduced to a consistent particle size using a dedicated sample crusher.</p>
             </div>
           </article>
           <article class="card business-card">
+            ${productMedia(getProduct('test-sieves'))}
             <div class="card-body">
               <h3>Sieving</h3>
               <p>Prepared material is graded by particle size across a stacked set of laboratory test sieves.</p>
             </div>
           </article>
           <article class="card business-card">
+            ${productMedia(getProduct('halogen-moisture-analyzer'))}
             <div class="card-body">
               <h3>Moisture Analysis</h3>
               <p>Moisture content is determined using halogen moisture analysis and laboratory drying equipment.</p>
             </div>
           </article>
           <article class="card business-card">
+            ${productMedia(getProduct('muffle-furnace'))}
             <div class="card-body">
               <h3>High-Temperature Testing</h3>
               <p>Muffle furnace testing supports ashing and other high-temperature laboratory methods.</p>
@@ -103,6 +110,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Equipment</span>
           <h2>Dedicated coal laboratory equipment</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>The laboratory is equipped with sample crushers, test sieves, moisture analyzers, drying ovens and cabinets, desiccator storage and a muffle furnace — supported by precision balances and a calibration weight set.</p>
           <a class="btn btn-secondary" href="/equipment/">Browse laboratory equipment</a>
         </div>
@@ -117,6 +125,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Quality &amp; Accreditation</span>
           <h2>SANAS-accredited testing laboratory</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Labrite's Coal Testing &amp; Analysis laboratory operates as a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>.</p>
           <div class="notice">
             Full accreditation scope and schedule are published on the dedicated <a href="/accreditation.html" style="color:var(--red-accessible);font-weight:600;">Accreditation &amp; Quality</a> page. This symbol is used exactly as supplied by Labrite and is not applied to services outside its confirmed scope.
@@ -136,7 +145,7 @@ const main = `
             <h2>Inside the laboratory</h2>
           </div>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           <div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory sample preparation area" loading="lazy" /></div>
           <div class="media ratio-4-3"><img src="/assets/images/site/lab-bench-glassware.jpg" alt="Labrite laboratory testing bench with glassware" loading="lazy" /></div>
           ${productMedia(getProduct('analytical-balance'))}

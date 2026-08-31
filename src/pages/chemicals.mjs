@@ -9,12 +9,14 @@ const main = `
         <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite supplies laboratory chemicals supporting sample preparation, testing and analysis — part of the same right choice for laboratory equipment, chemicals, repairs and maintenance that runs across the business.</p>
       </div>
+      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section">
       <div class="container split reverse">
         <div class="split-content">
           <h2>Product range</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p class="section-intro">Labrite's confirmed chemical product list is being finalised for publication.</p>
           <div class="notice">
             <strong>Content pending.</strong> Specific chemical products, categories and technical or safety documentation will be published here once confirmed by Labrite — this page is intentionally structured and ready for that content rather than an invented product list.
@@ -30,6 +32,7 @@ const main = `
       <div class="container split">
         <div class="split-content">
           <h2>Laboratory applications</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Laboratory chemicals support sample preparation and analytical testing across Labrite's Laboratory Services and equipment customers alike, working alongside the instruments in Labrite's equipment catalogue.</p>
           <a class="btn btn-secondary" href="/equipment/">View laboratory equipment</a>
         </div>

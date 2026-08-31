@@ -1,6 +1,6 @@
 import { productMedia } from '../partials/render.mjs';
-import { BUSINESS_AREAS } from '../data/nav.mjs';
-import { getProduct } from '../data/products.mjs';
+import { BUSINESS_AREAS, EQUIPMENT_RANGES } from '../data/nav.mjs';
+import { getProduct, PRODUCTS } from '../data/products.mjs';
 
 const BUSINESS_CARD_MEDIA = {
   'Laboratory Services': productMedia(getProduct('test-sieves')),
@@ -58,6 +58,30 @@ const main = `
           <a class="btn btn-secondary" href="/contact.html">Contact Labrite</a>
         </div>
       </div>
+      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="stats-strip reveal-group">
+          <div class="stat">
+            <span class="stat-number" data-count-to="${EQUIPMENT_RANGES.length}">0</span>
+            <span class="stat-label">Equipment Ranges</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count-to="${PRODUCTS.length}">0</span>
+            <span class="stat-label">Catalogued Instruments</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count-to="2">0</span>
+            <span class="stat-label">Represented Brands</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">T<span class="stat-suffix">1091</span></span>
+            <span class="stat-label">SANAS Accreditation No.</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section">
@@ -65,6 +89,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Who We Are</span>
           <h2>One Labrite identity, built for laboratory and industrial work</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Labrite (Pty) Ltd brings together Laboratory Services, equipment and instrument supply, laboratory chemicals, and repairs and maintenance under a single, consistent technical identity. Whichever part of Labrite you work with, the same standard of precision and reliability applies.</p>
           <a class="btn btn-secondary" href="/about.html">Learn more about Labrite</a>
         </div>
@@ -83,7 +108,7 @@ const main = `
             <p class="section-intro">Labrite's work spans laboratory testing, equipment supply, chemicals, technical support and distribution.</p>
           </div>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           ${businessCards}
         </div>
       </div>
@@ -94,6 +119,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Laboratory Services</span>
           <h2>Applying science for accuracy and precision</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Labrite's Laboratory Services carry out coal analysis, testing and sample preparation using dedicated laboratory equipment, from sample crushing and sieving through to moisture analysis and high-temperature testing — Coal Testing &amp; Analysis is the current discipline, with more to follow.</p>
           <a class="btn btn-secondary" href="/laboratory-services.html">Visit Laboratory Services</a>
         </div>
@@ -113,7 +139,7 @@ const main = `
           </div>
           <a class="btn btn-secondary" href="/equipment/">View all equipment</a>
         </div>
-        <div class="grid grid-4">
+        <div class="grid grid-4 reveal-group">
           ${featuredCards}
         </div>
       </div>
@@ -124,6 +150,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Repairs &amp; Maintenance</span>
           <h2>The right choice for laboratory equipment, chemicals, repairs and maintenance</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Beyond supplying equipment and chemicals, Labrite supports laboratories with inspection, maintenance and repair of the instruments they depend on — helping keep testing programmes running with minimal disruption.</p>
           <a class="btn btn-secondary" href="/repairs-maintenance.html">Repairs &amp; Maintenance</a>
         </div>
@@ -138,6 +165,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Agencies &amp; Distribution</span>
           <h2>Brands and manufacturers represented by Labrite</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Labrite represents a range of laboratory equipment brands and manufacturers, connecting South African laboratories with the instruments and products they rely on.</p>
           <a class="btn btn-secondary" href="/agencies.html">Agencies &amp; Distribution</a>
         </div>

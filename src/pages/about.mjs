@@ -1,4 +1,6 @@
 import { COMPANY } from '../data/company.mjs';
+import { productMedia } from '../partials/render.mjs';
+import { getProduct } from '../data/products.mjs';
 
 const main = `
     <section class="hero">
@@ -11,6 +13,7 @@ const main = `
         <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite (Pty) Ltd works across Laboratory Services, equipment and instruments, chemicals, and repairs and maintenance — one identity, applied consistently across every part of the business.</p>
       </div>
+      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section">
@@ -18,6 +21,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Who We Are</span>
           <h2>Technical, precise, and built for laboratory work</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
           <p>Labrite is a technical laboratory and equipment-focused business. Its Laboratory Services carry out laboratory testing — currently Coal Testing &amp; Analysis — while its equipment, chemicals, repairs and maintenance, and agencies operations support laboratories and technical customers more broadly.</p>
           <p>Across every part of the business, Labrite is presented under one consistent corporate identity — recognisable, technically credible, and built around accuracy rather than decoration.</p>
         </div>
@@ -47,8 +51,9 @@ const main = `
             <p class="section-intro">Six areas, one identity.</p>
           </div>
         </div>
-        <div class="grid grid-3">
+        <div class="grid grid-3 reveal-group">
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used in Labrite Laboratory Services testing" loading="lazy" /></div>
             <div class="card-body">
               <h3>Laboratory Services</h3>
               <p>Coal Testing &amp; Analysis, and future laboratory testing disciplines.</p>
@@ -56,6 +61,7 @@ const main = `
             </div>
           </article>
           <article class="card business-card">
+            ${productMedia(getProduct('top-loading-balance'))}
             <div class="card-body">
               <h3>Equipment &amp; Instruments</h3>
               <p>Professional laboratory instruments and equipment.</p>
@@ -63,6 +69,7 @@ const main = `
             </div>
           </article>
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/atmosphere/chemicals-concept.jpg" alt="Laboratory chemical glassware and a coal sample" loading="lazy" /></div>
             <div class="card-body">
               <h3>Chemicals</h3>
               <p>Laboratory chemicals and related products.</p>
@@ -70,6 +77,7 @@ const main = `
             </div>
           </article>
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory preparation area" loading="lazy" /></div>
             <div class="card-body">
               <h3>Technical Support</h3>
               <p>Practical, hands-on support for laboratory customers.</p>
@@ -77,6 +85,7 @@ const main = `
             </div>
           </article>
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/site/corridor.jpg" alt="Labrite laboratory corridor" loading="lazy" /></div>
             <div class="card-body">
               <h3>Repairs &amp; Maintenance</h3>
               <p>Equipment servicing, repairs and ongoing support.</p>
@@ -84,6 +93,7 @@ const main = `
             </div>
           </article>
           <article class="card business-card">
+            <div class="media ratio-4-3"><img src="/assets/images/site/open-office.jpg" alt="Labrite office" loading="lazy" /></div>
             <div class="card-body">
               <h3>Agencies &amp; Distribution</h3>
               <p>Brands and manufacturers represented by Labrite.</p>
@@ -98,25 +108,25 @@ const main = `
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow" style="color:#FF8A8A;">Our Approach</span>
+            <span class="eyebrow">Our Approach</span>
             <h2>Accuracy first, always</h2>
           </div>
         </div>
-        <div class="grid grid-4">
+        <div class="grid grid-4 reveal-group">
           <div>
-            <h3 style="color:#fff;">Accuracy</h3>
+            <h3>Accuracy</h3>
             <p>Technical work is only useful when it is correct — accuracy shapes every process.</p>
           </div>
           <div>
-            <h3 style="color:#fff;">Reliability</h3>
+            <h3>Reliability</h3>
             <p>Consistent results and dependable service, test after test, order after order.</p>
           </div>
           <div>
-            <h3 style="color:#fff;">Technical Competence</h3>
+            <h3>Technical Competence</h3>
             <p>Practical, hands-on knowledge of laboratory equipment and methods.</p>
           </div>
           <div>
-            <h3 style="color:#fff;">Quality</h3>
+            <h3>Quality</h3>
             <p>Clear, defensible processes across testing, equipment and support.</p>
           </div>
         </div>
