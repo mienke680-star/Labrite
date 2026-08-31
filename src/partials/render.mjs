@@ -1,5 +1,24 @@
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
 import { COMPANY, SITE_URL } from '../data/company.mjs';
+
+// /assets/* is served with a one-year immutable Cache-Control (netlify.toml),
+// which is great for real content-addressed caching but means a returning
+// visitor's browser will never re-fetch styles.css/main.js after a redesign
+// unless the URL itself changes. Append a short content hash as a cache-busting
+// query string, recomputed on every build, so a real content change always
+// forces a fresh fetch while an unchanged file still hits the browser cache.
+const ROOT = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
+function contentVersion(relativePath) {
+  const buf = readFileSync(join(ROOT, relativePath));
+  return createHash('sha256').update(buf).digest('hex').slice(0, 10);
+}
+const CSS_VERSION = contentVersion('assets/css/styles.css');
+const JS_VERSION = contentVersion('assets/js/main.js');
 
 // Master Labrite wordmark: the supplied logo file (trimmed, background made
 // transparent — artwork itself untouched) for light backgrounds. The reverse
@@ -43,7 +62,7 @@ export function renderHead({ title, description, canonicalPath = '/' }) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=${CSS_VERSION}" />
   ${renderStructuredData()}`;
 }
 
@@ -158,7 +177,7 @@ export function renderFooter() {
       </div>
     </div>
   </footer>
-  <script src="/assets/js/main.js" defer></script>`;
+  <script src="/assets/js/main.js?v=${JS_VERSION}" defer></script>`;
 }
 
 export function renderCookieBanner() {
