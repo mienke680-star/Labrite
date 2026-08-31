@@ -2,13 +2,20 @@
 // below were confirmed directly by Jacques Stander (Quality Manager /
 // Information Officer) on 2026-08-31, superseding the previously
 // sourced-but-unconfirmed LinkedIn/directory data — do not reintroduce the
-// old "Labrite CC" / eMalahleni details. Phone/email display fields are the
-// one remaining gap: Labrite's general company line, not yet confirmed.
+// old "Labrite CC" / eMalahleni details. Legal name, address and the
+// registration number are independently corroborated by a CIPC COR21.1
+// certificate. Phone/email display fields are the one remaining gap:
+// Labrite's general company line, not yet confirmed.
 // Every page that shows contact/company facts imports from this single file.
 export const SITE_URL = 'https://labrite-website.netlify.app';
 
 export const COMPANY = {
   legalName: 'Labrite (Pty) Ltd',
+  // CIPC registration number for Labrite (Pty) Ltd, effective 17/11/2020 —
+  // this is the current legal entity's registration date, distinct from
+  // "founded" below (the business's own operating-since claim, sourced
+  // separately from LinkedIn). Do not conflate the two.
+  registrationNumber: '2020/875632/07',
   founded: '1999',
   // Sourced from LinkedIn/directories, not yet confirmed directly — see the
   // notice on the Contact page. Left as-is pending confirmation, per Jacques'

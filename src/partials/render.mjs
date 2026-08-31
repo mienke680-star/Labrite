@@ -151,7 +151,7 @@ export function renderFooter() {
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span data-year>2026</span> ${COMPANY.legalName}. All rights reserved.</p>
+      <p>© <span data-year>2026</span> ${COMPANY.legalName}. All rights reserved. Reg. no. ${COMPANY.registrationNumber}.</p>
       <div class="legal-links">
           ${legalLinks}
           <button type="button" class="cookie-reopen" data-reopen-cookie-banner>Cookie preferences</button>

@@ -29,7 +29,7 @@ const main = `
         <h2>Background</h2>
         <p class="section-intro">Labrite (Pty) Ltd was established in ${COMPANY.founded}, serving laboratories in the mining industry across Southern Africa and exporting into Africa.</p>
         <div class="notice">
-          <strong>Founding facts sourced, fuller history pending.</strong> The founding year above is drawn from Labrite's public LinkedIn listing for confirmation. A fuller company history and milestones will be published here once Labrite supplies them.
+          <strong>Founding facts sourced, fuller history pending.</strong> The founding year above is drawn from Labrite's public LinkedIn listing for confirmation. Labrite (Pty) Ltd, the current legal entity, is CIPC-registered under number ${COMPANY.registrationNumber} (registered 17 November 2020) — a fuller company history and milestones will be published here once Labrite supplies them.
         </div>
       </div>
     </section>
