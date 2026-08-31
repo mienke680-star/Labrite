@@ -1,10 +1,14 @@
 import { COMPANY } from '../data/company.mjs';
 
 const main = `
-    <section class="hero-simple">
+    <section class="hero">
+      <div class="hero-media">
+        <img src="/assets/images/atmosphere/glassware-wide.jpg" alt="Laboratory glassware" />
+      </div>
       <div class="container hero-content">
         <span class="eyebrow">About Labrite</span>
-        <h1>A technical laboratory and equipment business</h1>
+        <h1>A technical laboratory and <em>equipment</em> business</h1>
+        <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite (Pty) Ltd works across Laboratory Services, equipment and instruments, chemicals, and repairs and maintenance — one identity, applied consistently across every part of the business.</p>
       </div>
     </section>

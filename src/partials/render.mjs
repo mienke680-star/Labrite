@@ -28,7 +28,7 @@ export function renderHead({ title, description, canonicalPath = '/' }) {
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${canonicalUrl}" />
-  <meta name="theme-color" content="#30373F" />
+  <meta name="theme-color" content="#050505" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Labrite" />
   <meta property="og:title" content="${title}" />
@@ -42,7 +42,7 @@ export function renderHead({ title, description, canonicalPath = '/' }) {
   <link rel="icon" href="/assets/images/site/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   ${renderStructuredData()}`;
 }
@@ -87,7 +87,7 @@ export function renderHeader(activeKey) {
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header">
     <div class="container">
-      ${renderLogo()}
+      ${renderLogo({ reverse: true })}
       <nav class="primary-nav" aria-label="Primary">
         <ul>
           ${items}

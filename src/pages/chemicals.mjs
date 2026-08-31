@@ -1,8 +1,12 @@
 const main = `
-    <section class="hero-simple">
+    <section class="hero">
+      <div class="hero-media">
+        <img src="/assets/images/atmosphere/chemicals-concept.jpg" alt="Laboratory chemical glassware and a coal sample" />
+      </div>
       <div class="container hero-content">
         <span class="eyebrow">Chemicals</span>
-        <h1>Laboratory chemicals for accurate testing</h1>
+        <h1>Laboratory chemicals for <em>accurate</em> testing</h1>
+        <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite supplies laboratory chemicals supporting sample preparation, testing and analysis — part of the same right choice for laboratory equipment, chemicals, repairs and maintenance that runs across the business.</p>
       </div>
     </section>
@@ -35,7 +39,8 @@ const main = `
       </div>
     </section>
 
-    <section class="cta-band">
+    <section class="cta-band cta-band-photo">
+      <div class="cta-media"><img src="/assets/images/atmosphere/flask-single.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
       <div class="container">
         <div>
           <h2>Chemical product enquiries</h2>

@@ -1,11 +1,11 @@
-import { mediaPlaceholder, productMedia } from '../partials/render.mjs';
+import { productMedia } from '../partials/render.mjs';
 import { BUSINESS_AREAS } from '../data/nav.mjs';
 import { getProduct } from '../data/products.mjs';
 
 const BUSINESS_CARD_MEDIA = {
   'Laboratory Services': productMedia(getProduct('test-sieves')),
   'Equipment & Instruments': productMedia(getProduct('top-loading-balance')),
-  'Chemicals': mediaPlaceholder({ title: 'Chemicals', note: 'Photograph to be added', ratio: 'ratio-4-3' }),
+  'Chemicals': `<div class="media ratio-4-3"><img src="/assets/images/atmosphere/chemicals-concept.jpg" alt="Laboratory chemical glassware and a coal sample" loading="lazy" /></div>`,
   'Repairs & Maintenance': `<div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory preparation area" loading="lazy" /></div>`,
   'Agencies & Distribution': `<div class="media ratio-4-3"><img src="/assets/images/site/reception-desk.jpg" alt="Labrite reception area" loading="lazy" /></div>`,
 };
@@ -46,11 +46,12 @@ const featuredCards = featuredSlugs
 const main = `
     <section class="hero">
       <div class="hero-media">
-        <img src="/assets/images/site/lab-two-story.jpg" alt="Labrite laboratory space" />
+        <img src="/assets/images/atmosphere/coal-chunk.jpg" alt="Coal, the raw material behind Labrite's testing work" />
       </div>
       <div class="container hero-content">
         <span class="eyebrow">Laboratory · Equipment · Chemicals · Technical Support</span>
-        <h1>Laboratory confidence. Built on accuracy.</h1>
+        <h1>Laboratory confidence. Built on <em>accuracy</em>.</h1>
+        <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite provides laboratory testing, equipment, instruments, chemicals and technical support — backed by one established, technically credible identity across every business area.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#business-areas">Explore Our Services</a>
@@ -146,7 +147,8 @@ const main = `
       </div>
     </section>
 
-    <section class="cta-band">
+    <section class="cta-band cta-band-photo">
+      <div class="cta-media"><img src="/assets/images/atmosphere/coal-terrain.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
       <div class="container">
         <div>
           <h2>Speak to Labrite about your laboratory</h2>

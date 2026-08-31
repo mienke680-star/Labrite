@@ -1,6 +1,16 @@
 (function () {
   'use strict';
 
+  // Header: transparent over the hero, solid once scrolled.
+  var siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    var updateHeaderState = function () {
+      siteHeader.classList.toggle('is-solid', window.scrollY > 24);
+    };
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+  }
+
   // Mobile navigation toggle
   var navToggle = document.querySelector('[data-nav-toggle]');
   if (navToggle) {

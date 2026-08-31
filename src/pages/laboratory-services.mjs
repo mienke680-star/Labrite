@@ -2,13 +2,17 @@ import { renderLogo, productMedia } from '../partials/render.mjs';
 import { getProduct } from '../data/products.mjs';
 
 const main = `
-    <section class="hero-simple">
+    <section class="hero">
+      <div class="hero-media">
+        <img src="/assets/images/atmosphere/coal-pile.jpg" alt="Coal, the material behind Labrite's current testing discipline" />
+      </div>
       <div class="container hero-content">
         <span class="eyebrow">Business Unit</span>
         <div style="margin-bottom:1.5rem;">
-          ${renderLogo({ size: 'lg', subLabel: 'Laboratory Services', tagline: 'Applying science for accuracy and precision' })}
+          ${renderLogo({ reverse: true, size: 'lg', subLabel: 'Laboratory Services', tagline: 'Applying science for accuracy and precision' })}
         </div>
-        <h1>Laboratory testing you can rely on</h1>
+        <h1>Laboratory testing you can <em>rely on</em></h1>
+        <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite's Laboratory Services carry out sample preparation, analysis and testing using dedicated laboratory equipment. Coal Testing &amp; Analysis is the current discipline offered under this business unit, with further laboratory disciplines to be added as they're established.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/contact.html">Laboratory enquiries</a>
@@ -140,7 +144,8 @@ const main = `
       </div>
     </section>
 
-    <section class="cta-band">
+    <section class="cta-band cta-band-photo">
+      <div class="cta-media"><img src="/assets/images/atmosphere/lab-bench-wide.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
       <div class="container">
         <div>
           <h2>Laboratory Services enquiries</h2>
