@@ -5,7 +5,7 @@ const main = `
       <div class="container hero-content">
         <span class="eyebrow">About Labrite</span>
         <h1>A technical laboratory and equipment business</h1>
-        <p class="lede">Labrite CC works across coal laboratory testing, equipment and instruments, chemicals, and repairs and maintenance — one identity, applied consistently across every part of the business.</p>
+        <p class="lede">Labrite (Pty) Ltd works across Laboratory Services, equipment and instruments, chemicals, and repairs and maintenance — one identity, applied consistently across every part of the business.</p>
       </div>
     </section>
 
@@ -14,7 +14,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Who We Are</span>
           <h2>Technical, precise, and built for laboratory work</h2>
-          <p>Labrite is a technical laboratory and equipment-focused business. Its Coal Laboratory carries out coal analysis and testing, while its equipment, chemicals, repairs and maintenance, and agencies operations support laboratories and technical customers more broadly.</p>
+          <p>Labrite is a technical laboratory and equipment-focused business. Its Laboratory Services carry out laboratory testing — currently Coal Testing &amp; Analysis — while its equipment, chemicals, repairs and maintenance, and agencies operations support laboratories and technical customers more broadly.</p>
           <p>Across every part of the business, Labrite is presented under one consistent corporate identity — recognisable, technically credible, and built around accuracy rather than decoration.</p>
         </div>
         <div class="split-media l-frame">
@@ -27,7 +27,7 @@ const main = `
       <div class="container">
         <span class="eyebrow">Our Experience</span>
         <h2>Background</h2>
-        <p class="section-intro">Labrite CC was established in ${COMPANY.founded}, serving laboratories in the mining industry across Southern Africa and exporting into Africa.</p>
+        <p class="section-intro">Labrite (Pty) Ltd was established in ${COMPANY.founded}, serving laboratories in the mining industry across Southern Africa and exporting into Africa.</p>
         <div class="notice">
           <strong>Founding facts sourced, fuller history pending.</strong> The founding year above is drawn from Labrite's public LinkedIn listing for confirmation. A fuller company history and milestones will be published here once Labrite supplies them.
         </div>
@@ -46,9 +46,9 @@ const main = `
         <div class="grid grid-3">
           <article class="card business-card">
             <div class="card-body">
-              <h3>Coal Laboratory</h3>
-              <p>Coal analysis, testing and sample preparation.</p>
-              <div class="card-actions"><a class="link-primary" href="/coal-laboratory.html">Learn more →</a></div>
+              <h3>Laboratory Services</h3>
+              <p>Coal Testing &amp; Analysis, and future laboratory testing disciplines.</p>
+              <div class="card-actions"><a class="link-primary" href="/laboratory-services.html">Learn more →</a></div>
             </div>
           </article>
           <article class="card business-card">
@@ -81,7 +81,7 @@ const main = `
           </article>
           <article class="card business-card">
             <div class="card-body">
-              <h3>Agencies</h3>
+              <h3>Agencies &amp; Distribution</h3>
               <p>Brands and manufacturers represented by Labrite.</p>
               <div class="card-actions"><a class="link-primary" href="/agencies.html">Learn more →</a></div>
             </div>
@@ -134,7 +134,7 @@ const main = `
 export default {
   title: 'About Labrite | Technical Laboratory & Equipment Business',
   description:
-    'Labrite CC is a technical laboratory and equipment business spanning Coal Laboratory testing, equipment and instruments, chemicals, repairs and maintenance, and agencies.',
+    'Labrite (Pty) Ltd is a technical laboratory and equipment business spanning Laboratory Services, equipment and instruments, chemicals, repairs and maintenance, and agencies.',
   canonicalPath: '/about.html',
   activeKey: 'about',
   outPath: 'about.html',

@@ -40,7 +40,7 @@ const main = `
                   <option value="">Select an option</option>
                   <option value="general">General enquiry</option>
                   <option value="product">Product / equipment enquiry</option>
-                  <option value="laboratory">Coal Laboratory enquiry</option>
+                  <option value="laboratory">Laboratory Services enquiry</option>
                   <option value="repairs">Repairs &amp; maintenance enquiry</option>
                   <option value="chemicals">Chemicals enquiry</option>
                   <option value="agencies">Agencies &amp; distribution enquiry</option>
@@ -63,7 +63,7 @@ const main = `
         <div class="split-content">
           <h2>Contact details</h2>
           <div class="notice" style="margin-bottom:1.5rem;">
-            Address, phone and email below are sourced from Labrite's public LinkedIn listing and business directories for confirmation — labrite.co.za was unreachable when this site was built.
+            The address below is confirmed directly by Labrite. The phone and email are still sourced from Labrite's public LinkedIn listing and business directories, pending direct confirmation.
           </div>
           <div class="grid grid-2" style="gap:1.5rem;">
             <div class="card business-card">
@@ -77,7 +77,7 @@ const main = `
             <div class="card business-card">
               <div class="card-body">
                 <h3>Enquiry Routing</h3>
-                <p>Product, Coal Laboratory, repairs and maintenance, chemicals and agency enquiries all currently route through the head office number and the form opposite — select the relevant enquiry type so it reaches the right team.</p>
+                <p>Product, Laboratory Services, repairs and maintenance, chemicals and agency enquiries all currently route through the head office number and the form opposite — select the relevant enquiry type so it reaches the right team.</p>
               </div>
             </div>
             <div class="card business-card">
@@ -113,16 +113,11 @@ const main = `
             <p class="section-intro">${COMPANY.addressLines.join(', ')} — <a href="${COMPANY.mapsSearchUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">view on Google Maps</a>.</p>
           </div>
         </div>
-        <div class="media ratio-21-9" style="border:1px solid var(--border-grey);">
-          <iframe
-            src="${COMPANY.mapsEmbedSrc}"
-            title="Map showing the Labrite head office address"
-            width="100%"
-            height="100%"
-            style="border:0; display:block;"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <div class="media ratio-21-9" style="border:1px solid var(--border-grey);" data-map-embed data-maps-src="${COMPANY.mapsEmbedSrc}" data-maps-title="Map showing the Labrite head office address">
+          <div class="map-gate">
+            <p>The map is provided by Google Maps and only loads once you accept cookies.</p>
+            <button type="button" class="btn btn-secondary btn-sm" data-cookie-accept>Accept cookies &amp; load map</button>
+          </div>
         </div>
       </div>
     </section>`;
@@ -130,7 +125,7 @@ const main = `
 export default {
   title: 'Contact Labrite | Enquiries, Products, Laboratory & Repairs',
   description:
-    'Contact Labrite for general enquiries, product and equipment enquiries, Coal Laboratory enquiries, or repairs and maintenance requests.',
+    'Contact Labrite for general enquiries, product and equipment enquiries, Laboratory Services enquiries, or repairs and maintenance requests.',
   canonicalPath: '/contact.html',
   activeKey: 'contact',
   outPath: 'contact.html',

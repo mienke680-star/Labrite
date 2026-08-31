@@ -270,6 +270,22 @@ strong { color: var(--black); }
 .media-placeholder .ph-title { font-weight: 600; font-size: 0.9375rem; color: var(--charcoal); }
 .media-placeholder .ph-note { font-size: 0.75rem; color: var(--charcoal); opacity: 0.85; max-width: 26ch; }
 
+/* Shown in place of a consent-gated embed (e.g. Google Maps) until the
+   visitor accepts cookies — see [data-map-embed] in main.js. */
+.map-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+  height: 100%;
+  padding: var(--space-6);
+  text-align: center;
+  background: var(--neutral-light);
+}
+.map-gate p { font-size: 0.9375rem; color: var(--charcoal); max-width: 40ch; margin: 0; }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -323,33 +339,21 @@ strong { color: var(--black); }
   height: 84px;
 }
 
-/* Coded placeholder standing in for the approved master vector wordmark */
+/* Approved master logo artwork — normal (light bg) and reverse (dark bg,
+   same file with only the wordmark pixels inverted to white) — plus an
+   optional business-unit sub-label/tagline lockup beside it. */
 .logo {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   flex-shrink: 0;
 }
-.logo-row { display: inline-flex; align-items: center; gap: 3px; }
 .logo-img { width: 190px; height: auto; display: block; }
 .logo.size-lg .logo-img { width: 340px; }
 @media (max-width: 640px) {
   .logo-img { width: 160px; }
   .logo.size-lg .logo-img { width: 240px; }
 }
-.logo-word {
-  font-weight: 800;
-  font-size: 1.65rem;
-  color: var(--black);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.logo-tick {
-  width: 18px;
-  height: 24px;
-  flex-shrink: 0;
-}
-.logo-tick path { fill: none; stroke: var(--red); stroke-width: 8; stroke-linecap: square; stroke-linejoin: miter; }
 .logo-sub {
   display: block;
   font-size: 0.75rem;
@@ -365,11 +369,8 @@ strong { color: var(--black); }
   color: var(--red-accessible);
   margin-top: 2px;
 }
-.logo.reverse .logo-word { color: var(--white); }
 .logo.reverse .logo-sub { color: #C9CDD2; }
 .logo.reverse .logo-tagline { color: #FF8A8A; }
-.logo.size-lg .logo-word { font-size: 2.5rem; }
-.logo.size-lg .logo-tick { width: 26px; height: 34px; }
 .logo.size-lg .logo-sub { font-size: 1.0625rem; margin-top: 2px; }
 .logo.size-lg .logo-tagline { font-size: 0.9375rem; margin-top: 4px; }
 
@@ -769,6 +770,10 @@ table.data-table { min-width: 560px; }
   border-radius: var(--radius-sm);
 }
 .notice strong { color: var(--black); }
+
+/* Plain bulleted list for prose/legal content (nav/footer lists stay unbulleted) */
+.prose-list { list-style: disc; padding-left: 1.25em; margin: 1em 0; }
+.prose-list li { margin-bottom: var(--space-2); }
 
 /* ---------- Reveal-on-scroll (restrained motion only) ---------- */
 .reveal {

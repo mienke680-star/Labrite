@@ -26,7 +26,7 @@ const main = `
       <div class="container split">
         <div class="split-content">
           <h2>Laboratory applications</h2>
-          <p>Laboratory chemicals support sample preparation and analytical testing across Labrite's Coal Laboratory and equipment customers alike, working alongside the instruments in Labrite's equipment catalogue.</p>
+          <p>Laboratory chemicals support sample preparation and analytical testing across Labrite's Laboratory Services and equipment customers alike, working alongside the instruments in Labrite's equipment catalogue.</p>
           <a class="btn btn-secondary" href="/equipment/">View laboratory equipment</a>
         </div>
         <div class="split-media l-frame">

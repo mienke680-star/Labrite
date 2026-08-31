@@ -186,7 +186,7 @@ export const PRODUCTS = [
     applications: [
       'Computer-controlled laboratory sample analysis',
       'Instrument data capture and reporting',
-      'Supporting the Coal Laboratory’s wider testing workflow',
+      'Supporting Labrite’s wider Laboratory Services testing workflow',
     ],
     image: '/assets/images/products/laboratory-analyzer-system.jpg',
     imageAlt: 'Laboratory analyzer system with computer workstation and benchtop instrument',

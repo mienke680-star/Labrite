@@ -3,16 +3,19 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/company/labrite/';
 export const NAV_ITEMS = [
   { key: 'home', label: 'Home', href: '/' },
   { key: 'about', label: 'About Labrite', href: '/about.html' },
-  { key: 'coal-laboratory', label: 'Coal Laboratory', href: '/coal-laboratory.html' },
+  { key: 'laboratory-services', label: 'Laboratory Services', href: '/laboratory-services.html' },
   { key: 'equipment', label: 'Equipment & Instruments', href: '/equipment/' },
   { key: 'chemicals', label: 'Chemicals', href: '/chemicals.html' },
   { key: 'repairs', label: 'Repairs & Maintenance', href: '/repairs-maintenance.html' },
-  { key: 'agencies', label: 'Agencies', href: '/agencies.html' },
+  { key: 'agencies', label: 'Agencies & Distribution', href: '/agencies.html' },
   { key: 'contact', label: 'Contact', href: '/contact.html' },
 ];
 
+// The umbrella term is "Laboratory Services" so new disciplines (e.g. a future
+// chrome ore laboratory) can be added without restructuring the site — Coal
+// Testing & Analysis is the current, and so far only, discipline under it.
 export const BUSINESS_AREAS = [
-  { label: 'Coal Laboratory', href: '/coal-laboratory.html', desc: 'Coal analysis, testing and sample preparation.' },
+  { label: 'Laboratory Services', href: '/laboratory-services.html', desc: 'Coal Testing & Analysis, and future laboratory testing disciplines.' },
   { label: 'Equipment & Instruments', href: '/equipment/', desc: 'Laboratory instruments and equipment.' },
   { label: 'Chemicals', href: '/chemicals.html', desc: 'Laboratory chemicals and related products.' },
   { label: 'Repairs & Maintenance', href: '/repairs-maintenance.html', desc: 'Servicing, repairs and equipment support.' },

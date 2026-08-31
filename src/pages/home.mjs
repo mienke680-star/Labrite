@@ -3,7 +3,7 @@ import { BUSINESS_AREAS } from '../data/nav.mjs';
 import { getProduct } from '../data/products.mjs';
 
 const BUSINESS_CARD_MEDIA = {
-  'Coal Laboratory': productMedia(getProduct('test-sieves')),
+  'Laboratory Services': productMedia(getProduct('test-sieves')),
   'Equipment & Instruments': productMedia(getProduct('top-loading-balance')),
   'Chemicals': mediaPlaceholder({ title: 'Chemicals', note: 'Photograph to be added', ratio: 'ratio-4-3' }),
   'Repairs & Maintenance': `<div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory preparation area" loading="lazy" /></div>`,
@@ -64,7 +64,7 @@ const main = `
         <div class="split-content">
           <span class="eyebrow">Who We Are</span>
           <h2>One Labrite identity, built for laboratory and industrial work</h2>
-          <p>Labrite CC brings together a Coal Laboratory, equipment and instrument supply, laboratory chemicals, and repairs and maintenance under a single, consistent technical identity. Whichever part of Labrite you work with, the same standard of precision and reliability applies.</p>
+          <p>Labrite (Pty) Ltd brings together Laboratory Services, equipment and instrument supply, laboratory chemicals, and repairs and maintenance under a single, consistent technical identity. Whichever part of Labrite you work with, the same standard of precision and reliability applies.</p>
           <a class="btn btn-secondary" href="/about.html">Learn more about Labrite</a>
         </div>
         <div class="split-media l-frame">
@@ -91,13 +91,13 @@ const main = `
     <section class="section">
       <div class="container split reverse">
         <div class="split-content">
-          <span class="eyebrow">Coal Laboratory</span>
+          <span class="eyebrow">Laboratory Services</span>
           <h2>Applying science for accuracy and precision</h2>
-          <p>The Labrite Coal Laboratory carries out coal analysis, testing and sample preparation using dedicated laboratory equipment, from sample crushing and sieving through to moisture analysis and high-temperature testing.</p>
-          <a class="btn btn-secondary" href="/coal-laboratory.html">Visit the Coal Laboratory</a>
+          <p>Labrite's Laboratory Services carry out coal analysis, testing and sample preparation using dedicated laboratory equipment, from sample crushing and sieving through to moisture analysis and high-temperature testing — Coal Testing &amp; Analysis is the current discipline, with more to follow.</p>
+          <a class="btn btn-secondary" href="/laboratory-services.html">Visit Laboratory Services</a>
         </div>
         <div class="split-media l-frame">
-          <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used in Labrite Coal Laboratory testing" loading="lazy" /></div>
+          <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used in Labrite Laboratory Services testing" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -161,7 +161,7 @@ const main = `
 export default {
   title: 'Labrite | Laboratory Services, Equipment & Technical Support',
   description:
-    'Labrite provides Coal Laboratory testing, laboratory equipment and instruments, chemicals, repairs and maintenance, and agencies and distribution — one established Labrite identity across every business area.',
+    'Labrite provides Laboratory Services (currently Coal Testing & Analysis), laboratory equipment and instruments, chemicals, repairs and maintenance, and agencies and distribution — one established Labrite identity across every business area.',
   canonicalPath: '/',
   activeKey: 'home',
   outPath: 'index.html',

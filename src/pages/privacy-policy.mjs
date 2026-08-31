@@ -1,4 +1,4 @@
-import { COMPANY } from '../data/company.mjs';
+import { COMPANY, INFORMATION_OFFICER } from '../data/company.mjs';
 
 const main = `
     <section class="hero-simple">
@@ -12,62 +12,85 @@ const main = `
     <section class="section">
       <div class="container" style="max-width:75ch;">
         <div class="notice" style="margin-bottom:2.5rem;">
-          <strong>Drafted, not yet formally approved.</strong> This policy describes how the website itself is built to handle information. Labrite-specific details it cannot state with confidence — the registered Information Officer's name and contact details — are marked below and should be confirmed before this page is treated as final.
+          <strong>Drafted — Labrite's feedback incorporated, pending formal sign-off.</strong> The Information Officer, address and enquiry-handling details below are confirmed directly by Labrite. Labrite's general company phone and email are still sourced from public listings pending direct confirmation (see the Contact page) — everything else on this page describes how the finished website is actually built to work.
         </div>
 
         <h2>Who this policy covers</h2>
-        <p>This policy applies to labrite-website.netlify.app and describes how Labrite CC ("Labrite", "we", "us"), of ${COMPANY.addressSingleLine}, processes personal information collected through this website, in accordance with the Protection of Personal Information Act, 2013 (POPIA).</p>
+        <p>This Privacy Policy describes how ${COMPANY.legalName} ("Labrite", "we", "us" or "our") collects and processes personal information through its website (currently published at labrite-website.netlify.app, ahead of a Labrite-owned domain) and related online services, in accordance with the Protection of Personal Information Act 4 of 2013 ("POPIA").</p>
+        <p>${COMPANY.legalName} is the responsible party for the personal information described in this policy.<br>Address: ${COMPANY.addressSingleLine}</p>
 
         <h2>Information we collect</h2>
-        <p>The only personal information this website collects directly is what a visitor chooses to submit through the enquiry form on the Contact page: full name, email address, phone number, enquiry type and message. No account creation, payment details or browsing history are collected.</p>
+        <p><strong>Information you provide directly.</strong> When you submit an enquiry through this website, we collect what you enter into the enquiry form: full name, email address, enquiry type and message are required; phone number is optional. Providing this information is voluntary, but the required fields are needed for Labrite to receive and respond to your enquiry — if they're left out, Labrite may be unable to respond to you through the website. This website does not offer account creation and does not take payment.</p>
+        <p><strong>Technical information.</strong> This website is hosted by Netlify. As with any website, Netlify's infrastructure automatically processes standard technical information needed to serve each request, including your IP address — Netlify's own access logs retain this for under 30 days (see <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">Netlify's Privacy Policy</a>). No analytics, advertising or tracking script is installed on this website, so no browsing-history profile is built beyond that standard hosting log.</p>
 
         <h2>How we use it</h2>
-        <p>Information submitted through the enquiry form is used solely to respond to that enquiry — routing it to the relevant team (Coal Laboratory, equipment, chemicals, repairs and maintenance, or agencies) and following up by phone or email. It is not sold, rented, or used for marketing without separate consent.</p>
+        <p>Information submitted through the website may be used to respond to enquiries, provide requested information or quotations, communicate with the enquirer and, where applicable, administer any resulting customer, supplier or business relationship. Enquiries are routed internally to the relevant Labrite team based on their subject matter — Laboratory Services, equipment, chemicals, repairs and maintenance, or agencies. It is not sold, rented, or used for marketing without separate consent.</p>
 
         <h2>Cookies and similar technology</h2>
-        <p>This website does not run analytics, advertising or marketing cookies. The cookies and local storage it does use are:</p>
+        <p>This website does not run analytics, advertising or marketing cookies. The cookies and similar requests it does use are:</p>
         <div class="table-wrap" style="margin:1.5rem 0;">
           <table class="data-table">
             <thead>
               <tr><th>What</th><th>Purpose</th><th>Set by</th></tr>
             </thead>
             <tbody>
-              <tr><td>Cookie consent choice</td><td>Remembers that you've seen the cookie notice</td><td>This website (browser storage, not a tracking cookie)</td></tr>
-              <tr><td>Google Maps cookies</td><td>Loads the office location map on the Contact page</td><td>Google, when the map loads — see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">Google's Privacy Policy</a></td></tr>
-              <tr><td>Google Fonts request</td><td>Loads the Inter typeface used across the site</td><td>Google — your browser requests the font file directly from Google's servers</td></tr>
+              <tr><td>Cookie consent choice</td><td>Remembers that you've accepted the cookie notice</td><td>This website (browser storage, not a tracking cookie)</td></tr>
+              <tr><td>Google Maps cookies</td><td>Loads the office location map on the Contact page</td><td>Google — only after you accept cookies; the map does not load beforehand. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">Google's Privacy Policy</a></td></tr>
+              <tr><td>Google Fonts request</td><td>Loads the Inter typeface used across the site</td><td>Google — your browser requests the font file directly from Google's servers on every page. Self-hosting this instead is under consideration.</td></tr>
             </tbody>
           </table>
         </div>
-        <p>You can decline non-essential cookies by not loading the Contact page's map, and can clear the consent choice at any time using "Cookie preferences" in the footer.</p>
+        <p>You can clear your consent choice at any time using "Cookie preferences" in the footer.</p>
 
         <h2>Third parties &amp; cross-border transfer</h2>
-        <p>This website is hosted by Netlify and embeds Google Maps and Google Fonts. These providers may process data (such as IP address) outside South Africa, on their own servers, under their own privacy policies. The enquiry form's future email/CRM connection (see the Contact page) will be named here once it is configured.</p>
+        <p>This website uses the following external services, each of which may process data (such as IP address) outside South Africa, on their own servers, under their own privacy policies:</p>
+        <ul class="prose-list">
+          <li><strong>Netlify</strong> — website hosting and build infrastructure.</li>
+          <li><strong>Google Maps</strong> — embeds the office location on the Contact page, only after cookie consent.</li>
+          <li><strong>Google Fonts</strong> — delivers the Inter typeface.</li>
+        </ul>
+        <p>No analytics, advertising, CRM or email-routing service is connected to this website yet — enquiries currently reach Labrite only via the direct "Email Labrite directly" link on the Contact page. This section will be updated to name that service once one is configured.</p>
 
         <h2>Data retention</h2>
-        <p>Enquiry messages are kept only for as long as needed to handle the enquiry and any resulting business relationship, then deleted or anonymised.</p>
+        <p>Enquiry information is retained only for as long as reasonably necessary for the purpose for which it was collected. Where an enquiry results in a quotation, contract, customer relationship or other business transaction, relevant information may be retained for the period required by applicable law, contractual requirements and Labrite's legitimate record-keeping obligations. Information that is no longer required will be securely deleted, destroyed or de-identified as appropriate.</p>
 
         <h2>Your rights under POPIA</h2>
-        <p>You have the right to: request access to personal information Labrite holds about you; request its correction or deletion; object to its processing; and lodge a complaint with the Information Regulator (South Africa) at <a href="https://inforegulator.org.za" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">inforegulator.org.za</a> if you believe your information has been mishandled. To exercise any of these rights with Labrite directly, use the contact details below.</p>
+        <p>Subject to POPIA, you have the right to: request confirmation of whether Labrite holds personal information about you, and to access it; request correction or updating of information that is inaccurate, incomplete or outdated; request deletion or destruction of information Labrite is no longer entitled to hold; object to processing on reasonable grounds; and lodge a complaint with the Information Regulator (South Africa) if you believe your information has been mishandled — see below. To exercise any of these rights with Labrite directly, use the Information Officer's details below.</p>
 
         <h2>Security</h2>
-        <p>Reasonable technical and organisational measures are used to protect information submitted through this website against loss, unauthorised access, and disclosure.</p>
+        <p>Labrite takes reasonable technical and organisational measures to protect personal information in its possession against loss, unauthorised access, and disclosure. This website has no database and no payment processing — enquiry submissions are handled client-side only, pending the email/CRM connection noted above.</p>
 
         <h2>Information Officer</h2>
-        <div class="notice">
-          POPIA requires a registered Information Officer for privacy queries and complaints. Their name and direct contact details have not been supplied and are not stated here — in the meantime, direct any privacy query to <a href="${COMPANY.emailHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.emailDisplay}</a>.
-        </div>
+        <p>Labrite's appointed Information Officer is:</p>
+        <p>
+          <strong>Name:</strong> ${INFORMATION_OFFICER.name}<br>
+          <strong>Position:</strong> ${INFORMATION_OFFICER.position}<br>
+          <strong>Email:</strong> <a href="${INFORMATION_OFFICER.emailHref}" style="color:var(--red-accessible);font-weight:600;">${INFORMATION_OFFICER.emailDisplay}</a><br>
+          <strong>Contact number:</strong> <a href="${INFORMATION_OFFICER.phoneHref}" style="color:var(--red-accessible);font-weight:600;">${INFORMATION_OFFICER.phoneDisplay}</a>
+        </p>
+        <p>The Information Officer is responsible for POPIA compliance oversight, managing privacy-related matters, coordinating breach investigations, handling data subject requests, and promoting awareness and compliance.</p>
+
+        <h2>Information Regulator</h2>
+        <p>If you believe your personal information has been processed unlawfully, you have the right to lodge a complaint with the Information Regulator (South Africa):</p>
+        <p>
+          Address: Woodmead North Office Park, 54 Maxwell Drive, Woodmead, Johannesburg, 2191<br>
+          Phone: 010 023 5200 (toll-free: 0800 017 160)<br>
+          POPIA complaints: <a href="mailto:POPIAComplaints@inforegulator.org.za" style="color:var(--red-accessible);font-weight:600;">POPIAComplaints@inforegulator.org.za</a><br>
+          Website: <a href="https://inforegulator.org.za" target="_blank" rel="noopener noreferrer" style="color:var(--red-accessible);font-weight:600;">inforegulator.org.za</a>
+        </p>
+        <p style="font-size:0.8125rem;opacity:0.7;">These details are independently published by the Information Regulator and may change — please verify against inforegulator.org.za/contact-us if in doubt.</p>
 
         <h2>Changes to this policy</h2>
-        <p>This policy may be updated as the website or Labrite's data practices change. Check back periodically for the current version.</p>
+        <p>This policy may be updated as the website or Labrite's data practices change. An effective date and last-updated date will be shown here once this policy receives formal sign-off. Check back periodically for the current version.</p>
 
         <h2>Contact us</h2>
-        <p>Questions about this policy or your information: <a href="${COMPANY.emailHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.emailDisplay}</a> or <a href="${COMPANY.phoneHref}" style="color:var(--red-accessible);font-weight:600;">${COMPANY.phoneDisplay}</a>.</p>
+        <p>For questions about this policy or to exercise your rights under POPIA, contact Labrite's Information Officer, ${INFORMATION_OFFICER.name}, at <a href="${INFORMATION_OFFICER.emailHref}" style="color:var(--red-accessible);font-weight:600;">${INFORMATION_OFFICER.emailDisplay}</a> or <a href="${INFORMATION_OFFICER.phoneHref}" style="color:var(--red-accessible);font-weight:600;">${INFORMATION_OFFICER.phoneDisplay}</a>. For general enquiries, use the <a href="/contact.html" style="color:var(--red-accessible);font-weight:600;">contact form</a>.</p>
       </div>
     </section>`;
 
 export default {
   title: 'Privacy Policy | Labrite',
-  description: 'How Labrite CC collects, uses and protects information through this website, under POPIA — including cookies, data collected, and your rights.',
+  description: `How ${COMPANY.legalName} collects, uses and protects information through this website, under POPIA — including cookies, data collected, and your rights.`,
   canonicalPath: '/privacy-policy.html',
   activeKey: '',
   outPath: 'privacy-policy.html',

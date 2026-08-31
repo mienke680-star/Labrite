@@ -2,30 +2,20 @@ import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../
 import { COMPANY, SITE_URL } from '../data/company.mjs';
 
 // Master Labrite wordmark: the supplied logo file (trimmed, background made
-// transparent — artwork itself untouched) for light backgrounds. No reverse
-// (white-on-dark) file was supplied, so the dark-footer variant remains a
-// coded text+tick stand-in until Labrite provides an approved reverse asset.
+// transparent — artwork itself untouched) for light backgrounds. The reverse
+// (white-on-dark) variant is the same supplied artwork with only its
+// grayscale (wordmark) pixels inverted to white, alpha-for-alpha — the red
+// tick is left byte-for-byte unchanged — so proportions, spacing, tick size,
+// angle and position are identical to the master file, per the approved
+// normal/reverse/monochrome logo standard.
 export function renderLogo({ reverse = false, size = null, subLabel = null, tagline = null, href = '/' } = {}) {
   const classes = ['logo', reverse ? 'reverse' : '', size ? `size-${size}` : ''].filter(Boolean).join(' ');
   const label = subLabel ? `Labrite ${subLabel} — home` : 'Labrite — home';
-
-  if (reverse) {
-    return `
-    <a class="${classes}" href="${href}" aria-label="${label}">
-      <span class="logo-row">
-        <span class="logo-word">Labrite</span>
-        <svg class="logo-tick" viewBox="0 0 32 40" aria-hidden="true" focusable="false">
-          <path d="M4 20 L14 30 L28 8" />
-        </svg>
-      </span>
-      ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
-      ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
-    </a>`;
-  }
+  const src = reverse ? '/assets/images/brand/labrite-logo-reverse.png' : '/assets/images/brand/labrite-logo.png';
 
   return `
     <a class="${classes}" href="${href}" aria-label="${label}">
-      <img class="logo-img" src="/assets/images/brand/labrite-logo.png" alt="Labrite" width="1320" height="350" />
+      <img class="logo-img" src="${src}" alt="Labrite" width="1320" height="350" />
       ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
       ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
     </a>`;
@@ -71,9 +61,10 @@ function renderStructuredData() {
     sameAs: [LINKEDIN_URL],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: COMPANY.addressLines[0],
-      addressLocality: 'eMalahleni (Witbank)',
-      addressRegion: 'Mpumalanga',
+      streetAddress: COMPANY.addressStreet,
+      addressLocality: COMPANY.addressLocality,
+      addressRegion: COMPANY.addressRegion,
+      postalCode: COMPANY.addressPostalCode,
       addressCountry: 'ZA',
     },
     openingHoursSpecification: COMPANY.hoursSchema.map((h) => ({
@@ -130,13 +121,13 @@ export function renderFooter() {
     <div class="container footer-top">
       <div class="footer-brand">
         ${renderLogo({ reverse: true })}
-        <p>Laboratory services, equipment, chemicals, repairs and maintenance — one Labrite identity across every business area.</p>
+        <p>Laboratory services, equipment, chemicals, technical support, repairs and maintenance for mining, industrial and laboratory applications.</p>
         <div class="social-links">
           ${renderLinkedInLink()}
         </div>
       </div>
       <div class="footer-col">
-        <h4>Business Areas</h4>
+        <h4>Our Services</h4>
         <ul>
           ${businessLinks}
         </ul>
@@ -160,7 +151,7 @@ export function renderFooter() {
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span data-year>2026</span> Labrite CC. All rights reserved.</p>
+      <p>© <span data-year>2026</span> ${COMPANY.legalName}. All rights reserved.</p>
       <div class="legal-links">
           ${legalLinks}
           <button type="button" class="cookie-reopen" data-reopen-cookie-banner>Cookie preferences</button>

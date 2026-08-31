@@ -80,37 +80,66 @@
   });
 
   // Cookie consent banner — shown once until accepted, reopenable from the footer.
+  // Non-essential embeds (currently just the Contact page's Google Maps) stay
+  // out of the DOM until consent is granted, so they never load beforehand.
   var COOKIE_CONSENT_KEY = 'labrite_cookie_consent';
-  var cookieBanner = document.querySelector('[data-cookie-banner]');
-  if (cookieBanner) {
-    var showBanner = function () {
-      cookieBanner.hidden = false;
-      requestAnimationFrame(function () { cookieBanner.classList.add('is-visible'); });
-    };
-    var hideBanner = function () {
-      cookieBanner.classList.remove('is-visible');
-      window.setTimeout(function () { cookieBanner.hidden = true; }, 250);
-    };
-    var hasConsent = false;
+
+  function hasCookieConsent() {
     try {
-      hasConsent = window.localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted';
+      return window.localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted';
     } catch (e) {
-      hasConsent = false;
+      return false;
     }
-    if (!hasConsent) showBanner();
+  }
 
-    var acceptBtn = cookieBanner.querySelector('[data-cookie-accept]');
-    if (acceptBtn) {
-      acceptBtn.addEventListener('click', function () {
-        try { window.localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted'); } catch (e) {}
-        hideBanner();
-      });
-    }
-
-    document.querySelectorAll('[data-reopen-cookie-banner]').forEach(function (btn) {
-      btn.addEventListener('click', function () { showBanner(); });
+  function loadConsentGatedEmbeds() {
+    document.querySelectorAll('[data-map-embed]').forEach(function (el) {
+      var src = el.getAttribute('data-maps-src');
+      if (!src) return;
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = el.getAttribute('data-maps-title') || 'Map';
+      iframe.width = '100%';
+      iframe.height = '100%';
+      iframe.style.border = '0';
+      iframe.style.display = 'block';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      el.innerHTML = '';
+      el.appendChild(iframe);
+      el.removeAttribute('data-maps-src');
     });
   }
+
+  var cookieBanner = document.querySelector('[data-cookie-banner]');
+  var showBanner = function () {
+    if (!cookieBanner) return;
+    cookieBanner.hidden = false;
+    requestAnimationFrame(function () { cookieBanner.classList.add('is-visible'); });
+  };
+  var hideBanner = function () {
+    if (!cookieBanner) return;
+    cookieBanner.classList.remove('is-visible');
+    window.setTimeout(function () { cookieBanner.hidden = true; }, 250);
+  };
+
+  if (hasCookieConsent()) {
+    loadConsentGatedEmbeds();
+  } else {
+    showBanner();
+  }
+
+  document.querySelectorAll('[data-cookie-accept]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      try { window.localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted'); } catch (e) {}
+      hideBanner();
+      loadConsentGatedEmbeds();
+    });
+  });
+
+  document.querySelectorAll('[data-reopen-cookie-banner]').forEach(function (btn) {
+    btn.addEventListener('click', function () { showBanner(); });
+  });
 
   // Live "open now" / "closed now" badge, computed in Labrite's own timezone
   // so it's correct regardless of the visitor's local time.

@@ -14,7 +14,7 @@ import { SITE_URL } from '../src/data/company.mjs';
 
 import homePage from '../src/pages/home.mjs';
 import aboutPage from '../src/pages/about.mjs';
-import coalLabPage from '../src/pages/coal-laboratory.mjs';
+import laboratoryServicesPage from '../src/pages/laboratory-services.mjs';
 import chemicalsPage from '../src/pages/chemicals.mjs';
 import repairsPage from '../src/pages/repairs-maintenance.mjs';
 import agenciesPage from '../src/pages/agencies.mjs';
@@ -32,7 +32,7 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const staticPages = [
   homePage,
   aboutPage,
-  coalLabPage,
+  laboratoryServicesPage,
   chemicalsPage,
   repairsPage,
   agenciesPage,

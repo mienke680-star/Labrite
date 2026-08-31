@@ -11,7 +11,7 @@ const main = `
       <div class="container split">
         <div class="split-content">
           <h2>SANAS accreditation</h2>
-          <p>The Labrite Coal Laboratory is a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>. The symbol shown is used exactly as supplied by Labrite, unmodified.</p>
+          <p>Labrite's Coal Testing &amp; Analysis laboratory, part of Laboratory Services, is a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>. The symbol shown is used exactly as supplied by Labrite, unmodified.</p>
           <div class="notice">
             <strong>Scope pending.</strong> The detailed scope of accreditation (which specific test methods it covers) has not been supplied and is not stated here. No accreditation logo or claim is used elsewhere on this website for services outside this confirmed scope.
           </div>
@@ -27,7 +27,7 @@ const main = `
         <div class="split-content">
           <h2>Quality approach</h2>
           <p>Labrite's laboratory and equipment operations follow structured, repeatable processes designed to protect the accuracy and reliability of every result and service delivered.</p>
-          <a class="btn btn-secondary" href="/coal-laboratory.html">Coal Laboratory</a>
+          <a class="btn btn-secondary" href="/laboratory-services.html">Laboratory Services</a>
         </div>
       </div>
     </section>

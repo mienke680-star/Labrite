@@ -1,8 +1,8 @@
 # Labrite
 
-Corporate website for Labrite CC — Coal Laboratory, Equipment & Instruments, Chemicals,
-Repairs & Maintenance, and Agencies & Distribution, presented under one master Labrite
-identity.
+Corporate website for Labrite (Pty) Ltd — Laboratory Services (currently Coal Testing &
+Analysis), Equipment & Instruments, Chemicals, Repairs & Maintenance, and Agencies &
+Distribution, presented under one master Labrite identity.
 
 Static site. No framework, no bundler, no runtime dependencies — plain HTML, CSS and
 vanilla JS, generated from a small set of reusable page/data modules by a zero-dependency
@@ -25,16 +25,18 @@ Run `npm run build` again after editing anything under `src/` or `assets/` — t
 ```
 src/
   data/
-    nav.mjs          Navigation, footer business-area links, equipment ranges, the
+    company.mjs        Real Labrite facts — legal name, address, Information Officer,
+                        hours — single source of truth, imported everywhere.
+    nav.mjs          Navigation, footer service links, equipment ranges, the
                       LinkedIn URL — single source of truth, imported everywhere.
     products.mjs      The 12-product equipment catalogue (see below).
   partials/
     render.mjs         renderHeader / renderFooter / renderLogo / renderLinkedInLink /
                         mediaPlaceholder / renderPage — every page is assembled from these,
                         so header, footer, nav and the LinkedIn link are defined exactly once.
-  pages/               One module per hand-authored page (Home, About, Coal Laboratory,
-                        Chemicals, Repairs & Maintenance, Agencies, Contact, Accreditation,
-                        legal pages, the Equipment & Instruments index).
+  pages/               One module per hand-authored page (Home, About, Laboratory Services,
+                        Chemicals, Repairs & Maintenance, Agencies & Distribution, Contact,
+                        Accreditation, legal pages, the Equipment & Instruments index).
   templates/           Data-driven templates: one renders each equipment category page,
                         the other renders each of the 12 product detail pages.
 scripts/
@@ -58,20 +60,22 @@ Implements the supplied Labrite Brand Identity & Website Style Guide:
 - **One master identity** — the real supplied Labrite wordmark+tick artwork
   (`assets/images/brand/labrite-logo.png`, trimmed and made transparent — pixels
   untouched) renders via `renderLogo()` everywhere the logo appears on a light
-  background. The Coal Laboratory business-unit lock-up (that same mark + "Coal
-  Laboratory" + the approved tagline) is only used on Coal Laboratory content, never
-  permanently fused to the master logo.
+  background; the dark-background variant (`labrite-logo-reverse.png`) is the same
+  file with only its grayscale wordmark pixels inverted to white, alpha-for-alpha —
+  the red tick is untouched byte-for-byte, so proportions, spacing, tick size, angle
+  and position are identical in both. The Laboratory Services business-unit lock-up
+  (that same mark + "Laboratory Services" + the approved tagline) is only used on
+  Laboratory Services content, never permanently fused to the master logo.
 - **Supporting "L" device** — a restrained red/charcoal corner accent (`.l-frame` in
   `styles.css`) used sparingly to frame media, never as a logo substitute.
 
 ### Logo status
 
-The real master logo file is in use (see above). The one gap: **no reverse (white-on-dark)
-file was supplied**, so the dark footer still renders a coded text+tick stand-in
-(`renderLogo({ reverse: true })` in `src/partials/render.mjs`) rather than the real
-artwork — swap that in once Labrite supplies an approved reverse/white version. The
-favicon (`assets/images/site/favicon.svg`) is a plain "L" monogram for the same
-reason — deliberately not a redrawn tick — pending an approved favicon file.
+The real master logo file is in use everywhere, in both normal and reverse form (see
+above) — no page recreates the "Labrite" wordmark in a substitute font. A true
+monochrome file hasn't been supplied yet; nothing on the site currently needs one.
+The favicon (`assets/images/site/favicon.svg`) is a plain "L" monogram — deliberately
+not a redrawn tick — pending an approved favicon file.
 
 ## The product catalogue
 
@@ -98,8 +102,8 @@ power, dimensions or model numbers — fill these in once Labrite confirms them.
   on any page yet — no confirmed Alibaba profile URL to link it to.
 - `products/` — one photo per catalogue product.
 - `site/` — corporate/lab photography (reception, boardroom, lab spaces, corridor,
-  entrance) plus the coal sample image, distributed across Home, About, Coal
-  Laboratory, Chemicals and Contact.
+  entrance) plus the coal sample image, distributed across Home, About, Laboratory
+  Services, Chemicals and Contact.
 
 All photos were resized (max 1600px) and re-encoded as JPEG to keep the site fast —
 originals were several MB each as supplied.
@@ -118,12 +122,16 @@ visitor's own timezone).
 
 A cookie consent banner (`renderCookieBanner()` in `render.mjs`, behaviour in
 `main.js`) appears once per browser (remembered via `localStorage`) on every page, and is
-reopenable any time via "Cookie preferences" in the footer. `privacy-policy.html` is a
-real, POPIA-referencing policy — what's collected (only the enquiry form), the cookies
-actually in use (consent flag, Google Maps embed, Google Fonts), data subject rights, and
-the Information Regulator's complaints contact. The one gap POPIA requires and this site
-can't state: a registered **Information Officer** name/contact — flagged in place on that
-page rather than invented.
+reopenable any time via "Cookie preferences" in the footer. Non-essential embeds don't
+load before that choice is made: the Contact page's Google Maps iframe is only created
+(via `[data-map-embed]` / `loadConsentGatedEmbeds()` in `main.js`) once consent is
+accepted, not on page load. `privacy-policy.html` is a real, POPIA-referencing policy —
+what's collected (the enquiry form, plus standard Netlify hosting logs), the cookies and
+external requests actually in use (consent flag, consent-gated Google Maps, Google Fonts —
+not yet self-hosted), data subject rights, and the Information Regulator's complaints
+contact. The registered **Information Officer** (Jacques Stander, confirmed directly) is
+now named on that page — the one remaining gap is Labrite's general company phone/email,
+still sourced rather than confirmed (see below).
 
 ## SEO
 
@@ -132,6 +140,30 @@ by re-running `npm run build`); `robots.txt` points at it. Every page carries a
 `LocalBusiness` JSON-LD block (real name/address/phone/email/hours/logo/LinkedIn); product
 pages add `Product` + `BreadcrumbList` schema, category pages add `BreadcrumbList`. `og:image`
 / `twitter:card` / `theme-color` meta tags are set site-wide using the real logo.
+
+## Legal name, address & terminology standardisation
+
+Following written feedback from Jacques Stander (Quality Manager / Information Officer),
+several site-wide standards were corrected in one pass rather than page by page:
+
+- Legal entity is `Labrite (Pty) Ltd` everywhere (footer, copyright, structured data,
+  Privacy Policy) — `Labrite CC` no longer appears anywhere on the site.
+- The address is `4 Slegtkamp Street, Unit C, Middelburg, Mpumalanga, 1050, South Africa`
+  everywhere (footer, Contact page, Google Maps embed, structured data) — the old
+  eMalahleni address is gone.
+- "Coal Laboratory" is now **Laboratory Services** in navigation, the footer and page
+  URLs (`/laboratory-services.html`, `src/pages/laboratory-services.mjs`), structured as
+  an umbrella with **Coal Testing & Analysis** as its current, and so far only,
+  discipline — so a future lab discipline can be added without a nav restructure. The old
+  `/coal-laboratory.html` URL 301-redirects to the new one (`_redirects`).
+- "Agencies" (nav) and "Agencies & Distribution" (footer) are now the same term
+  everywhere; the footer's "Business Areas" heading is now "Our Services".
+- The footer's one-line company description was rewritten to describe what Labrite does
+  for a visitor, rather than restate the internal branding line.
+
+`COMPANY` and the new `INFORMATION_OFFICER` record in `src/data/company.mjs` are both
+confirmed directly by Labrite; only the general company phone/email remain sourced (see
+below).
 
 ## Content deliberately left as placeholders
 
@@ -145,13 +177,16 @@ clearly marked "to be supplied" placeholders rather than guessed:
 - Chemicals product list (Chemicals page — no chemical photos or products were supplied)
 - Further represented brands beyond U-Therm and Maglev Africa (Agencies page)
 - Terms of Use body copy
-- Privacy Policy's Information Officer name/contact (see "Cookies & POPIA" above)
+- A confirmed email/CRM connection for the enquiry form (Privacy Policy's Third
+  Parties section names this as not yet configured, rather than guessing a provider)
 
-Contact phone (013 650 0394), email (info@labrite.co.za) and address (6 Dorinda Avenue,
-Extension 18, eMalahleni) in `src/data/company.mjs` were sourced from Labrite's LinkedIn
-company page and corroborating directories, not confirmed directly by Labrite — see the
-notices next to them on the Contact page/footer, and confirm before treating them as
-final. Business hours, by contrast, were supplied directly and are treated as confirmed.
+Contact phone (013 650 0394) and email (info@labrite.co.za) in `src/data/company.mjs`
+were sourced from Labrite's LinkedIn company page and corroborating directories, not
+confirmed directly by Labrite — see the notice next to them on the Contact page, and
+confirm before treating them as final. Legal name (Labrite (Pty) Ltd), registered
+address (4 Slegtkamp Street, Unit C, Middelburg, Mpumalanga, 1050), business hours, and
+the Information Officer record were all confirmed directly by Labrite (Jacques Stander,
+Quality Manager / Information Officer) and are treated as final.
 
 The contact form is fully built and client-side validated but has no live submission
 endpoint yet (see the comment in `assets/js/main.js`) — until it's connected, a
