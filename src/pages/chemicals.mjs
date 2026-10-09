@@ -12,7 +12,7 @@ const main = `
       <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split reverse">
         <div class="split-content">
           <h2>Product range</h2>
@@ -28,7 +28,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container split">
         <div class="split-content">
           <h2>Laboratory applications</h2>

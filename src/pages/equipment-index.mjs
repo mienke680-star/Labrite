@@ -50,7 +50,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container">
         <div class="section-head">
           <div>
@@ -64,7 +64,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>

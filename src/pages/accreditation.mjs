@@ -7,7 +7,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split">
         <div class="split-content">
           <h2>SANAS accreditation</h2>
@@ -23,7 +23,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container split">
         <div class="split-content">
           <h2>Quality approach</h2>

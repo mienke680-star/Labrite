@@ -8,7 +8,7 @@ const main = `
         <p class="lede">Terms governing the use of this website.</p>
       </div>
     </section>
-    <section class="section">
+    <section class="section section-paper">
       <div class="container" style="max-width:80ch;">
         <p>This website is operated by ${COMPANY.legalName}, registration number ${COMPANY.registrationNumber}, of ${COMPANY.addressSingleLine}.</p>
         <div class="notice">

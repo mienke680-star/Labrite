@@ -40,7 +40,7 @@ export function renderEquipmentCategoryPage(range, products) {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container">
         <div class="grid grid-3 reveal-group">
           ${cards}
@@ -48,7 +48,7 @@ export function renderEquipmentCategoryPage(range, products) {
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>

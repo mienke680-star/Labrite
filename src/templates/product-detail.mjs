@@ -45,7 +45,7 @@ export function renderProductPage(product) {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split l-frame">
         <div class="split-media">
           ${productMedia(product)}
@@ -65,7 +65,7 @@ export function renderProductPage(product) {
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>
@@ -79,7 +79,7 @@ export function renderProductPage(product) {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container">
         <div class="section-head">
           <div>

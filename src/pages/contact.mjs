@@ -14,7 +14,7 @@ const main = `
       <img src="/assets/images/site/reception-lounge.jpg" alt="Labrite reception area" loading="lazy" />
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split">
         <div class="split-content">
           <h2>Send an enquiry</h2>
@@ -96,7 +96,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container text-center">
         <span class="eyebrow" style="justify-content:center;">Follow Labrite</span>
         <h2>Connect with Labrite on social media</h2>
@@ -105,7 +105,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container">
         <div class="section-head">
           <div>

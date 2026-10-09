@@ -9,7 +9,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container" style="max-width:75ch;">
         <div class="notice" style="margin-bottom:2.5rem;">
           <strong>Based on Labrite's approved internal Privacy Policy</strong> (Document POL-POPIA-001, Revision 0, approved by the Quality Manager, issued 10 May 2026), adapted here for website visitors specifically. The Information Officer, legal name, registration number, address and enquiry-handling details below are confirmed directly by Labrite. Labrite's general company phone and email are still sourced from public listings pending direct confirmation (see the Contact page).

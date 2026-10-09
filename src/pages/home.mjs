@@ -44,10 +44,7 @@ const featuredCards = featuredSlugs
   .join('\n');
 
 const main = `
-    <section class="hero">
-      <div class="hero-media">
-        <img src="/assets/images/atmosphere/coal-chunk.jpg" alt="Coal, the raw material behind Labrite's testing work" />
-      </div>
+    <section class="hero hero-light">
       <div class="container hero-content">
         <span class="eyebrow">Laboratory · Equipment · Chemicals · Technical Support</span>
         <h1>Laboratory confidence. Built on <em>accuracy</em>.</h1>
@@ -58,10 +55,9 @@ const main = `
           <a class="btn btn-secondary" href="/contact.html">Contact Labrite</a>
         </div>
       </div>
-      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
-    <section class="section">
+    <section class="section section-mist">
       <div class="container">
         <div class="stats-strip reveal-group">
           <div class="stat">
@@ -84,7 +80,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split">
         <div class="split-content">
           <span class="eyebrow">Who We Are</span>
@@ -99,7 +95,7 @@ const main = `
       </div>
     </section>
 
-    <section id="business-areas" class="section section-alt">
+    <section id="business-areas" class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>
@@ -114,7 +110,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split reverse">
         <div class="split-content">
           <span class="eyebrow">Laboratory Services</span>
@@ -129,7 +125,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>
@@ -145,7 +141,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container split">
         <div class="split-content">
           <span class="eyebrow">Repairs &amp; Maintenance</span>
@@ -160,7 +156,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container split reverse">
         <div class="split-content">
           <span class="eyebrow">Agencies &amp; Distribution</span>

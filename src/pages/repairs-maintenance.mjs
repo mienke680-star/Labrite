@@ -15,7 +15,7 @@ const main = `
       <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
-    <section class="section">
+    <section class="section section-paper">
       <div class="container">
         <div class="section-head">
           <div>
@@ -55,7 +55,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container">
         <div class="section-head">
           <div>
@@ -80,7 +80,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-mist">
       <div class="container split reverse">
         <div class="split-content">
           <h2>A technical support partner</h2>
