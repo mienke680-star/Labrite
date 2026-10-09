@@ -19,12 +19,12 @@ const main = `
             <p class="section-intro">Brand logos are used only where supplied. No exclusive distribution rights are implied unless separately confirmed.</p>
           </div>
         </div>
-        <div class="grid grid-2 reveal-group">
+        <div class="grid grid-3 reveal-group">
           <article class="card business-card card-plain">
             <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-u-therm.png" alt="U-Therm laboratory instruments brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
             <div class="card-body">
               <h3>U-Therm</h3>
-              <p>Manufacturer of the laboratory analyzer system in Labrite's Testing &amp; Analysis equipment range.</p>
+              <p>A coal and energy testing equipment manufacturer — calorimeters, proximate analysers, sulphur analysers, ash fusion testers, abrasive index testers and other specialised analytical instrumentation.</p>
               <div class="card-actions"><a class="link-primary" href="/equipment/products/laboratory-analyzer-system.html">View equipment →</a></div>
             </div>
           </article>
@@ -32,6 +32,13 @@ const main = `
             <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-maglev-africa.png" alt="Maglev Africa brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
             <div class="card-body">
               <h3>Maglev Africa</h3>
+              <p>A brand Labrite works with. Product categories and relationship details to be confirmed.</p>
+            </div>
+          </article>
+          <article class="card business-card card-plain">
+            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-herexi.png" alt="Herexi brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
+            <div class="card-body">
+              <h3>Herexi</h3>
               <p>A brand Labrite works with. Product categories and relationship details to be confirmed.</p>
             </div>
           </article>
