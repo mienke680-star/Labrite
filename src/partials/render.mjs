@@ -238,3 +238,16 @@ export function mediaPlaceholder({ title, note = 'Photograph to be added', ratio
     <span class="ph-note">${note}</span>
   </div></div>`;
 }
+
+// Builds a /contact.html link carrying enquiry context (type, product name,
+// brand, or a category-level preset message) so the contact form arrives
+// pre-filled — see the query-param handling in assets/js/main.js.
+export function enquiryHref({ type, product, brand, message } = {}) {
+  const params = new URLSearchParams();
+  if (type) params.set('type', type);
+  if (product) params.set('product', product);
+  if (brand) params.set('brand', brand);
+  if (message) params.set('message', message);
+  const qs = params.toString();
+  return qs ? `/contact.html?${qs}` : '/contact.html';
+}

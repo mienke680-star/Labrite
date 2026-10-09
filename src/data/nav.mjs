@@ -45,7 +45,7 @@ export const EQUIPMENT_RANGES = [
     key: 'testing-analysis',
     label: 'Testing & Analysis',
     href: '/equipment/testing-analysis.html',
-    desc: 'Muffle furnaces and laboratory analyzer systems used in coal and material testing.',
+    desc: 'Muffle furnaces used in coal and material testing.',
   },
   {
     key: 'laboratory-support',

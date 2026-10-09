@@ -15,14 +15,16 @@ export const BRANDS = [
     slug: 'herexi',
     name: 'Herexi',
     logo: '/assets/images/brand/partner-herexi.png',
-    summary: 'A brand Labrite works with. Product categories and relationship details to be confirmed.',
+    summary:
+      'A manufacturer and technology provider represented by Labrite, supporting the laboratory and industrial markets Labrite serves with local commercial and technical support.',
     hasCatalogue: false,
   },
   {
     slug: 'maglev-africa',
     name: 'Maglev Africa',
     logo: '/assets/images/brand/partner-maglev-africa.png',
-    summary: 'A brand Labrite works with. Product categories and relationship details to be confirmed.',
+    summary:
+      'A manufacturer and technology provider represented by Labrite, supporting the laboratory and industrial markets Labrite serves with local commercial and technical support.',
     hasCatalogue: false,
   },
 ];

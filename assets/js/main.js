@@ -152,24 +152,66 @@
     });
   }
 
-  // Contact form: client-side validation + confirmation state.
-  // NOTE: no email/CRM endpoint has been supplied for Labrite yet, so this
-  // intentionally stops short of a network submission — wire submitEndpoint
-  // up to the real form handler before go-live.
+  // Contact form. NOTE: no email/CRM endpoint has been supplied for Labrite
+  // yet, so there is no real network submission — wire submitEndpoint up to
+  // the real form handler before go-live. Until then, submitting opens a
+  // prefilled mailto: draft (an honest, working route) rather than claiming
+  // a delivery that hasn't happened.
+  //
+  // Enquiry context: a product/category page's "Enquire" link can carry
+  // ?type=product&product=<name>&brand=<brand> (or &message=<text> for a
+  // category-level enquiry) so the form arrives pre-filled with that
+  // context — the visitor can still freely edit or clear it.
   var forms = document.querySelectorAll('[data-enquiry-form]');
   forms.forEach(function (form) {
     var status = form.querySelector('.form-status');
+    var params = new URLSearchParams(window.location.search);
+    var type = params.get('type');
+    var productName = params.get('product');
+    var brandName = params.get('brand');
+    var presetMessage = params.get('message');
+
+    var typeField = form.querySelector('#enquiry-type');
+    if (type && typeField && typeField.querySelector('option[value="' + type + '"]')) {
+      typeField.value = type;
+    }
+    var messageField = form.querySelector('#message');
+    if (messageField) {
+      if (presetMessage) {
+        messageField.value = presetMessage;
+      } else if (productName) {
+        messageField.value =
+          'Enquiry about: ' + productName + (brandName ? ' (' + brandName + ')' : '') + '\n\n';
+        messageField.setSelectionRange(messageField.value.length, messageField.value.length);
+      }
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
+      var data = new FormData(form);
+      var lines = [
+        'Name: ' + (data.get('name') || ''),
+        'Email: ' + (data.get('email') || ''),
+        'Phone: ' + (data.get('phone') || '(not supplied)'),
+        'Enquiry type: ' + (typeField ? typeField.options[typeField.selectedIndex].text : ''),
+        '',
+        data.get('message') || '',
+      ];
+      var subject = productName ? 'Website enquiry: ' + productName : 'Website enquiry';
+      var mailto =
+        'mailto:info@labrite.co.za?subject=' +
+        encodeURIComponent(subject) +
+        '&body=' +
+        encodeURIComponent(lines.join('\n'));
+      window.location.href = mailto;
       if (status) {
-        status.textContent = 'Thank you — your enquiry has been prepared. Labrite will be in touch shortly.';
+        status.textContent = 'Opening your email app with this enquiry ready to send to Labrite — complete it there to deliver it.';
         status.classList.add('is-visible');
       }
-      form.reset();
     });
   });
 

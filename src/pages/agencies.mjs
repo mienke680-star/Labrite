@@ -36,9 +36,6 @@ const main = `
         <div class="grid grid-3 reveal-group">
           ${brandCards}
         </div>
-        <div class="notice" style="margin-top:2rem;">
-          <strong>More brands pending.</strong> Further manufacturer and brand details will be published here only where supplied and officially approved.
-        </div>
       </div>
     </section>
 

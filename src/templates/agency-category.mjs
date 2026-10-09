@@ -1,4 +1,4 @@
-import { breadcrumbSchema } from '../partials/render.mjs';
+import { breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { UTHERM_CATEGORIES } from '../data/utherm-products.mjs';
 
 export function renderAgencyCategoryPage(brand, category, products) {
@@ -7,7 +7,7 @@ export function renderAgencyCategoryPage(brand, category, products) {
   const cards = products
     .map(
       (p) => `
-      <article class="card">
+      <article class="card-product">
         <div class="media ratio-4-3"><img src="${p.image}" alt="${p.name}" loading="lazy" /></div>
         <div class="card-body">
           <span class="card-category">${brand.name}</span>
@@ -71,7 +71,7 @@ export function renderAgencyCategoryPage(brand, category, products) {
           <p>Speak to Labrite about availability, pricing and technical support.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="/contact.html">Contact Labrite</a>
+          <a class="btn btn-primary" href="${enquiryHref({ type: 'agencies', brand: brand.name, message: `Enquiry about: ${category.label} (${brand.name})\n\n` })}">Contact Labrite</a>
         </div>
       </div>
     </section>`;

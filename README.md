@@ -280,15 +280,17 @@ caption to its source panel, the three original client PDFs, and client instruct
 (`CLAUDE_PROMPT.md`) to build dedicated brand pages rather than keep routing "View
 equipment" to a single generic product.
 
-**What was built.** Each multi-product panel image was individually cropped (whitespace-gap
-detection, not AI guessing) into one photo per product, matched 1:1 and in order to the
-captions `product-image-map.json` lists for that page. 55 products across the client's
-four priority categories are published under `/agencies/u-therm/`:
+**What was built.** Each multi-product panel image was cropped per product using the full
+gap-to-gap column width (not a content-fitted box from a narrow vertical slice — that
+earlier approach clipped parts of some machines, caught in the 9 Oct second review and
+fixed), matched 1:1 and in order to the captions `product-image-map.json` lists for that
+page. 42 products across the client's four priority categories are published under
+`/agencies/u-therm/`:
 
-- Coal Testing (16) — the client's explicit "Priority 1 – Lead" category
-- Muffle Furnaces (12 of 18 supplied — see exclusions below)
-- Balances & Scales (13)
-- Sampling & Sample Preparation (15)
+- Coal Testing (14) — the client's explicit "Priority 1 – Lead" category
+- Muffle Furnaces (8)
+- Balances & Scales (12)
+- Sampling & Sample Preparation (8)
 
 `src/data/utherm-products.mjs` holds every entry; `src/templates/agency-brand.mjs`,
 `agency-category.mjs` and `agency-product.mjs` render the brand landing page, category
@@ -296,11 +298,33 @@ pages and product pages. `src/data/agencies.mjs` is the single shared source for
 name/logo/summary used by Home, About and the Agencies index, so counts and names can't
 drift out of sync.
 
-**Names only, no invented specs.** Every product's name is the manufacturer's own visible
-caption, used as supplied — several are truncated at source (shown with their trailing
-ellipsis rather than completed by guesswork). No model numbers or specifications were
-included in the supplied material for these 55 entries, so none are stated; each product
-page says so plainly and routes to a Labrite enquiry instead.
+**Names only, no invented specs — and no truncated captions published as finished
+titles.** Every product's name is the manufacturer's own *complete* visible caption, used
+as supplied. The first pass (see git history) published several captions that were cut
+off mid-word in the source PDF with their name silently completed-looking (ellipsis
+stripped) — the second review correctly called this out as a clipped identification
+label being presented as a finished product title. Per the review's own instruction
+("keep that record unpublished... until approved information is available"), every
+product whose source caption was truncated or marked obscured has been removed from
+publication rather than cosmetically patched — see the exclusion list below. No model
+numbers or specifications were included in the supplied material for the 42 that remain,
+so none are stated; each product page says so plainly and routes to a Labrite enquiry
+with that product's name and brand carried through (`enquiryHref()` in
+`src/partials/render.mjs`, read by the query-param handling in `assets/js/main.js`).
+
+**Product card redesign.** The dark "image-bleed" `.card` (photo + dark scrim, built for
+atmospheric photography) was being reused for catalogue product photography, which (a)
+put heading/body text in a colour that a later light-section CSS rule silently overrode
+to near-black on that same dark panel — confirmed via computed-style inspection as
+`rgb(5,5,5)` text on `rgb(18,19,23)` background, i.e. genuinely unreadable, not just a
+style preference — and (b) used `object-fit: cover` in a fixed tile, which crops a
+product photo instead of showing the whole machine. Both are now fixed with a dedicated
+`.card-product` component (white card, `object-fit: contain`, charcoal text) used
+everywhere product photography appears — Home's featured equipment, the Equipment
+catalogue, U-Therm categories/products, and related-items grids. The dark image-bleed
+`.card` itself is untouched for any future atmospheric-photo use, with a defensive CSS
+rule added so a `.card` landing inside a light section can never again inherit
+light-section text colours meant for plain text.
 
 **Deliberately not built this round** — listed as a category tile with an "Enquire about
 this range" link rather than individual products, since curating and verifying these
@@ -317,10 +341,15 @@ lift furnace, vacuum atmosphere furnace, high-temperature frit furnace, high-tem
 vacuum atmosphere tube — industrial/specialty units, not laboratory coal-testing
 equipment, matching the client's "lab-relevant models only" instruction.
 
-**Unresolved source cards, not published:**
+**Unresolved/excluded source cards, not published (private delivery note — not shown on
+the site):**
 - `P11-C03` ("High temperature muffle furnace/Box-type…") — the source panel is a
-  composite of several small sub-images, not one clean product photo; excluded rather
-  than guess which sub-image is correct.
+  composite of several small sub-images, not one clean product photo.
+- Truncated/obscured source captions, excluded per the rule above: `P03-C03` (caption
+  marked obscured in source), `P05-C02`, `P08-C03`, `P10-C01`, `P10-C02`, `P14-C03`,
+  `P35-C01`, `P35-C02`, `P35-C03`, `P36-C01`, `P36-C02`, `P38-C03`, `P39-C01`. Each has a
+  real, correctly-cropped photo sitting unused in `assets/images/agencies/u-therm/` —
+  republish any of them the moment Labrite supplies the complete name.
 - One extra, uncaptioned photo each on source pages 35 and 36 — each page's panel
   contains four product photos but `product-image-map.json` lists only three captions
   for it; the fourth photo is not used since there is no supplied caption to pair it
@@ -328,13 +357,41 @@ equipment, matching the client's "lab-relevant models only" instruction.
 - Source PDF page 46 (referenced in the client's instructions as having further
   catalogue pages, e.g. an 18-page Small Instruments range) was not included in the
   supplied package — nothing was built from it.
+- Source image resolution is genuinely low for several Sampling & Sample Preparation
+  products (native crops around 200–330px wide) — `object-fit: contain` shows the whole
+  machine without cropping or a dark overlay, but will not make these sharper. Ask
+  Labrite for higher-resolution manufacturer originals if sharper images matter for
+  these specific listings.
 
 **Herexi.** The image supplied and originally used as the U-Therm logo was actually a
 combined "HEREXI / U-THERM" lockup; it was split into two separate logo files
 (`partner-herexi.png`, `partner-u-therm.png`) so Herexi — previously missing from the
 site entirely — now has its own real logo on a dedicated brand page. No Herexi or Maglev
-Africa product media has been supplied, so both brand pages are logo + approved copy +
-enquiry CTA only, with no fabricated catalogue.
+Africa product media has been supplied, so both brand pages carry only the real logo,
+factual copy drawn from the approved About text ("a manufacturer and technology provider
+represented by Labrite..."), and a Labrite enquiry CTA — no fabricated catalogue, and no
+"pending"/"to be confirmed" project-status language in the public copy (removed per the
+second review; that status is now tracked here instead).
+
+**Old generic "Laboratory Analyzer System" entry.** This single catalogue-style item
+(`/equipment/products/laboratory-analyzer-system.html`) overlapped and understated the
+same ground the new U-Therm Coal Testing range now covers properly, so it has been
+removed from `src/data/products.mjs` and its listings (Testing & Analysis category, the
+"Testing & Analysis" range description). The old URL 301-redirects to
+`/agencies/u-therm/coal-testing.html` (see `_redirects`). Home's four featured-equipment
+items (Analytical Balance, Halogen Moisture Analyzer, Muffle Furnace, Laboratory Sample
+Crusher) are untouched — these are Labrite's own equipment entries, not U-Therm
+manufacturer listings, so they don't overlap with the new catalogue.
+
+**Contact form honesty.** No email/CRM backend is connected in this environment, so the
+form previously showed a fake "your enquiry has been prepared" success message on submit
+with no delivery behind it — flagged correctly in the second review as presenting a
+non-functional button as functional. It now does something real instead: on submit it
+opens a prefilled `mailto:` draft (subject, and a body built from the form's own fields)
+in the visitor's own email app, and the on-page status text says exactly that rather than
+claiming delivery. This is the same honest fallback the standalone "Email Labrite
+directly" button already used, just carrying the form's content into it. Wire a real
+submit endpoint up before go-live if Labrite provisions one.
 
 ## LinkedIn
 

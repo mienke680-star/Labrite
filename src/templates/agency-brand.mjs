@@ -1,4 +1,4 @@
-import { breadcrumbSchema } from '../partials/render.mjs';
+import { breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { UTHERM_CATEGORIES, UTHERM_PRODUCTS, getUThermProductsByCategory } from '../data/utherm-products.mjs';
 
 const CATEGORY_SAMPLE_PRODUCT = {};
@@ -12,7 +12,7 @@ function renderCategorySection(brand) {
     const sample = CATEGORY_SAMPLE_PRODUCT[c.slug];
     if (c.hasProducts && sample) {
       return `
-      <article class="card">
+      <article class="card-product">
         <div class="media ratio-4-3"><img src="${sample.image}" alt="${sample.name}" loading="lazy" /></div>
         <div class="card-body">
           <h3>${c.label}</h3>
@@ -28,7 +28,7 @@ function renderCategorySection(brand) {
         <div class="card-body">
           <h3>${c.label}</h3>
           <p>${c.description}</p>
-          <div class="card-actions"><a class="link-primary" href="/contact.html">Enquire about this range →</a></div>
+          <div class="card-actions"><a class="link-primary" href="${enquiryHref({ type: 'agencies', brand: brand.name, message: `Enquiry about: ${c.label} (${brand.name})\n\n` })}">Enquire about this range →</a></div>
         </div>
       </article>`;
   }).join('\n');
@@ -67,7 +67,6 @@ export function renderAgencyBrandPage(brand) {
     <section class="section section-paper">
       <div class="container">
         <div class="media ratio-16-9" style="max-width:420px;background:var(--white);border:1px solid rgba(0,0,0,0.08);"><img src="${brand.logo}" alt="${brand.name} brand logo" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
-        ${!brand.hasCatalogue ? `<div class="notice" style="margin-top:var(--space-8);max-width:700px;"><strong>Catalogue pending.</strong> ${brand.name}'s product media has not yet been supplied for publication. Contact Labrite directly to discuss ${brand.name} equipment and availability.</div>` : ''}
       </div>
     </section>
 
@@ -80,7 +79,7 @@ export function renderAgencyBrandPage(brand) {
           <p>Contact Labrite for availability, pricing and technical support.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="/contact.html">Contact Labrite</a>
+          <a class="btn btn-primary" href="${enquiryHref({ type: 'agencies', brand: brand.name })}">Contact Labrite</a>
         </div>
       </div>
     </section>`;

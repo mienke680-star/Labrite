@@ -5,7 +5,7 @@ const main = `
       <div class="container hero-content">
         <span class="eyebrow">Business Unit</span>
         <div style="margin-bottom:1.5rem;">
-          ${renderLogo({ reverse: true, size: 'lg', subLabel: 'Laboratory Services', tagline: 'Applying science for accuracy and precision' })}
+          ${renderLogo({ reverse: false, size: 'lg', subLabel: 'Laboratory Services', tagline: 'Applying science for accuracy and precision' })}
         </div>
         <h1>Laboratory services tailored to your <em>operational needs</em></h1>
         <span class="hero-rule" aria-hidden="true"></span>

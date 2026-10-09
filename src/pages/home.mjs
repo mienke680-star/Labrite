@@ -27,7 +27,7 @@ const featuredCards = featuredSlugs
   .map(getProduct)
   .map(
     (p) => `
-      <article class="card">
+      <article class="card-product">
         ${productMedia(p)}
         <div class="card-body">
           <span class="card-category">${p.category}</span>

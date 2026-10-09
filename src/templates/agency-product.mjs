@@ -1,4 +1,4 @@
-import { breadcrumbSchema } from '../partials/render.mjs';
+import { breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { getCategory, getUThermProductsByCategory } from '../data/utherm-products.mjs';
 import { SITE_URL } from '../data/company.mjs';
 
@@ -12,7 +12,7 @@ export function renderAgencyProductPage(brand, product) {
     ? related
         .map(
           (p) => `
-        <article class="card">
+        <article class="card-product">
           <div class="media ratio-4-3"><img src="${p.image}" alt="${p.name}" loading="lazy" /></div>
           <div class="card-body">
             <h3>${p.name}</h3>
@@ -52,7 +52,7 @@ export function renderAgencyProductPage(brand, product) {
             <strong>Specifications on enquiry.</strong> Model number and detailed specifications were not included in the supplied material, so none are stated here — contact Labrite for current technical detail, pricing and availability.
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/contact.html">Enquire about this product</a>
+            <a class="btn btn-primary" href="${enquiryHref({ type: 'product', product: product.name, brand: brand.name })}">Enquire about this product</a>
             <a class="btn btn-secondary" href="/agencies/${brand.slug}/${category.slug}.html">Back to ${category.label}</a>
           </div>
         </div>
@@ -80,7 +80,7 @@ export function renderAgencyProductPage(brand, product) {
           <p>Speak to Labrite about availability, pricing and laboratory support.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="/contact.html">Enquire now</a>
+          <a class="btn btn-primary" href="${enquiryHref({ type: 'product', product: product.name, brand: brand.name })}">Enquire now</a>
         </div>
       </div>
     </section>`;

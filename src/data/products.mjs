@@ -175,23 +175,6 @@ export const PRODUCTS = [
     imageAlt: 'Muffle furnace with the door open showing the heated chamber',
   },
   {
-    slug: 'laboratory-analyzer-system',
-    name: 'Laboratory Analyzer System',
-    range: 'testing-analysis',
-    category: 'Testing & Analysis',
-    tagline: 'Analytical instrument system',
-    shortDescription: 'Computer-controlled analytical instrument system used for laboratory sample analysis.',
-    overview:
-      'This analyzer system pairs a dedicated benchtop analytical instrument with a computer workstation for instrument control, data capture and reporting. As the exact analytical method has not been confirmed for this listing, it is described here in general terms rather than by a specific test function. It is one example from U-Therm\'s wider coal and energy testing range — see the full <a href="/agencies/u-therm/" style="color:var(--luxury-red);font-weight:600;">U-Therm catalogue</a> for calorimeters, proximate analysers, sulphur analysers, ash fusion and abrasive index testers, muffle furnaces and balances.',
-    applications: [
-      'Computer-controlled laboratory sample analysis',
-      'Instrument data capture and reporting',
-      'Supporting Labrite’s wider Laboratory Services testing workflow',
-    ],
-    image: '/assets/images/products/laboratory-analyzer-system.jpg',
-    imageAlt: 'Laboratory analyzer system with computer workstation and benchtop instrument',
-  },
-  {
     slug: 'label-printer',
     name: 'Label / Barcode Printer',
     range: 'laboratory-support',

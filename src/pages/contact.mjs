@@ -49,7 +49,7 @@ const main = `
             </div>
             <button class="btn btn-primary btn-block" type="submit">Send enquiry</button>
             <div class="form-status" role="status" aria-live="polite"></div>
-            <p class="hint" style="margin-top:1rem;">This form requires an email or CRM connection to be configured before it can deliver enquiries — until then, email Labrite directly using the button below.</p>
+            <p class="hint" style="margin-top:1rem;">No email/CRM connection is configured yet, so "Send enquiry" opens a prefilled email in your own email app rather than submitting directly — review it there and send.</p>
           </form>
           <a class="btn btn-secondary btn-block" href="${COMPANY.emailHref}" style="margin-top:1rem;">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="flex-shrink:0;"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3.5 7l8.5 6 8.5-6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>

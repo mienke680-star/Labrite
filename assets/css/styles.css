@@ -171,6 +171,9 @@ strong { color: var(--white); font-weight: 700; }
 .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-8); margin-bottom: var(--space-12); }
 .section-head h2 { margin-bottom: var(--space-3); }
 .section-head p { margin: 0; color: var(--white-dim); }
+@media (max-width: 640px) {
+  .section-head { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+}
 
 .grid { display: grid; gap: var(--space-6); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -295,6 +298,8 @@ strong { color: var(--white); font-weight: 700; }
 .logo-tagline { display: block; font-size: 0.75rem; font-weight: 600; color: var(--red); margin-top: 2px; }
 .logo.reverse .logo-sub { color: var(--white-dim); }
 .logo.reverse .logo-tagline { color: var(--red); }
+.logo:not(.reverse) .logo-sub { color: #52525a; }
+.logo:not(.reverse) .logo-tagline { color: var(--luxury-red); }
 .logo.size-lg .logo-sub { font-size: 1.0625rem; margin-top: 2px; }
 .logo.size-lg .logo-tagline { font-size: 0.9375rem; margin-top: 4px; }
 
@@ -385,20 +390,26 @@ strong { color: var(--white); font-weight: 700; }
 @keyframes scroll-pulse { 0%, 100% { transform: scaleY(0.6); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .scroll-indicator, .scroll-indicator::after { animation: none; opacity: 1; } }
 
+/* A plain white hero with no background photograph or dark fill — used on
+   every sub-page (equipment/agency category & product pages, About, etc.).
+   Per the 9 Oct 2026 review: these should match Home's light hero rather
+   than keep a "heavy black/red-gradient" dark treatment. */
 .hero-simple {
   position: relative;
-  background: radial-gradient(ellipse 90% 120% at 18% -10%, rgba(168, 8, 30, 0.26), transparent 55%), var(--black);
-  color: var(--white); border-bottom: none; overflow: hidden;
-}
-.hero-simple::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60px;
-  background: linear-gradient(180deg, transparent, var(--black));
-  pointer-events: none;
+  background: var(--white);
+  color: var(--black); border-bottom: none; overflow: hidden;
 }
 .hero-simple .hero-content { padding: var(--space-16) 0 var(--space-12); max-width: 900px; animation: none; }
 .hero-simple .hero-content > * { animation: hero-fade-up 800ms cubic-bezier(0.16,1,0.3,1) forwards; }
-.hero-simple h1 { color: var(--white); }
-.hero-simple .eyebrow { color: var(--cool-grey); }
+.hero-simple h1 { color: var(--black); }
+.hero-simple p.lede { color: #45454a; }
+.hero-simple .eyebrow { color: var(--luxury-red); }
+.hero-simple .eyebrow::before { background: var(--luxury-red); }
+.hero-simple .hero-rule { background: var(--luxury-red); }
+.hero-simple .btn-secondary { color: var(--black); border-color: rgba(0, 0, 0, 0.3); }
+.hero-simple .btn-secondary:hover { border-color: var(--luxury-red); color: var(--luxury-red); box-shadow: none; }
+.hero-simple .notice { background: rgba(0, 0, 0, 0.03); color: #45454a; border-left-color: var(--luxury-red); }
+.hero-simple .notice strong { color: var(--black); }
 
 /* Light hero — a plain white hero with no background photograph, for
    pages that should not open on a dark image (e.g. the Home page). */
@@ -418,9 +429,9 @@ strong { color: var(--white); font-weight: 700; }
 .hero.hero-light .btn-secondary:hover { border-color: var(--luxury-red); color: var(--luxury-red); box-shadow: none; }
 .hero.hero-light .scroll-indicator { color: #6b6b72; }
 @media (max-width: 768px) { .hero.hero-light { padding: var(--space-16) 0 var(--space-12); } }
-.breadcrumb { display: flex; gap: var(--space-2); font-size: 0.8125rem; color: var(--white-dim); margin-bottom: var(--space-4); }
-.breadcrumb a { color: var(--white-dim); font-weight: 600; }
-.breadcrumb a:hover { color: var(--white); text-decoration: underline; }
+.breadcrumb { display: flex; gap: var(--space-2); font-size: 0.8125rem; color: #6b6b72; margin-bottom: var(--space-4); }
+.breadcrumb a { color: #6b6b72; font-weight: 600; }
+.breadcrumb a:hover { color: var(--luxury-red); text-decoration: underline; }
 .breadcrumb span[aria-hidden] { opacity: 0.5; }
 
 .cta-band-photo { position: relative; color: var(--white); overflow: hidden; }
@@ -483,6 +494,30 @@ strong { color: var(--white); font-weight: 700; }
 .card.card-plain .media { position: static; inset: auto; }
 .card.card-plain::before { display: none; }
 .card.card-plain .card-body { position: static; padding: var(--space-6); }
+
+/* Product photography card — a clean white frame with the whole product
+   visible (object-fit: contain, never cropped or hidden under a dark
+   scrim). The dark image-bleed .card above suits atmospheric photography;
+   actual catalogue/product shots use this instead, in any section. */
+.card-product {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+.card-product:hover { border-color: var(--luxury-red); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
+.card-product .media { background: var(--white); border-bottom: 1px solid rgba(0, 0, 0, 0.06); }
+.card-product .media img { object-fit: contain; padding: var(--space-5); transition: none; }
+.card-product:hover .media img { transform: none; }
+.card-product .card-body { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); }
+.card-product .card-category { color: var(--luxury-red); }
+.card-product h3 { margin-bottom: var(--space-1); font-size: 1.1875rem; color: var(--black); }
+.card-product p { color: #52525a; font-size: 0.9375rem; margin-bottom: var(--space-3); }
+.card-product .card-actions a { color: var(--black); }
+.card-product .card-actions a.link-secondary { color: #6b6b72; }
 
 /* ---------- Light sections ----------
    Client direction: the continuous black/dark-grey background felt too
@@ -548,6 +583,20 @@ strong { color: var(--white); font-weight: 700; }
 }
 .section-mist .card.card-plain { background: var(--white); }
 .section-paper .card.card-plain { background: #F7F7F8; }
+
+/* Defensive: the dark image-bleed .card (not .card-plain, not .card-product)
+   manages its own contrast via its photo + scrim regardless of the section
+   it sits in — the generic light-section text-colour rules above must never
+   win inside it. Higher specificity than ".section-paper h3" etc. so this
+   wins regardless of source order. */
+.section-paper .card:not(.card-plain):not(.card-product) h3,
+.section-mist .card:not(.card-plain):not(.card-product) h3 { color: var(--white); }
+.section-paper .card:not(.card-plain):not(.card-product) p,
+.section-mist .card:not(.card-plain):not(.card-product) p { color: var(--white-dim); }
+.section-paper .card:not(.card-plain):not(.card-product) .card-actions a,
+.section-mist .card:not(.card-plain):not(.card-product) .card-actions a { color: var(--white); }
+.section-paper .card:not(.card-plain):not(.card-product) .card-actions a.link-secondary,
+.section-mist .card:not(.card-plain):not(.card-product) .card-actions a.link-secondary { color: var(--white-dim); }
 
 /* Icon cards — "What We Do" style summaries without a photograph, per the
    authentic-imagery rule (icon + heading + text rather than stock photos). */

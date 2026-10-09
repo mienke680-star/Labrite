@@ -1,4 +1,4 @@
-import { productMedia, breadcrumbSchema } from '../partials/render.mjs';
+import { productMedia, breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { PRODUCTS } from '../data/products.mjs';
 import { SITE_URL } from '../data/company.mjs';
@@ -15,7 +15,7 @@ export function renderProductPage(product) {
     ? related
         .map(
           (p) => `
-        <article class="card">
+        <article class="card-product">
           ${productMedia(p)}
           <div class="card-body">
             <span class="card-category">${p.category}</span>
@@ -58,7 +58,7 @@ export function renderProductPage(product) {
               ${applications}
           </ul>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/contact.html">Enquire about this product</a>
+            <a class="btn btn-primary" href="${enquiryHref({ type: 'product', product: product.name })}">Enquire about this product</a>
             <a class="btn btn-secondary" href="${range.href}">Back to ${range.label}</a>
           </div>
         </div>
@@ -101,7 +101,7 @@ export function renderProductPage(product) {
           <p>Speak to Labrite about availability, pricing and laboratory support.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="/contact.html">Enquire now</a>
+          <a class="btn btn-primary" href="${enquiryHref({ type: 'product', product: product.name })}">Enquire now</a>
         </div>
       </div>
     </section>`;

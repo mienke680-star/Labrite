@@ -1,4 +1,4 @@
-import { productMedia, breadcrumbSchema } from '../partials/render.mjs';
+import { productMedia, breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 
 export function renderEquipmentCategoryPage(range, products) {
@@ -7,7 +7,7 @@ export function renderEquipmentCategoryPage(range, products) {
   const cards = products
     .map(
       (p) => `
-        <article class="card">
+        <article class="card-product">
           ${productMedia(p)}
           <div class="card-body">
             <span class="card-category">${p.category}</span>
@@ -15,7 +15,7 @@ export function renderEquipmentCategoryPage(range, products) {
             <p>${p.shortDescription}</p>
             <div class="card-actions">
               <a class="link-primary" href="/equipment/products/${p.slug}.html">View product →</a>
-              <a class="link-secondary" href="/contact.html">Enquire</a>
+              <a class="link-secondary" href="${enquiryHref({ type: 'product', product: p.name })}">Enquire</a>
             </div>
           </div>
         </article>`
