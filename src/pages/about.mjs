@@ -1,16 +1,5 @@
-const ICONS = {
-  lab: `<path d="M9 2v6.3L4.3 17a2 2 0 0 0 1.8 3h11.8a2 2 0 0 0 1.8-3L15 8.3V2" /><path d="M9 2h6" /><path d="M7.3 14h9.4" />`,
-  equipment: `<path d="M12 3v4" /><path d="M4 7h16" /><path d="M5 7l-2.5 5a2.8 2.8 0 0 0 5 0L5 7z" /><path d="M19 7l2.5 5a2.8 2.8 0 0 1-5 0L19 7z" /><path d="M12 7v14" /><path d="M8 21h8" />`,
-  chemicals: `<path d="M12 2s7 7.6 7 12.2A7 7 0 0 1 5 14.2C5 9.6 12 2 12 2z" />`,
-  support: `<path d="M4 13v-2a8 8 0 0 1 16 0v2" /><path d="M3 13h3v6H4a1 1 0 0 1-1-1v-5z" /><path d="M21 13h-3v6h2a1 1 0 0 0 1-1v-5z" /><path d="M18 19a4 4 0 0 1-4 2h-1" />`,
-  repairs: `<path d="M14.7 2.7a4.5 4.5 0 0 0-6.1 5.9L2.3 14.9v4.8h4.8l6.3-6.3a4.5 4.5 0 0 0 6-6.1l-3.3 3.3-2.1-2.1 3.3-3.3z" />`,
-  agencies: `<circle cx="6" cy="6" r="2.2" /><circle cx="18" cy="6" r="2.2" /><circle cx="12" cy="18" r="2.2" /><path d="M7.8 7.3 10.5 16M16.2 7.3 13.5 16M8.2 6h7.6" />`,
-  pin: `<path d="M12 21s7-7.3 7-12.2a7 7 0 1 0-14 0c0 4.9 7 12.2 7 12.2z" /><circle cx="12" cy="8.8" r="2.4" />`,
-};
-
-function iconSvg(name) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`;
-}
+import { iconSvg } from '../partials/icons.mjs';
+import { BRANDS } from '../data/agencies.mjs';
 
 const WHAT_WE_DO = [
   {
@@ -62,17 +51,13 @@ const whatWeDoCards = WHAT_WE_DO.map(
 ).join('\n');
 
 const main = `
-    <section class="hero">
-      <div class="hero-media">
-        <img src="/assets/images/atmosphere/glassware-wide.jpg" alt="Laboratory glassware" />
-      </div>
+    <section class="hero-simple">
       <div class="container hero-content">
         <span class="eyebrow">About Labrite</span>
         <h1>Laboratory expertise built on <em>experience</em></h1>
         <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Labrite provides laboratory services, laboratory equipment and instruments, chemicals and consumables, technical support, repairs and maintenance, and selected agency and distribution services. From operating coal laboratories to supplying and supporting laboratory and specialised equipment across Africa, our business is built on practical experience of the environments in which our customers work.</p>
       </div>
-      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section section-paper">
@@ -87,6 +72,7 @@ const main = `
           </div>
           <div>
             <p>Beyond our own laboratory operations, Labrite supplies laboratory equipment, instruments, chemicals and consumables to laboratories across Africa, including Madagascar. We also supply specialised equipment, spare parts and consumables directly to mining and related industrial operations across the continent.</p>
+            <p>Our technical capabilities extend beyond supply. Labrite provides equipment support, servicing, repairs and maintenance, drawing on many years of practical experience working with laboratory equipment and the people who depend on it.</p>
             <p>What connects these activities is a practical understanding of laboratory operations. Reliable laboratory performance depends on more than a test method or an individual instrument — it requires suitable equipment, representative sampling, sound preparation, competent people, quality control, dependable consumables and effective technical support.</p>
           </div>
         </div>
@@ -149,15 +135,12 @@ const main = `
         <span class="l-rule reveal-line" aria-hidden="true"></span>
         <p class="section-intro">Labrite works with selected manufacturers and technology providers whose equipment complements the laboratory and industrial markets we serve — including laboratory testing and specialised equipment from U-Therm, Herexi and Maglev Africa. Through these relationships, Labrite provides customers with local commercial and technical support, product knowledge and access to specialised equipment suited to laboratory and industrial applications.</p>
         <div class="grid grid-3 reveal-group" style="margin-top:var(--space-8);">
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-u-therm.png" alt="U-Therm brand logo" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
-          </article>
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-maglev-africa.png" alt="Maglev Africa brand logo" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
-          </article>
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-herexi.png" alt="Herexi brand logo" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
-          </article>
+          ${BRANDS.map(
+            (b) => `
+          <a class="card business-card card-plain" href="/agencies/${b.slug}/">
+            <div class="media ratio-16-9" style="background:var(--white);"><img src="${b.logo}" alt="${b.name} brand logo" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>
+          </a>`
+          ).join('\n')}
         </div>
         <div class="notice" style="margin-top:2rem;">
           See the dedicated <a href="/agencies.html" style="color:var(--luxury-red);font-weight:600;">Agencies &amp; Distribution</a> page for current brand detail.

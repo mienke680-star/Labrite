@@ -248,10 +248,12 @@ clearly marked "to be supplied" placeholders rather than guessed:
 - SANAS accreditation **scope** — the logo, "SANAS-accredited Testing Laboratory" and
   accreditation number T1091 are now shown (real, supplied artwork/number), but which
   specific test methods the accreditation covers has not been supplied and is not stated
-- Chemicals product list (Chemicals page — a chemical-themed concept photo was supplied
-  and is used as the page's hero and on the Home business-area card, but no specific
-  product line-up or photos were supplied)
-- Further represented brands beyond U-Therm and Maglev Africa (Agencies page)
+- Chemicals product list (Chemicals page — no specific product line-up or photos have
+  been supplied; the page's decorative concept photography was removed in the October
+  2026 lighter-redesign round per the client's "no unverified imagery" direction)
+- Herexi and Maglev Africa product catalogues (logos and approved copy are real and
+  published; no product media has been supplied for either brand — see "U-Therm /
+  agencies catalogue" below)
 - Terms of Use body copy
 - A confirmed email/CRM connection for the enquiry form (Privacy Policy's Third
   Parties section names this as not yet configured, rather than guessing a provider)
@@ -268,6 +270,71 @@ The contact form is fully built and client-side validated but has no live submis
 endpoint yet (see the comment in `assets/js/main.js`) — until it's connected, a
 "Email Labrite directly" `mailto:` button sits right under it as the one thing on that
 page that actually delivers a message today.
+
+## U-Therm / agencies catalogue (October 2026 handoff)
+
+Labrite supplied a "Claude handoff" package (`Labrite_Claude_Changes_Package.zip`) containing
+45 manufacturer catalogue panel images (screenshots of U-Therm's own PDF catalogue pages,
+each showing 1–6 products per page), a `product-image-map.json` pairing each visible page
+caption to its source panel, the three original client PDFs, and client instructions
+(`CLAUDE_PROMPT.md`) to build dedicated brand pages rather than keep routing "View
+equipment" to a single generic product.
+
+**What was built.** Each multi-product panel image was individually cropped (whitespace-gap
+detection, not AI guessing) into one photo per product, matched 1:1 and in order to the
+captions `product-image-map.json` lists for that page. 55 products across the client's
+four priority categories are published under `/agencies/u-therm/`:
+
+- Coal Testing (16) — the client's explicit "Priority 1 – Lead" category
+- Muffle Furnaces (12 of 18 supplied — see exclusions below)
+- Balances & Scales (13)
+- Sampling & Sample Preparation (15)
+
+`src/data/utherm-products.mjs` holds every entry; `src/templates/agency-brand.mjs`,
+`agency-category.mjs` and `agency-product.mjs` render the brand landing page, category
+pages and product pages. `src/data/agencies.mjs` is the single shared source for brand
+name/logo/summary used by Home, About and the Agencies index, so counts and names can't
+drift out of sync.
+
+**Names only, no invented specs.** Every product's name is the manufacturer's own visible
+caption, used as supplied — several are truncated at source (shown with their trailing
+ellipsis rather than completed by guesswork). No model numbers or specifications were
+included in the supplied material for these 55 entries, so none are stated; each product
+page says so plainly and routes to a Labrite enquiry instead.
+
+**Deliberately not built this round** — listed as a category tile with an "Enquire about
+this range" link rather than individual products, since curating and verifying these
+would need a further round:
+
+- Heating & Drying Ovens, Carbon & Sulfur Analysers, ICP Spectrometers, Microwave
+  Digestion & Extraction, Spectrophotometers, XRF & Related Spectroscopy, Small
+  Instruments
+- Electrophoresis — omitted entirely (client's earlier curation guidance explicitly
+  excludes it as outside Labrite's market)
+
+**Excluded from Muffle Furnaces** (source pages 12–13): dental furnace, trolley furnace,
+lift furnace, vacuum atmosphere furnace, high-temperature frit furnace, high-temperature
+vacuum atmosphere tube — industrial/specialty units, not laboratory coal-testing
+equipment, matching the client's "lab-relevant models only" instruction.
+
+**Unresolved source cards, not published:**
+- `P11-C03` ("High temperature muffle furnace/Box-type…") — the source panel is a
+  composite of several small sub-images, not one clean product photo; excluded rather
+  than guess which sub-image is correct.
+- One extra, uncaptioned photo each on source pages 35 and 36 — each page's panel
+  contains four product photos but `product-image-map.json` lists only three captions
+  for it; the fourth photo is not used since there is no supplied caption to pair it
+  with confidently.
+- Source PDF page 46 (referenced in the client's instructions as having further
+  catalogue pages, e.g. an 18-page Small Instruments range) was not included in the
+  supplied package — nothing was built from it.
+
+**Herexi.** The image supplied and originally used as the U-Therm logo was actually a
+combined "HEREXI / U-THERM" lockup; it was split into two separate logo files
+(`partner-herexi.png`, `partner-u-therm.png`) so Herexi — previously missing from the
+site entirely — now has its own real logo on a dedicated brand page. No Herexi or Maglev
+Africa product media has been supplied, so both brand pages are logo + approved copy +
+enquiry CTA only, with no fabricated catalogue.
 
 ## LinkedIn
 

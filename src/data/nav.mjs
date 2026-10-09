@@ -15,7 +15,7 @@ export const NAV_ITEMS = [
 // chrome ore laboratory) can be added without restructuring the site — Coal
 // Testing & Analysis is the current, and so far only, discipline under it.
 export const BUSINESS_AREAS = [
-  { label: 'Laboratory Services', href: '/laboratory-services.html', desc: 'Coal Testing & Analysis, and future laboratory testing disciplines.' },
+  { label: 'Laboratory Services', href: '/laboratory-services.html', desc: 'Sampling, sample preparation, and Coal Testing & Analysis.' },
   { label: 'Equipment & Instruments', href: '/equipment/', desc: 'Laboratory instruments and equipment.' },
   { label: 'Chemicals', href: '/chemicals.html', desc: 'Laboratory chemicals and related products.' },
   { label: 'Repairs & Maintenance', href: '/repairs-maintenance.html', desc: 'Servicing, repairs and equipment support.' },

@@ -1,3 +1,17 @@
+import { BRANDS } from '../data/agencies.mjs';
+
+const brandCards = BRANDS.map(
+  (b) => `
+          <article class="card business-card card-plain">
+            <div class="media ratio-16-9" style="background:var(--white);"><img src="${b.logo}" alt="${b.name} brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
+            <div class="card-body">
+              <h3>${b.name}</h3>
+              <p>${b.summary}</p>
+              <div class="card-actions"><a class="link-primary" href="/agencies/${b.slug}/">${b.hasCatalogue ? 'View catalogue' : 'View brand'} →</a></div>
+            </div>
+          </article>`
+).join('\n');
+
 const main = `
     <section class="hero-simple">
       <div class="container hero-content">
@@ -20,43 +34,10 @@ const main = `
           </div>
         </div>
         <div class="grid grid-3 reveal-group">
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-u-therm.png" alt="U-Therm laboratory instruments brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
-            <div class="card-body">
-              <h3>U-Therm</h3>
-              <p>A coal and energy testing equipment manufacturer — calorimeters, proximate analysers, sulphur analysers, ash fusion testers, abrasive index testers and other specialised analytical instrumentation.</p>
-              <div class="card-actions"><a class="link-primary" href="/equipment/products/laboratory-analyzer-system.html">View equipment →</a></div>
-            </div>
-          </article>
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-maglev-africa.png" alt="Maglev Africa brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
-            <div class="card-body">
-              <h3>Maglev Africa</h3>
-              <p>A brand Labrite works with. Product categories and relationship details to be confirmed.</p>
-            </div>
-          </article>
-          <article class="card business-card card-plain">
-            <div class="media ratio-16-9" style="background:var(--white);"><img src="/assets/images/brand/partner-herexi.png" alt="Herexi brand logo" loading="lazy" style="object-fit:contain;padding:2.5rem;" /></div>
-            <div class="card-body">
-              <h3>Herexi</h3>
-              <p>A brand Labrite works with. Product categories and relationship details to be confirmed.</p>
-            </div>
-          </article>
+          ${brandCards}
         </div>
         <div class="notice" style="margin-top:2rem;">
           <strong>More brands pending.</strong> Further manufacturer and brand details will be published here only where supplied and officially approved.
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-mist">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Product categories</h2>
-            <p class="section-intro">Agency products are integrated into Labrite's wider equipment catalogue.</p>
-          </div>
-          <a class="btn btn-secondary" href="/equipment/">Browse equipment</a>
         </div>
       </div>
     </section>

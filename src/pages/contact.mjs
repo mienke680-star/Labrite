@@ -10,10 +10,6 @@ const main = `
       </div>
     </section>
 
-    <section class="media ratio-21-9">
-      <img src="/assets/images/site/reception-lounge.jpg" alt="Labrite reception area" loading="lazy" />
-    </section>
-
     <section class="section section-paper">
       <div class="container split">
         <div class="split-content">

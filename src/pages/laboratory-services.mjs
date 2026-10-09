@@ -1,10 +1,7 @@
 import { renderLogo } from '../partials/render.mjs';
 
 const main = `
-    <section class="hero">
-      <div class="hero-media">
-        <img src="/assets/images/atmosphere/coal-pile.jpg" alt="Coal, the material behind Labrite's current testing discipline" />
-      </div>
+    <section class="hero-simple">
       <div class="container hero-content">
         <span class="eyebrow">Business Unit</span>
         <div style="margin-bottom:1.5rem;">
@@ -18,7 +15,6 @@ const main = `
           <a class="btn btn-secondary" href="/accreditation.html">View accredited scope</a>
         </div>
       </div>
-      <span class="scroll-indicator" aria-hidden="true">Scroll</span>
     </section>
 
     <section class="section section-paper">
@@ -107,8 +103,7 @@ const main = `
       </div>
     </section>
 
-    <section class="cta-band cta-band-photo">
-      <div class="cta-media"><img src="/assets/images/atmosphere/lab-bench-wide.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
+    <section class="cta-band">
       <div class="container">
         <div>
           <h2>Laboratory Services enquiries</h2>

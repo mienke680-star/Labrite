@@ -1,26 +1,24 @@
 import { productMedia } from '../partials/render.mjs';
+import { iconSvg } from '../partials/icons.mjs';
 import { BUSINESS_AREAS, EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { getProduct, PRODUCTS } from '../data/products.mjs';
+import { BRANDS } from '../data/agencies.mjs';
 
-const BUSINESS_CARD_MEDIA = {
-  'Laboratory Services': productMedia(getProduct('test-sieves')),
-  'Equipment & Instruments': productMedia(getProduct('top-loading-balance')),
-  'Chemicals': `<div class="media ratio-4-3"><img src="/assets/images/atmosphere/chemicals-concept.jpg" alt="Laboratory chemical glassware and a coal sample" loading="lazy" /></div>`,
-  'Repairs & Maintenance': `<div class="media ratio-4-3"><img src="/assets/images/site/lab-prep-area.jpg" alt="Labrite laboratory preparation area" loading="lazy" /></div>`,
-  'Agencies & Distribution': `<div class="media ratio-4-3"><img src="/assets/images/site/reception-desk.jpg" alt="Labrite reception area" loading="lazy" /></div>`,
+const BUSINESS_CARD_ICON = {
+  'Laboratory Services': 'lab',
+  'Equipment & Instruments': 'equipment',
+  'Chemicals': 'chemicals',
+  'Repairs & Maintenance': 'repairs',
+  'Agencies & Distribution': 'agencies',
 };
 
 const businessCards = BUSINESS_AREAS.map(
   (a) => `
-      <article class="card business-card">
-        ${BUSINESS_CARD_MEDIA[a.label]}
-        <div class="card-body">
-          <h3>${a.label}</h3>
-          <p>${a.desc}</p>
-          <div class="card-actions">
-            <a class="link-primary" href="${a.href}">Learn more →</a>
-          </div>
-        </div>
+      <article class="icon-card">
+        <div class="icon-card-icon">${iconSvg(BUSINESS_CARD_ICON[a.label])}</div>
+        <h3>${a.label}</h3>
+        <p>${a.desc}</p>
+        <div class="card-actions"><a class="link-primary" href="${a.href}">Learn more →</a></div>
       </article>`
 ).join('\n');
 
@@ -69,7 +67,7 @@ const main = `
             <span class="stat-label">Catalogued Instruments</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-count-to="2">0</span>
+            <span class="stat-number" data-count-to="${BRANDS.length}">0</span>
             <span class="stat-label">Represented Brands</span>
           </div>
           <div class="stat">
@@ -81,17 +79,12 @@ const main = `
     </section>
 
     <section class="section section-paper">
-      <div class="container split">
-        <div class="split-content">
-          <span class="eyebrow">Who We Are</span>
-          <h2>One Labrite identity, built for laboratory and industrial work</h2>
-          <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Labrite (Pty) Ltd brings together Laboratory Services, equipment and instrument supply, laboratory chemicals, and repairs and maintenance under a single, consistent technical identity. Whichever part of Labrite you work with, the same standard of precision and reliability applies.</p>
-          <a class="btn btn-secondary" href="/about.html">Learn more about Labrite</a>
-        </div>
-        <div class="split-media l-frame">
-          <div class="media ratio-4-3"><img src="/assets/images/site/boardroom.jpg" alt="Labrite boardroom" loading="lazy" /></div>
-        </div>
+      <div class="container" style="max-width:760px;">
+        <span class="eyebrow">Who We Are</span>
+        <h2>One Labrite identity, built for laboratory and industrial work</h2>
+        <span class="l-rule reveal-line" aria-hidden="true"></span>
+        <p>Labrite (Pty) Ltd brings together Laboratory Services, equipment and instrument supply, laboratory chemicals, and repairs and maintenance under a single, consistent technical identity. Whichever part of Labrite you work with, the same standard of precision and reliability applies.</p>
+        <a class="btn btn-secondary" href="/about.html">Learn more about Labrite</a>
       </div>
     </section>
 
@@ -104,7 +97,7 @@ const main = `
             <p class="section-intro">Labrite's work spans laboratory testing, equipment supply, chemicals, technical support and distribution.</p>
           </div>
         </div>
-        <div class="grid grid-3 reveal-group">
+        <div class="icon-grid reveal-group">
           ${businessCards}
         </div>
       </div>
@@ -116,7 +109,7 @@ const main = `
           <span class="eyebrow">Laboratory Services</span>
           <h2>Applying science for accuracy and precision</h2>
           <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Labrite's Laboratory Services carry out coal analysis, testing and sample preparation using dedicated laboratory equipment, from sample crushing and sieving through to moisture analysis and high-temperature testing — Coal Testing &amp; Analysis is the current discipline, with more to follow.</p>
+          <p>Labrite's Laboratory Services carry out sampling, sample preparation, and Coal Testing &amp; Analysis, from sample crushing and sieving through to moisture analysis and high-temperature testing.</p>
           <a class="btn btn-secondary" href="/laboratory-services.html">Visit Laboratory Services</a>
         </div>
         <div class="split-media l-frame">
@@ -142,37 +135,26 @@ const main = `
     </section>
 
     <section class="section section-paper">
-      <div class="container split">
-        <div class="split-content">
-          <span class="eyebrow">Repairs &amp; Maintenance</span>
-          <h2>The right choice for laboratory equipment, chemicals, repairs and maintenance</h2>
-          <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Beyond supplying equipment and chemicals, Labrite supports laboratories with inspection, maintenance and repair of the instruments they depend on — helping keep testing programmes running with minimal disruption.</p>
-          <a class="btn btn-secondary" href="/repairs-maintenance.html">Repairs &amp; Maintenance</a>
-        </div>
-        <div class="split-media l-frame">
-          <div class="media ratio-4-3"><img src="/assets/images/site/corridor.jpg" alt="Labrite laboratory corridor" loading="lazy" /></div>
-        </div>
+      <div class="container" style="max-width:760px;">
+        <span class="eyebrow">Repairs &amp; Maintenance</span>
+        <h2>The right choice for laboratory equipment, chemicals, repairs and maintenance</h2>
+        <span class="l-rule reveal-line" aria-hidden="true"></span>
+        <p>Beyond supplying equipment and chemicals, Labrite supports laboratories with inspection, maintenance and repair of the instruments they depend on — helping keep testing programmes running with minimal disruption.</p>
+        <a class="btn btn-secondary" href="/repairs-maintenance.html">Repairs &amp; Maintenance</a>
       </div>
     </section>
 
     <section class="section section-mist">
-      <div class="container split reverse">
-        <div class="split-content">
-          <span class="eyebrow">Agencies &amp; Distribution</span>
-          <h2>Brands and manufacturers represented by Labrite</h2>
-          <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Labrite represents a range of laboratory equipment brands and manufacturers, connecting South African laboratories with the instruments and products they rely on.</p>
-          <a class="btn btn-secondary" href="/agencies.html">Agencies &amp; Distribution</a>
-        </div>
-        <div class="split-media l-frame">
-          <div class="media ratio-4-3"><img src="/assets/images/site/open-office.jpg" alt="Labrite office" loading="lazy" /></div>
-        </div>
+      <div class="container" style="max-width:760px;">
+        <span class="eyebrow">Agencies &amp; Distribution</span>
+        <h2>Brands and manufacturers represented by Labrite</h2>
+        <span class="l-rule reveal-line" aria-hidden="true"></span>
+        <p>Labrite represents ${BRANDS.length} laboratory equipment brands and manufacturers — ${BRANDS.map((b) => b.name).join(', ')} — connecting South African laboratories with the instruments and products they rely on.</p>
+        <a class="btn btn-secondary" href="/agencies.html">Agencies &amp; Distribution</a>
       </div>
     </section>
 
-    <section class="cta-band cta-band-photo">
-      <div class="cta-media"><img src="/assets/images/atmosphere/coal-terrain.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
+    <section class="cta-band">
       <div class="container">
         <div>
           <h2>Speak to Labrite about your laboratory</h2>
