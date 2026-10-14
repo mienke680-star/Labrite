@@ -77,19 +77,19 @@ assets/
 The real master logo file is in use everywhere, in both normal and reverse form (see
 above) — no page recreates the "Labrite" wordmark in a substitute font. A true
 monochrome file hasn't been supplied yet; nothing on the site currently needs one.
-The favicon (`assets/images/site/favicon.svg`) is a plain "L" monogram — deliberately
-not a redrawn tick — pending an approved favicon file.
+The favicon set under `assets/images/site/` (`favicon.ico`, `favicon-16x16.png`,
+`favicon-32x32.png`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) is generated
+from the real logo's own red tick — see "14 Oct 2026 refinement round" below.
 
 ## The product catalogue
 
-`src/data/products.mjs` lists the 12 distinct pieces of equipment identified from the
-supplied photographs, organised into five ranges (Weighing & Calibration, Moisture &
-Drying, Sample Preparation & Sieving, Testing & Analysis, Laboratory Support). Multiple
-photos of the same item were treated as one product with a gallery, not separate
-listings. Where a product's exact model or specifications weren't confirmed (e.g. the
-U-Therm analyzer), it's deliberately listed under a general, safe title rather than a
-guessed one. Real photography for every product lives in `assets/images/products/`
-(resized/compressed from the originals — see `productMedia()` in `render.mjs`).
+`src/data/products.mjs` lists 12 distinct pieces of Labrite's own general equipment,
+organised into five ranges (Weighing & Calibration, Moisture & Drying, Sample Preparation
+& Sieving, Testing & Analysis, Laboratory Support). Where a product's exact model or
+specifications weren't confirmed, it's deliberately listed under a general, safe title
+rather than a guessed one. These have no approved photography (see "14 Oct 2026
+refinement round" below for why) and are represented by `productMedia()` in `render.mjs`
+as a plain icon + category label rather than a photo.
 
 **Technical specifications are intentionally omitted, not guessed.** Every product page
 has a clearly labelled "not yet supplied" notice instead of invented capacity, accuracy,
@@ -273,6 +273,14 @@ page that actually delivers a message today.
 
 ## U-Therm / agencies catalogue (October 2026 handoff)
 
+**Superseded by the "14 Oct 2026 refinement round" section below.** The 42-product,
+four-category catalogue structure described in this section (`agency-category.mjs`,
+`agency-product.mjs`, `UTHERM_CATEGORIES`/`UTHERM_PRODUCTS`) was replaced by a curated,
+eight-item capability page per an explicit later client brief — those template files and
+data exports no longer exist. This section is kept for the image-sourcing/cropping
+provenance history (page/panel references, crop fixes, naming rules), which still applies
+to the eight images that were carried forward.
+
 Labrite supplied a "Claude handoff" package (`Labrite_Claude_Changes_Package.zip`) containing
 45 manufacturer catalogue panel images (screenshots of U-Therm's own PDF catalogue pages,
 each showing 1–6 products per page), a `product-image-map.json` pairing each visible page
@@ -375,13 +383,13 @@ second review; that status is now tracked here instead).
 
 **Old generic "Laboratory Analyzer System" entry.** This single catalogue-style item
 (`/equipment/products/laboratory-analyzer-system.html`) overlapped and understated the
-same ground the new U-Therm Coal Testing range now covers properly, so it has been
-removed from `src/data/products.mjs` and its listings (Testing & Analysis category, the
-"Testing & Analysis" range description). The old URL 301-redirects to
-`/agencies/u-therm/coal-testing.html` (see `_redirects`). Home's four featured-equipment
-items (Analytical Balance, Halogen Moisture Analyzer, Muffle Furnace, Laboratory Sample
-Crusher) are untouched — these are Labrite's own equipment entries, not U-Therm
-manufacturer listings, so they don't overlap with the new catalogue.
+same ground the U-Therm Coal Testing equipment now covers properly, so it has been removed
+from `src/data/products.mjs` and its listings (Testing & Analysis category, the "Testing &
+Analysis" range description). The old URL 301-redirects to `/agencies/u-therm/` (see
+`_redirects` — updated in the 14 Oct 2026 round below, since the U-Therm page it used to
+point to no longer exists). Home's featured-equipment section was itself reworked in that
+same round (see below) to show U-Therm equipment instead of general-catalogue products, as
+a more honest "technical partner" framing.
 
 **Contact form honesty.** No email/CRM backend is connected in this environment, so the
 form previously showed a fake "your enquiry has been prepared" success message on submit
@@ -401,3 +409,76 @@ The official LinkedIn URL (`https://www.linkedin.com/company/labrite/`) is defin
 and the Contact page's social section — shares one implementation: icon and text as a single
 clickable link, `target="_blank"` + `rel="noopener noreferrer"`, an `aria-label`, and a red
 hover state on both the icon and the text.
+
+## 14 Oct 2026 refinement round
+
+A careful visual/content refinement against three client-supplied source documents (About
+Labrite, Laboratory Services Page, Use of agencies web media) plus a newly supplied logo
+file — preserving the existing architecture and most content, not a redesign from scratch.
+
+**Logo replacement.** `assets/images/brand/labrite-logo.png` and `labrite-logo-reverse.png`
+were overwritten with the newly supplied artwork (trimmed to its true visible bounds via an
+alpha-threshold bbox — the supplied file had a large transparent margin). The logo is
+unchanged in content (same wordmark, same tick), just re-sourced from the client's file of
+record. `renderLogo()` in `src/partials/render.mjs` is the single place the logo is
+rendered, so header, mobile nav, sticky nav and footer all picked up the new file
+automatically; no other template hand-draws or duplicates the logo.
+
+**Favicon / app icons.** The old `favicon.svg` was a leftover gold "L" monogram from an
+early, discarded redesign phase — unrelated to the real logo, and exactly the kind of stale
+reference the brief asked to be found and removed. It has been deleted. A full icon set was
+generated from the logo's own red tick (cropped, not redrawn) on a white rounded-square
+backing plate: `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`,
+`apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, all under `assets/images/site/`, plus
+a minimal `assets/site.webmanifest` referencing the two app-icon sizes. `renderHead()` now
+links all of these instead of the deleted SVG.
+
+**Eight-image rule.** Per the brief's "use only eight unique equipment photographs, genuine
+manufacturer photos only" constraint, every other piece of equipment/lab photography has
+been removed: `assets/images/atmosphere/` (7 files, all orphaned), 9 orphaned stock
+office/lab photos under `assets/images/site/`, the `badge-alibaba.png` brand badge, and the
+general equipment catalogue's 12 product photos (none of which were among the approved
+eight). `assets/images/agencies/u-therm/` was pruned to exactly the eight approved
+photographs. The eight images now have a deliberate, non-repetitive allocation: three on
+the Home "Represented Equipment" preview (Microwave Muffle Furnace, WB Series Analytical
+Balance, Automatic Proximate Analyzer TGA), one supporting image on Laboratory Services
+(Ash Fusion Tester, placed in the non-accredited "Specialised Coal & Mineral Services"
+section so it can't be read as implying that test is SANAS-accredited), and all eight on
+the U-Therm brand page.
+
+**General equipment catalogue — icon treatment, not photography.** Since none of the 12
+catalogue products have an approved photograph, `productMedia()` in `src/partials/render.mjs`
+now renders a plain icon + category label (`.equipment-glyph`) instead of an `<img>`, and
+the now-unused `assets/images/products/` directory was deleted along with the `image` /
+`imageAlt` fields in `src/data/products.mjs`. This is a deliberate typographic/iconographic
+treatment, not a "photo to be added" placeholder.
+
+**U-Therm page rebuilt as a curated capability page, not a catalogue.** The old
+category/product-grid structure (`src/templates/agency-category.mjs`,
+`agency-product.mjs`, and the per-product pages under `agencies/u-therm/products/`) has
+been removed entirely — no more "View N products" counts or near-identical shop-style
+cards. `src/data/utherm-products.mjs` now exports three capability groups (Coal and Energy
+Testing; Sample Preparation and Laboratory Support; High-Temperature and General Laboratory
+Equipment) and the eight equipment entries, and `src/templates/agency-brand.mjs` renders
+them as alternating image-led/text editorial entries grouped by capability
+(`.equip-group` / `.equip-entry` in `assets/css/styles.css`), each with a one-sentence
+application summary and an "Enquire about this equipment" link — never a specification or
+model number that hasn't been supplied.
+
+**Homepage counters.** The stats strip's numbers (`data-count-to`) previously fell back to
+a literal static "0" before the count-up animation ran, so any JS failure, ad-blocker
+interference, or missed scroll-trigger left visitors looking at zeroes. The static markup
+now shows the real number by default; JS only animates up to it as a progressive
+enhancement. The section was also moved onto the existing dark `.section-dark` panel — the
+stat numbers are styled white-on-dark by design and were previously sitting on a light grey
+section, making them very low-contrast regardless of the "0" issue.
+
+**Housekeeping.** `_redirects`' old `/agencies/u-therm/coal-testing.html` redirect target
+(a page that no longer exists after the U-Therm restructuring above) now points to
+`/agencies/u-therm/`. A broken `coal-sample.jpg` image reference on the homepage (the file
+had been removed as part of the eight-image cleanup) was replaced with a small typographic
+"Accredited Scope" panel instead of a ninth photograph.
+
+**Images still needed in higher resolution.** No change from the note above under "Source
+image resolution is genuinely low" — several Sampling & Sample Preparation source crops
+remain native ~200–330px wide. None of the eight images used this round are affected.

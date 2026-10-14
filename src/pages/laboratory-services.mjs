@@ -7,7 +7,7 @@ const main = `
         <div style="margin-bottom:1.5rem;">
           ${renderLogo({ reverse: false, size: 'lg', subLabel: 'Laboratory Services', tagline: 'Applying science for accuracy and precision' })}
         </div>
-        <h1>Laboratory services tailored to your <em>operational needs</em></h1>
+        <h1>From representative sampling to <em>technically defensible results</em></h1>
         <span class="hero-rule" aria-hidden="true"></span>
         <p class="lede">Audited processes, traceable results and internationally recognised standards. Labrite provides laboratory and field services tailored to the operational and analytical requirements of our clients — extending beyond laboratory analysis to sampling, sample preparation, plant-related sampling and verification, specialised coal testing and technical support.</p>
         <div class="hero-actions">
@@ -67,19 +67,25 @@ const main = `
     </section>
 
     <section class="section section-mist">
-      <div class="container">
-        <span class="eyebrow">Beyond the Accredited Scope</span>
-        <h2>Specialised Coal &amp; Mineral Services</h2>
-        <span class="l-rule reveal-line" aria-hidden="true"></span>
-        <ul class="prose-list reveal-group" style="max-width:700px;">
-          <li>Float Sink Analysis</li>
-          <li>Apparent Relative Density (ARD)</li>
-          <li>Drill core RD</li>
-          <li>Stockpile sampling</li>
-          <li>Plant audits</li>
-          <li>In-plant sampling</li>
-          <li>Third-party witnessing</li>
-        </ul>
+      <div class="container split">
+        <div class="split-content">
+          <span class="eyebrow">Beyond the Accredited Scope</span>
+          <h2>Specialised Coal &amp; Mineral Services</h2>
+          <span class="l-rule reveal-line" aria-hidden="true"></span>
+          <ul class="prose-list reveal-group" style="max-width:700px;">
+            <li>Float Sink Analysis</li>
+            <li>Apparent Relative Density (ARD)</li>
+            <li>Drill core RD</li>
+            <li>Stockpile sampling</li>
+            <li>Plant audits</li>
+            <li>In-plant sampling</li>
+            <li>Third-party witnessing</li>
+          </ul>
+          <p style="font-size:0.875rem;color:#6b6b72;margin-top:var(--space-6);">These services are provided under Labrite's technical and quality-management processes and are not represented as forming part of the SANAS-accredited scope above.</p>
+        </div>
+        <div class="split-media">
+          <div class="media ratio-4-3"><img src="/assets/images/agencies/u-therm/p02-c3.jpg" alt="Ash Fusion Tester used for specialised coal ash behaviour testing" loading="lazy" /></div>
+        </div>
       </div>
     </section>
 

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import { NAV_ITEMS, BUSINESS_AREAS, LINKEDIN_URL, FOOTER_LEGAL_LINKS } from '../data/nav.mjs';
 import { COMPANY, SITE_URL } from '../data/company.mjs';
+import { iconSvg } from './icons.mjs';
 
 // /assets/* is served with a one-year immutable Cache-Control (netlify.toml),
 // which is great for real content-addressed caching but means a returning
@@ -34,7 +35,7 @@ export function renderLogo({ reverse = false, size = null, subLabel = null, tagl
 
   return `
     <a class="${classes}" href="${href}" aria-label="${label}">
-      <img class="logo-img" src="${src}" alt="Labrite" width="1320" height="350" />
+      <img class="logo-img" src="${src}" alt="Labrite" width="1298" height="324" />
       ${subLabel ? `<span class="logo-sub">${subLabel}</span>` : ''}
       ${tagline ? `<span class="logo-tagline">${tagline}</span>` : ''}
     </a>`;
@@ -58,7 +59,11 @@ export function renderHead({ title, description, canonicalPath = '/' }) {
   <meta name="twitter:title" content="${title}" />
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${SITE_URL}/assets/images/brand/labrite-logo.png" />
-  <link rel="icon" href="/assets/images/site/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/images/site/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/images/site/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="/assets/images/site/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/assets/images/site/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -227,8 +232,15 @@ export function breadcrumbSchema(items) {
   };
 }
 
+// General equipment catalogue items have no approved photography (the only
+// genuine, approved equipment photographs on the site are the eight U-Therm
+// images used on their own pages) — represented with a plain icon/text glyph
+// rather than a stock or AI-generated substitute photo.
 export function productMedia(product, { ratio = 'ratio-4-3' } = {}) {
-  return `<div class="media ${ratio}"><img src="${product.image}" alt="${product.imageAlt}" loading="lazy" /></div>`;
+  return `<div class="media ${ratio} equipment-glyph">
+    <div class="equipment-glyph-icon">${iconSvg('equipment')}</div>
+    <span class="equipment-glyph-label">${product.category}</span>
+  </div>`;
 }
 
 export function mediaPlaceholder({ title, note = 'Photograph to be added', ratio = 'ratio-4-3' }) {

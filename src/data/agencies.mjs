@@ -9,6 +9,7 @@ export const BRANDS = [
     logo: '/assets/images/brand/partner-u-therm.png',
     summary:
       'A coal and energy testing equipment manufacturer — calorimeters, proximate analysers, sulphur analysers, ash fusion testers, abrasive index testers, muffle furnaces, balances and other specialised analytical instrumentation.',
+    role: 'Labrite is the local commercial and technical contact for U-Therm equipment in South Africa, handling enquiries, quotations and ongoing support.',
     hasCatalogue: true,
   },
   {

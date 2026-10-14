@@ -7,7 +7,7 @@ const brandCards = BRANDS.map(
             <div class="card-body">
               <h3>${b.name}</h3>
               <p>${b.summary}</p>
-              <div class="card-actions"><a class="link-primary" href="/agencies/${b.slug}/">${b.hasCatalogue ? 'View catalogue' : 'View brand'} →</a></div>
+              <div class="card-actions"><a class="link-primary" href="/agencies/${b.slug}/">${b.hasCatalogue ? 'View equipment' : 'View brand'} →</a></div>
             </div>
           </article>`
 ).join('\n');

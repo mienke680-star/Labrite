@@ -1,7 +1,6 @@
 import { productMedia, breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { PRODUCTS } from '../data/products.mjs';
-import { SITE_URL } from '../data/company.mjs';
 
 export function renderProductPage(product) {
   const range = EQUIPMENT_RANGES.find((r) => r.key === product.range);
@@ -111,7 +110,6 @@ export function renderProductPage(product) {
     '@type': 'Product',
     name: product.name,
     description: product.shortDescription,
-    image: `${SITE_URL}${product.image}`,
     category: product.category,
     brand: { '@type': 'Organization', name: 'Labrite' },
   };

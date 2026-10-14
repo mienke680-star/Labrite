@@ -1,6 +1,9 @@
-// Product catalogue — built only from equipment Labrite has actually supplied photography of.
-// Technical specifications (capacity, accuracy, power, dimensions, manufacturer model numbers,
-// certifications) are intentionally left as "not yet supplied" placeholders rather than invented,
+// General equipment catalogue. No photography is used here — the only approved
+// equipment photographs on the site are the eight U-Therm images used on their
+// own pages — so these are represented with an icon/text treatment (see
+// productMedia() in partials/render.mjs). Technical specifications (capacity,
+// accuracy, power, dimensions, manufacturer model numbers, certifications) are
+// intentionally left as "not yet supplied" placeholders rather than invented,
 // per the Labrite content rule: never fabricate specs, models or accreditation claims.
 
 export const PRODUCTS = [
@@ -18,8 +21,6 @@ export const PRODUCTS = [
       'Reference and tare weighing during laboratory procedures',
       'Routine quality control checks on prepared samples',
     ],
-    image: '/assets/images/products/analytical-balance.jpg',
-    imageAlt: 'Analytical balance with glass draft shield on a laboratory bench',
   },
   {
     slug: 'top-loading-balance',
@@ -35,8 +36,6 @@ export const PRODUCTS = [
       'Sample preparation ahead of drying, crushing or analysis',
       'Weighing of consumables and reference materials',
     ],
-    image: '/assets/images/products/top-loading-balance.jpg',
-    imageAlt: 'Top-loading laboratory balance with digital display on a bench',
   },
   {
     slug: 'calibration-weight-set',
@@ -52,8 +51,6 @@ export const PRODUCTS = [
       'Balance calibration and adjustment',
       'Supporting internal quality-control checks on weighing equipment',
     ],
-    image: '/assets/images/products/calibration-weight-set.jpg',
-    imageAlt: 'Calibration weight set with graded reference weights in a fitted case',
   },
   {
     slug: 'halogen-moisture-analyzer',
@@ -69,8 +66,6 @@ export const PRODUCTS = [
       'Process and quality-control moisture checks',
       'Supporting sample preparation workflows ahead of further analysis',
     ],
-    image: '/assets/images/products/halogen-moisture-analyzer.jpg',
-    imageAlt: 'Halogen moisture analyzer with heating element and digital display',
   },
   {
     slug: 'bench-drying-oven',
@@ -86,8 +81,6 @@ export const PRODUCTS = [
       'Moisture removal as part of sample preparation',
       'General laboratory heating and drying tasks',
     ],
-    image: '/assets/images/products/bench-drying-oven.jpg',
-    imageAlt: 'Compact laboratory bench drying oven with digital controller',
   },
   {
     slug: 'drying-cabinet',
@@ -103,8 +96,6 @@ export const PRODUCTS = [
       'Moisture removal ahead of weighing, crushing or analysis',
       'General laboratory drying where capacity is required',
     ],
-    image: '/assets/images/products/drying-cabinet.jpg',
-    imageAlt: 'Large multi-shelf laboratory drying cabinet with the door open',
   },
   {
     slug: 'desiccator-cabinet',
@@ -120,8 +111,6 @@ export const PRODUCTS = [
       'Protecting moisture-sensitive materials and reference samples',
       'Supporting consistent, repeatable moisture-analysis results',
     ],
-    image: '/assets/images/products/desiccator-cabinet.jpg',
-    imageAlt: 'Desiccator cabinet with digital humidity and temperature display',
   },
   {
     slug: 'sample-crusher',
@@ -137,8 +126,6 @@ export const PRODUCTS = [
       'Preparing material ahead of sieving or moisture analysis',
       'Standardising sample particle size prior to testing',
     ],
-    image: '/assets/images/products/sample-crusher.jpg',
-    imageAlt: 'Laboratory sample crusher used in coal sample preparation',
   },
   {
     slug: 'test-sieves',
@@ -154,8 +141,6 @@ export const PRODUCTS = [
       'Quality control on sample preparation consistency',
       'Supporting coal and material testing procedures',
     ],
-    image: '/assets/images/products/test-sieves.jpg',
-    imageAlt: 'Stack of stainless-steel laboratory test sieves',
   },
   {
     slug: 'muffle-furnace',
@@ -171,8 +156,6 @@ export const PRODUCTS = [
       'Coal and material testing procedures requiring controlled heating',
       'General high-temperature laboratory processes',
     ],
-    image: '/assets/images/products/muffle-furnace.jpg',
-    imageAlt: 'Muffle furnace with the door open showing the heated chamber',
   },
   {
     slug: 'label-printer',
@@ -188,8 +171,6 @@ export const PRODUCTS = [
       'Barcode printing for laboratory tracking systems',
       'General laboratory labelling requirements',
     ],
-    image: '/assets/images/products/label-printer.jpg',
-    imageAlt: 'Thermal label and barcode printer producing a sample label',
   },
 ];
 

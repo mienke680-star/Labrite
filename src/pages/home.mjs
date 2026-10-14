@@ -1,8 +1,9 @@
-import { productMedia } from '../partials/render.mjs';
+import { enquiryHref } from '../partials/render.mjs';
 import { iconSvg } from '../partials/icons.mjs';
 import { BUSINESS_AREAS, EQUIPMENT_RANGES } from '../data/nav.mjs';
-import { getProduct, PRODUCTS } from '../data/products.mjs';
+import { PRODUCTS } from '../data/products.mjs';
 import { BRANDS } from '../data/agencies.mjs';
+import { UTHERM_EQUIPMENT } from '../data/utherm-products.mjs';
 
 const BUSINESS_CARD_ICON = {
   'Laboratory Services': 'lab',
@@ -22,19 +23,19 @@ const businessCards = BUSINESS_AREAS.map(
       </article>`
 ).join('\n');
 
-const featuredSlugs = ['analytical-balance', 'halogen-moisture-analyzer', 'muffle-furnace', 'sample-crusher'];
+const featuredSlugs = ['microwave-muffle-furnace', 'wb-series-analytical-balance', 'automatic-proximate-analyzer-tga'];
 const featuredCards = featuredSlugs
-  .map(getProduct)
+  .map((slug) => UTHERM_EQUIPMENT.find((e) => e.slug === slug))
   .map(
-    (p) => `
+    (item) => `
       <article class="card-product">
-        ${productMedia(p)}
+        <div class="media ratio-4-3"><img src="${item.image}" alt="${item.name}" loading="lazy" /></div>
         <div class="card-body">
-          <span class="card-category">${p.category}</span>
-          <h3>${p.name}</h3>
-          <p>${p.shortDescription}</p>
+          <span class="card-category">U-Therm</span>
+          <h3>${item.name}</h3>
+          <p>${item.application}</p>
           <div class="card-actions">
-            <a class="link-primary" href="/equipment/products/${p.slug}.html">View product →</a>
+            <a class="link-primary" href="${enquiryHref({ type: 'agencies', product: item.name, brand: 'U-Therm' })}">Enquire about this equipment →</a>
           </div>
         </div>
       </article>`
@@ -55,19 +56,19 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-mist">
+    <section class="section section-dark">
       <div class="container">
         <div class="stats-strip reveal-group">
           <div class="stat">
-            <span class="stat-number" data-count-to="${EQUIPMENT_RANGES.length}">0</span>
+            <span class="stat-number" data-count-to="${EQUIPMENT_RANGES.length}">${EQUIPMENT_RANGES.length}</span>
             <span class="stat-label">Equipment Ranges</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-count-to="${PRODUCTS.length}">0</span>
+            <span class="stat-number" data-count-to="${PRODUCTS.length}">${PRODUCTS.length}</span>
             <span class="stat-label">Catalogued Instruments</span>
           </div>
           <div class="stat">
-            <span class="stat-number" data-count-to="${BRANDS.length}">0</span>
+            <span class="stat-number" data-count-to="${BRANDS.length}">${BRANDS.length}</span>
             <span class="stat-label">Represented Brands</span>
           </div>
           <div class="stat">
@@ -112,8 +113,16 @@ const main = `
           <p>Labrite's Laboratory Services carry out sampling, sample preparation, and Coal Testing &amp; Analysis, from sample crushing and sieving through to moisture analysis and high-temperature testing.</p>
           <a class="btn btn-secondary" href="/laboratory-services.html">Visit Laboratory Services</a>
         </div>
-        <div class="split-media l-frame">
-          <div class="media ratio-4-3"><img src="/assets/images/site/coal-sample.jpg" alt="Coal sample used in Labrite Laboratory Services testing" loading="lazy" /></div>
+        <div class="split-media">
+          <div class="method-panel">
+            <span class="method-panel-label">Accredited Scope</span>
+            <ul class="method-panel-list">
+              <li><span>Ash</span><code>ISO 1171</code></li>
+              <li><span>Calorific Value</span><code>ISO 1928</code></li>
+              <li><span>Total Sulphur</span><code>ISO 20336</code></li>
+              <li><span>Volatile Matter</span><code>ISO 562</code></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -122,13 +131,13 @@ const main = `
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Featured Equipment</span>
-            <h2>From the equipment catalogue</h2>
-            <p class="section-intro">A sample of the laboratory instruments Labrite supplies and supports.</p>
+            <span class="eyebrow">Represented Equipment</span>
+            <h2>A technical partner, not just a supplier</h2>
+            <p class="section-intro">A small selection of the specialised instrumentation Labrite supports through its agency relationships.</p>
           </div>
-          <a class="btn btn-secondary" href="/equipment/">View all equipment</a>
+          <a class="btn btn-secondary" href="/agencies/u-therm/">View U-Therm</a>
         </div>
-        <div class="grid grid-4 reveal-group">
+        <div class="grid grid-3 reveal-group">
           ${featuredCards}
         </div>
       </div>
