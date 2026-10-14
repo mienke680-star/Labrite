@@ -49,9 +49,6 @@ const main = `
             </div>
           </article>
         </div>
-        <div class="notice" style="margin-top:2rem;">
-          <strong>Note.</strong> Labrite's public LinkedIn listing specifically names furnace repair and calibration, and custom element design and manufacture, among its services — shown below for confirmation. Specific certifications, turnaround times or brand-specific service authorisations will be added once confirmed.
-        </div>
       </div>
     </section>
 

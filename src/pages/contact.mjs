@@ -58,9 +58,6 @@ const main = `
         </div>
         <div class="split-content">
           <h2>Contact details</h2>
-          <div class="notice" style="margin-bottom:1.5rem;">
-            The address below is confirmed directly by Labrite. The phone and email are still sourced from Labrite's public LinkedIn listing and business directories, pending direct confirmation.
-          </div>
           <div class="grid grid-2 reveal-group" style="gap:1.5rem;">
             <div class="card business-card card-plain">
               <div class="card-body">

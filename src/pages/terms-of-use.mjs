@@ -11,9 +11,6 @@ const main = `
     <section class="section section-paper">
       <div class="container" style="max-width:80ch;">
         <p>This website is operated by ${COMPANY.legalName}, registration number ${COMPANY.registrationNumber}, of ${COMPANY.addressSingleLine}.</p>
-        <div class="notice">
-          <strong>Content pending.</strong> Labrite's full terms of use will be published here once confirmed. This page is intentionally left ready for that content rather than invented terms.
-        </div>
       </div>
     </section>`;
 

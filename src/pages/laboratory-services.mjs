@@ -95,9 +95,6 @@ const main = `
         <h2>Accreditation &amp; technical control</h2>
         <span class="l-rule reveal-line" aria-hidden="true"></span>
         <p class="section-intro">Labrite's SANAS-accredited scope includes specified coal sample preparation and analytical methods. Other specialised services are provided under Labrite's technical and quality-management processes but do not necessarily form part of the accredited scope.</p>
-        <div class="notice" style="max-width:700px;">
-          Labrite's Coal Testing &amp; Analysis laboratory operates as a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>. Full accreditation scope and schedule are published on the dedicated <a href="/accreditation.html" style="color:var(--luxury-red);font-weight:600;">Accreditation &amp; Quality</a> page.
-        </div>
       </div>
     </section>
 

@@ -142,9 +142,6 @@ const main = `
           </a>`
           ).join('\n')}
         </div>
-        <div class="notice" style="margin-top:2rem;">
-          See the dedicated <a href="/agencies.html" style="color:var(--luxury-red);font-weight:600;">Agencies &amp; Distribution</a> page for current brand detail.
-        </div>
       </div>
     </section>
 
