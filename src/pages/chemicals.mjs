@@ -2,21 +2,21 @@ const main = `
     <section class="hero-simple">
       <div class="container hero-content">
         <span class="eyebrow">Chemicals</span>
-        <h1>Chemicals, Consumables and PPE</h1>
+        <h1>Chemicals, Consumables &amp; PPE</h1>
         <span class="hero-rule" aria-hidden="true"></span>
-        <p class="lede">Labrite supplies laboratory chemicals supporting sample preparation, testing and analysis — part of the same right choice for laboratory equipment, chemicals, repairs and maintenance that runs across the business.</p>
+        <p style="font-family:var(--font-display);font-weight:600;font-size:1.0625rem;letter-spacing:0.05em;color:#52525a;margin:0 0 var(--space-4);">Specialised Laboratory and Industrial Sourcing Solutions</p>
+        <p class="lede">Labrite assists customers in identifying and sourcing laboratory chemicals, reagents, consumables and personal protective equipment suited to their specific technical and operational requirements. Through our established network of national and international suppliers, we evaluate customer enquiries, identify suitable products and provide competitive sourcing and supply solutions. Our services are not limited to a fixed product range, manufacturer or brand. We welcome enquiries for specialised, uncommon and application-specific products.</p>
       </div>
     </section>
 
     <section class="section section-paper">
       <div class="container" style="max-width:760px;">
-        <h2>Product range</h2>
+        <h2>Commonly Requested Products</h2>
         <span class="l-rule reveal-line" aria-hidden="true"></span>
-        <p class="section-intro">Labrite's confirmed chemical product list is being finalised for publication.</p>
 
         <p>The tables below highlight some of our most frequently requested products.</p>
 
-        <h3>Chemicals</h3>
+        <h3>Chemicals and Reagents</h3>
         <p>Labrite supplies a wide range of laboratory chemicals, reagents and consumables to support sample preparation, analytical testing, quality control and routine laboratory operations across the mining, mineral processing and industrial sectors.</p>
         <div class="table-wrap">
           <table class="data-table">
@@ -62,7 +62,7 @@ const main = `
         <h3>Specialised Sourcing and Customer Requests</h3>
         <p>Our product offering is not limited to the items listed. Every customer enquiry is individually assessed to determine the most suitable product, specification and application. Where required, Labrite will source specialised chemicals, consumables and related laboratory products through its established network of national and international suppliers. Our objective is to provide customers with reliable, technically appropriate and cost-effective solutions suited to their operational requirements.</p>
 
-        <h3>Personal Protective Equipment (PPE)</h3>
+        <h3>Personal Protective Equipment</h3>
         <div class="table-wrap">
           <table class="data-table">
             <tbody>
@@ -86,6 +86,18 @@ const main = `
 
         <h3>Specialised PPE Sourcing</h3>
         <p>Labrite's PPE offering is not limited to the products listed above. We assess individual customer requirements and source suitable protective equipment for specific laboratory, mining and industrial applications through our established national and international supplier networks. Customers are encouraged to provide their required specifications, sizes, quantities and applicable safety standards to ensure that the products offered are appropriate for their intended use.</p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div>
+          <h2>Cannot Find What You Are Looking For?</h2>
+          <p>Contact Labrite with your product description, specifications and required quantities. Our team will assess your requirements and investigate suitable sourcing options locally or internationally, depending on availability and application.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/contact.html">Contact Labrite</a>
+        </div>
       </div>
     </section>
 

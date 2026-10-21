@@ -8,16 +8,16 @@ export const BRANDS = [
     name: 'U-Therm',
     logo: '/assets/images/brand/partner-u-therm.png',
     summary:
-      'A coal and energy testing equipment manufacturer — calorimeters, proximate analysers, sulphur analysers, ash fusion testers, abrasive index testers, muffle furnaces, balances and other specialised analytical instrumentation.',
+      'A manufacturer of specialised coal and energy testing equipment, including calorimeters, sulphur analysers, ash fusion testers, volatile matter furnaces and other analytical instruments. Labrite provides equipment supply, technical advice, spare parts and product support.',
     role: 'Labrite is the local commercial and technical contact for U-Therm equipment in South Africa, handling enquiries, quotations and ongoing support.',
     hasCatalogue: true,
   },
   {
     slug: 'herexi',
-    name: 'Herexi',
+    name: 'Herexi Instruments',
     logo: '/assets/images/brand/partner-herexi.png',
     summary:
-      'A manufacturer and technology provider represented by Labrite, supporting the laboratory and industrial markets Labrite serves with local commercial and technical support.',
+      'A manufacturer of laboratory centrifuges and related separation equipment. Through its supplier relationship, Labrite assists customers with equipment selection, supply, spare parts and technical support.',
     hasCatalogue: false,
   },
   {
@@ -25,7 +25,7 @@ export const BRANDS = [
     name: 'Maglev Africa',
     logo: '/assets/images/brand/partner-maglev-africa.png',
     summary:
-      'A manufacturer and technology provider represented by Labrite, supporting the laboratory and industrial markets Labrite serves with local commercial and technical support.',
+      'A specialist supplier of electromagnetic and industrial technology solutions. Labrite works in cooperation with Maglev Africa to identify, source and supply suitable equipment and technical solutions for customer applications.',
     hasCatalogue: false,
   },
 ];

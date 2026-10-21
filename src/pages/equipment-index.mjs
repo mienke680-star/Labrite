@@ -68,8 +68,9 @@ const main = `
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Full equipment catalogue</h2>
-            <p class="section-intro">Filter by range to find the right instrument.</p>
+            <h2>Laboratory Equipment &amp; Instruments</h2>
+            <p class="section-intro">Explore a selection of laboratory equipment and instruments commonly supplied or sourced by Labrite.</p>
+            <p class="section-intro">Our offering extends well beyond the products displayed. We assess each customer's technical and operational requirements and, through our established relationships with reputable manufacturers, agencies and suppliers, identify and source suitable equipment locally and internationally.</p>
           </div>
         </div>
         <div class="filter-bar" data-filter-bar role="group" aria-label="Filter equipment by range">
@@ -78,6 +79,7 @@ const main = `
         <div class="grid grid-3 reveal-group">
           ${productCards}
         </div>
+        <p style="margin-top:var(--space-10);">Looking for equipment not listed? Contact Labrite with your specifications, and our team will assist in identifying and sourcing a suitable solution.</p>
       </div>
     </section>
 

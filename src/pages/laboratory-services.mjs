@@ -17,7 +17,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-paper">
+    <section class="section section-paper" style="padding-bottom:var(--space-8);">
       <div class="container">
         <span class="eyebrow">Our Process</span>
         <h2>What Labrite's Laboratory Services cover</h2>
@@ -26,7 +26,7 @@ const main = `
       </div>
     </section>
 
-    <section class="section section-mist">
+    <section class="section section-mist" style="padding-top:var(--space-8);">
       <div class="container">
         <div class="grid grid-2 reveal-group" style="gap:var(--space-10);">
           <div>
@@ -101,7 +101,7 @@ const main = `
     <section class="section section-dark">
       <div class="container text-center">
         <blockquote style="max-width:780px;margin:0 auto;font-family:var(--font-display);font-size:clamp(1.25rem,1.1rem + 0.7vw,1.75rem);font-weight:500;color:var(--white);font-style:normal;line-height:1.4;">
-          "At Labrite, the result is only as reliable as the process that produced it. Sampling, handling, preparation, analysis, quality control and technical review are therefore considered as interconnected parts of the same analytical process."
+          "At Labrite, technical competence, quality workmanship and dependable service are at the heart of everything we do. From laboratory testing and analytical equipment to specialised technical support, we are committed to providing reliable results, quality products and practical solutions that meet our clients' operational requirements."
         </blockquote>
       </div>
     </section>

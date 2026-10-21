@@ -17,7 +17,7 @@ const main = `
       <div class="container hero-content">
         <span class="eyebrow">Agencies &amp; Distribution</span>
         <h1>Brands and manufacturers represented by Labrite</h1>
-        <p class="lede">Labrite connects laboratories with equipment brands and manufacturers, supporting the products it represents with local technical knowledge.</p>
+        <p class="lede">Labrite works closely with its clients to understand, evaluate and identify suitable laboratory equipment and technical solutions. Through our established partnerships with reputable international manufacturers and suppliers, we provide expert advice, equipment, spare parts, consumables and ongoing technical support. Where specific requirements cannot be met through our existing agencies or local suppliers, we explore alternative sourcing options internationally to deliver practical, reliable and cost-effective solutions.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/contact.html">Enquire about a brand</a>
           <a class="btn btn-secondary" href="/equipment/">View equipment</a>
@@ -30,7 +30,6 @@ const main = `
         <div class="section-head">
           <div>
             <h2>Represented brands</h2>
-            <p class="section-intro">Brand logos are used only where supplied. No exclusive distribution rights are implied unless separately confirmed.</p>
           </div>
         </div>
         <div class="grid grid-3 reveal-group">

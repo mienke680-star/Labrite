@@ -12,7 +12,7 @@ const main = `
         <div class="split-content">
           <h2>SANAS accreditation</h2>
           <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Labrite's Coal Testing &amp; Analysis laboratory, part of Laboratory Services, is a SANAS-accredited testing laboratory, accreditation number <strong>T1091</strong>. The symbol shown is used exactly as supplied by Labrite, unmodified.</p>
+          <p>Labrite is a SANAS-accredited laboratory (T1091). The symbol shown is used exactly as supplied by Labrite, unmodified.</p>
         </div>
         <div class="split-media">
           <div class="media ratio-4-3" style="background:var(--white);"><img src="/assets/images/brand/sanas-accreditation.png" alt="SANAS Testing Laboratory accreditation mark, number T1091" loading="lazy" style="object-fit:contain;padding:2rem;" /></div>

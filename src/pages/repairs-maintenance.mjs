@@ -1,6 +1,3 @@
-import { productMedia } from '../partials/render.mjs';
-import { getProduct } from '../data/products.mjs';
-
 const main = `
     <section class="hero-simple">
       <div class="container hero-content">
@@ -78,16 +75,11 @@ const main = `
     </section>
 
     <section class="section section-mist">
-      <div class="container split reverse">
-        <div class="split-content">
-          <h2>A technical support partner</h2>
-          <span class="l-rule reveal-line" aria-hidden="true"></span>
-          <p>Beyond supplying equipment and chemicals, Labrite works alongside laboratories as a technical support partner — helping resolve equipment issues quickly and keep testing on schedule.</p>
-          <a class="btn btn-secondary" href="/contact.html">Discuss your equipment</a>
-        </div>
-        <div class="split-media l-frame">
-          ${productMedia(getProduct('muffle-furnace'))}
-        </div>
+      <div class="container" style="max-width:700px;">
+        <h2>A technical support partner</h2>
+        <span class="l-rule reveal-line" aria-hidden="true"></span>
+        <p>Beyond supplying equipment and chemicals, Labrite works alongside laboratories as a technical support partner — helping resolve equipment issues quickly and keep testing on schedule.</p>
+        <a class="btn btn-secondary" href="/contact.html">Discuss your equipment</a>
       </div>
     </section>
 
