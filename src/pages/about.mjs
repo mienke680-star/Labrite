@@ -56,7 +56,9 @@ const main = `
         <span class="eyebrow">About Labrite</span>
         <h1>Laboratory expertise built on <em>experience</em></h1>
         <span class="hero-rule" aria-hidden="true"></span>
-        <p class="lede">Labrite provides laboratory services, laboratory equipment and instruments, chemicals and consumables, technical support, repairs and maintenance, and selected agency and distribution services. From operating coal laboratories to supplying and supporting laboratory and specialised equipment across Africa, our business is built on practical experience of the environments in which our customers work.</p>
+        <p class="lede">Labrite (Pty) Ltd provides professional laboratory testing services, laboratory equipment, instruments, chemicals, consumables and technical support to the mining, industrial and analytical sectors.</p>
+        <p class="lede">With extensive practical experience in laboratory operations, equipment supply, installation, maintenance and technical support, Labrite delivers reliable solutions tailored to the operational requirements of its clients.</p>
+        <p class="lede">Our services extend beyond laboratory testing to include the establishment and operation of on-site laboratories, the supply of specialised analytical equipment, and ongoing technical support. Through our network of established suppliers and international equipment manufacturers, we serve clients throughout South Africa and the broader African market.</p>
       </div>
     </section>
 
@@ -67,13 +69,11 @@ const main = `
         <span class="l-rule reveal-line" aria-hidden="true"></span>
         <div class="grid grid-2" style="gap:var(--space-10);max-width:980px;">
           <div>
-            <p>Labrite is a South African laboratory services, equipment and technical support company serving the mining, mineral processing, industrial and laboratory sectors.</p>
-            <p>Our laboratory operations include coal laboratories established on client sites, as well as our centralised commercial coal laboratory in Middelburg, Mpumalanga. These operations provide sampling, sample preparation, testing, analysis and reporting services in support of our clients' operational and quality requirements.</p>
+            <p>Labrite is a South African company providing laboratory testing services, equipment, consumables and technical support to the mining, mineral processing and industrial sectors. Our laboratory services include the establishment and operation of on-site coal laboratories, supported by our centralised commercial coal laboratory in Middelburg, Mpumalanga. We provide sampling, sample preparation, analytical testing and reporting services to support our clients' operational and quality control requirements. In addition to our laboratory operations, Labrite supplies laboratory instruments, equipment, chemicals, consumables and specialised industrial products to clients throughout South Africa and across Africa, including Madagascar. Our technical services include equipment installation, servicing, repairs, maintenance and the supply of spare parts.</p>
           </div>
           <div>
-            <p>Beyond our own laboratory operations, Labrite supplies laboratory equipment, instruments, chemicals and consumables to laboratories across Africa, including Madagascar. We also supply specialised equipment, spare parts and consumables directly to mining and related industrial operations across the continent.</p>
-            <p>Our technical capabilities extend beyond supply. Labrite provides equipment support, servicing, repairs and maintenance, drawing on many years of practical experience working with laboratory equipment and the people who depend on it.</p>
-            <p>What connects these activities is a practical understanding of laboratory operations. Reliable laboratory performance depends on more than a test method or an individual instrument — it requires suitable equipment, representative sampling, sound preparation, competent people, quality control, dependable consumables and effective technical support.</p>
+            <p>Our strength lies in our practical understanding of laboratory operations and the industries we serve. We recognise that reliable analytical results depend not only on sound testing methods, but also on representative sampling, proper sample preparation, suitable equipment, competent personnel and effective quality control.</p>
+            <p>Through this integrated approach, Labrite aims to deliver dependable products, professional services and practical solutions that support the efficiency and reliability of our clients' operations.</p>
           </div>
         </div>
       </div>
@@ -89,19 +89,19 @@ const main = `
             <span class="timeline-dot" aria-hidden="true"></span>
             <span class="timeline-year">1999</span>
             <h4>Consumables & technical services</h4>
-            <p>Labrite began as a supplier of laboratory consumables and technical services to the mining and associated laboratory industries — including equipment maintenance and specialised furnace refractory repair and rebuilding.</p>
+            <p>Labrite was founded on a strong foundation of technical expertise in the manufacturing, fabrication, maintenance and rebuilding of industrial ovens and laboratory furnaces. Our early activities included the manufacture and supply of heating elements, thermocouples, refractory linings and specialised furnace components, supported by laboratory equipment sales, spare parts and consumables. From the outset, our commitment to quality workmanship, dependable customer service and trusted technical expertise established the foundation upon which Labrite has grown and diversified into the business it is today.</p>
           </div>
           <div class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <span class="timeline-year">2018</span>
             <h4>Coal & mineral laboratory services</h4>
-            <p>Labrite expanded into coal and mineral laboratory services, adding sampling, sample preparation, testing and analysis to its established equipment, supply and technical capabilities.</p>
+            <p>With the appointment of a new owner and Managing Director, Labrite entered a new phase of strategic growth and diversification. The company broadened its professional and technical service offerings, established strategic supplier and distribution partnerships with reputable international manufacturers, and expanded its equipment and product sales into the broader African market. A significant milestone in this development was the introduction of coal and mineral laboratory services, including sampling, sample preparation, analytical testing and reporting. This expansion complemented Labrite's established strengths in equipment supply, manufacturing, maintenance and technical support, positioning the company as a more comprehensive laboratory solutions provider. Throughout this growth, Labrite has remained committed to the principles upon which it was founded: technical expertise, quality workmanship, dependable service and lasting customer relationships built on trust.</p>
           </div>
           <div class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <span class="timeline-year">Today</span>
             <h4>Client-site labs + Middelburg</h4>
-            <p>Labrite operates coal laboratories at client sites as well as a centralised commercial coal laboratory in Middelburg, Mpumalanga, alongside equipment, consumables, technical support and specialised supply services across Africa.</p>
+            <p>Labrite operates on-site coal laboratories at client facilities, supported by its centralised commercial coal laboratory in Middelburg, Mpumalanga. Building on its established expertise in coal analysis, Labrite is expanding its laboratory services into the broader minerals sector, while developing mobile and containerised laboratory solutions to meet the growing demand for flexible, on-site analytical capabilities. These developments complement Labrite's established equipment supply, consumables, maintenance and technical support services, further strengthening its position as a comprehensive laboratory solutions provider in South Africa and across the African market.</p>
           </div>
         </div>
       </div>
