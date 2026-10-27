@@ -27,7 +27,9 @@ import equipmentIndexPage from '../src/pages/equipment-index.mjs';
 import { renderEquipmentCategoryPage } from '../src/templates/equipment-category.mjs';
 import { renderProductPage } from '../src/templates/product-detail.mjs';
 import { renderAgencyBrandPage } from '../src/templates/agency-brand.mjs';
-import { BRANDS } from '../src/data/agencies.mjs';
+import { renderAgencyProductPage } from '../src/templates/agency-product.mjs';
+import { BRANDS, getBrand } from '../src/data/agencies.mjs';
+import { UTHERM_EQUIPMENT } from '../src/data/utherm-products.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -53,11 +55,17 @@ const productPages = PRODUCTS.map((product) => renderProductPage(product));
 
 const brandPages = BRANDS.map((brand) => renderAgencyBrandPage(brand));
 
+const uThermBrand = getBrand('u-therm');
+const uThermProductPages = UTHERM_EQUIPMENT.filter((item) => item.hasDetail).map((item) =>
+  renderAgencyProductPage(uThermBrand, item)
+);
+
 const allPages = [
   ...staticPages,
   ...categoryPages,
   ...productPages,
   ...brandPages,
+  ...uThermProductPages,
 ];
 
 async function writePage(pageDef) {

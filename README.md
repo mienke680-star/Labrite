@@ -482,3 +482,86 @@ had been removed as part of the eight-image cleanup) was replaced with a small t
 **Images still needed in higher resolution.** No change from the note above under "Source
 image resolution is genuinely low" — several Sampling & Sample Preparation source crops
 remain native ~200–330px wide. None of the eight images used this round are affected.
+
+## 27 Oct 2026 — full U-Therm/Maglev catalogue rebuild, Weighing Instruments
+
+A further client handoff ("Labrite_Website_Changes_Complete.zip") supplied full source
+DOCX files, extracted text and native-resolution embedded images for eight new U-Therm
+equipment families, an expanded Maglev Africa product set, and — for the first time — a
+Weighing Instruments source document. The package's own two "change request" documents
+(`Change_Requests_1`, `Change_Requests_2`) were verified to be the exact same 25 copy
+changes already implemented and live from the two preceding rounds — nothing further was
+needed there. This round's actual new work explicitly reverses the 14 Oct 2026 "curated,
+exactly 8 images, not a shop" U-Therm design brief, on the client's confirmed instruction
+to rebuild it as a full catalogue instead.
+
+**U-Therm — from 8 curated items to a full catalogue (19 items).** The original eight
+approved items stay, each at its original slug/image/role. Nine new product families were
+added from the supplied source documents, each with a dedicated product detail page
+(`src/templates/agency-product.mjs`, restored from an earlier round) showing overview,
+features, a full model-variant specification table, and an enquiry CTA:
+Electromagnetic Pulverisor (DF-4/DF-3 — the source document's own heading literally reads
+"DF-4DF-4", noted on the page as flagged for editorial confirmation); five Crusher
+families (Sealed Hammer Cutter Crusher, Sealed Hammer Crusher, Sealed Jaw Crusher, Jaw
+Crusher, Fast Compaction Sample Pulverizer); two Drying Oven families (Stand-Drying and
+Air Circulation, Automatic Program Control); the Program Control Chamber Electric Furnace
+(SXL range) and MF1100 Series Box-Type Furnace; and the Desiccator (AB-40EM). Two of the
+original eight items — the Automatic IR Sulfur Analyzer and the (Full) Automatic
+Calorimeter — turned out to be the same equipment the new source documents cover in full,
+so those two entries were enriched in place with complete specifications and a cleaner
+manufacturer-branded photo, rather than duplicated; a new, separate Total Sulfur Analyzer
+(YX-DL) entry was added alongside the enriched IR analyzer. `src/templates/agency-brand.mjs`
+now renders each capability group as a list of entries, each linking through to its detail
+page where one exists ("View full specifications"), still alongside a direct enquiry link.
+
+**Crusher image-to-model matching.** The five Crusher product photos are not individually
+captioned in the source document in every case. Two of the five (Jaw Crusher, Sealed
+Hammer Crusher) carry their own model numbers baked into the image and were matched with
+certainty; the Fast Compaction Sample Pulverizer was matched from its visible digital
+-display grinding mechanism. The remaining two (Sealed Hammer Cutter Crusher, Sealed Jaw
+Crusher) have no distinguishing label in their source photos and were assigned by
+elimination/visual characteristics — flagged here as the one genuine judgement call in
+this round's image mapping, for the client to confirm against the original catalogue if
+exactness matters. The two Furnace photos (Program Control Chamber Electric Furnace,
+MF1100 Series) are likewise unlabelled and were assigned by the order they appear in the
+source document.
+
+**Desiccator (AB-40EM) image.** The only supplied photo for this product shows the
+cabinet's interior stocked with Canon/Nikon camera bodies and lenses (it appears to be a
+general-purpose photographic dry-cabinet product shot, not a laboratory-specific one).
+Used as supplied, unaltered, per the "use images faithfully" instruction — but flagged
+here since a laboratory-sample-specific photo would likely read better on a lab-equipment
+page.
+
+**Maglev Africa — expanded to two real product groups.** `src/data/maglev-products.mjs`
+(new) holds Permanent-Magnet Direct-Drive Motors (one entry — rated power 5.5 kW–8,000 kW,
+rated voltage 380V–10,000V, shown with the supplied real mine-conveyor comparison photo)
+and Magnetic Levitation Products (six named products — Turbo Blower, Vacuum Pump, Air
+Compressor, Twin Screw Air Compressor, Centrifugal Water Chiller Unit, Temperature Waste
+Heat Generator Set). The six Magnetic Levitation product photos were cropped out of one
+combined marketing-grid image (`Maglev_Africa_06.jpeg`) into individual clean product
+shots; the published performance figures (30–55% energy savings, 80dB vs 130dB noise,
+20+-year maintenance-free operation, up to 55,000rpm) are presented as Maglev Africa's own
+published specifications, explicitly labelled as not a Labrite guarantee, since they
+weren't independently verified. The "Conclusion" slide (`Maglev_Africa_03.png`, pure
+marketing bullet points with no product content) was not used.
+
+**Weighing Instruments (`src/data/products.mjs`).** Seven real products with full
+manufacturer specifications and genuine photography were added to the existing "Weighing &
+Calibration" equipment range (not a new separate range, to avoid two overlapping
+categories), with `category` values matching the source document's own three subcategory
+headings (Analytical Balances, Top Pan Balances, Platform Balances): WB Series 0.1 mg
+Analytical Balance (external and internal calibration — two entries), Touch Balance, ESJ
+Internal Calibration Analytical Balances, Electronic Top Pan Balance, Large Weighing Top
+Pan Balance, and Large Weighing Platform Balance. `productMedia()` in
+`src/partials/render.mjs` now shows a real photo when `product.image` is set and falls
+back to the existing icon/text glyph otherwise, so the other, still-unphotographed general
+-catalogue products are unaffected. `product-detail.mjs` gained the same optional
+model-variant specification table used on the U-Therm product pages. Images were matched
+to products by their position in the source document (confirmed by inspecting each image
+against its product's description — e.g. automatic/manual draft-shield balances vs.
+flat-pan top-loading balances vs. the floor-standing platform scale).
+
+**Images.** All new product images were converted to WebP at their native embedded
+resolution — nothing was upscaled or invented. See `IMAGE_MANIFEST.txt` in the supplied
+package for each image's original source document.

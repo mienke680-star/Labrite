@@ -232,11 +232,15 @@ export function breadcrumbSchema(items) {
   };
 }
 
-// General equipment catalogue items have no approved photography (the only
-// genuine, approved equipment photographs on the site are the eight U-Therm
-// images used on their own pages) — represented with a plain icon/text glyph
-// rather than a stock or AI-generated substitute photo.
+// Most general equipment catalogue items have no approved photography and
+// are represented with a plain icon/text glyph rather than a stock or
+// AI-generated substitute photo. Items with a genuine supplied photograph
+// (product.image set — e.g. the 27 Oct 2026 weighing-instruments handoff)
+// show it directly instead.
 export function productMedia(product, { ratio = 'ratio-4-3' } = {}) {
+  if (product.image) {
+    return `<div class="media ${ratio}"><img src="${product.image}" alt="${product.imageAlt || product.name}" loading="lazy" /></div>`;
+  }
   return `<div class="media ${ratio} equipment-glyph">
     <div class="equipment-glyph-icon">${iconSvg('equipment')}</div>
     <span class="equipment-glyph-label">${product.category}</span>

@@ -26,7 +26,9 @@ export const BRANDS = [
     logo: '/assets/images/brand/partner-maglev-africa.png',
     summary:
       'A specialist supplier of electromagnetic and industrial technology solutions. Labrite works in cooperation with Maglev Africa to identify, source and supply suitable equipment and technical solutions for customer applications.',
+    role: 'Labrite proudly promotes Maglev Africa’s electromagnetic equipment in South Africa, connecting industry with advanced electromagnetic solutions and handling enquiries on Maglev Africa’s behalf.',
     hasCatalogue: false,
+    hasProductGroups: true,
   },
 ];
 

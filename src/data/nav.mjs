@@ -27,7 +27,7 @@ export const EQUIPMENT_RANGES = [
     key: 'weighing-calibration',
     label: 'Weighing & Calibration',
     href: '/equipment/weighing-calibration.html',
-    desc: 'Analytical and top-loading balances, and calibration weight sets for verifying laboratory mass measurement.',
+    desc: 'Analytical, top pan and platform balances, and calibration weight sets, for laboratory and industrial mass measurement.',
   },
   {
     key: 'moisture-drying',

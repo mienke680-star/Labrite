@@ -1,6 +1,7 @@
 import { productMedia, breadcrumbSchema, enquiryHref } from '../partials/render.mjs';
 import { EQUIPMENT_RANGES } from '../data/nav.mjs';
 import { PRODUCTS } from '../data/products.mjs';
+import { SITE_URL } from '../data/company.mjs';
 
 export function renderProductPage(product) {
   const range = EQUIPMENT_RANGES.find((r) => r.key === product.range);
@@ -9,6 +10,29 @@ export function renderProductPage(product) {
   const applications = product.applications
     .map((a) => `<li>${a}</li>`)
     .join('\n              ');
+
+  const variantsTable = product.variants
+    ? `
+    <section class="section section-paper">
+      <div class="container">
+        <h2>Model variants</h2>
+        <span class="l-rule reveal-line" aria-hidden="true"></span>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>${product.variantColumns.map((c) => `<th>${c}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+              ${product.variants
+                .map((row) => `<tr>${row.map((cell, i) => (i === 0 ? `<td><strong>${cell}</strong></td>` : `<td>${cell}</td>`)).join('')}</tr>`)
+                .join('\n              ')}
+            </tbody>
+          </table>
+        </div>
+        ${product.note ? `<p style="font-size:0.875rem;color:#6b6b72;margin-top:var(--space-6);">${product.note}</p>` : ''}
+      </div>
+    </section>`
+    : '';
 
   const relatedCards = related.length
     ? related
@@ -63,6 +87,7 @@ export function renderProductPage(product) {
         </div>
       </div>
     </section>
+    ${variantsTable}
 
     <section class="section section-mist">
       <div class="container">
@@ -97,6 +122,7 @@ export function renderProductPage(product) {
     name: product.name,
     description: product.shortDescription,
     category: product.category,
+    ...(product.image ? { image: `${SITE_URL}${product.image}` } : {}),
     brand: { '@type': 'Organization', name: 'Labrite' },
   };
   const crumbs = breadcrumbSchema([
