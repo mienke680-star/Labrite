@@ -1,8 +1,11 @@
 import { enquiryHref } from '../partials/render.mjs';
 import { iconSvg } from '../partials/icons.mjs';
-import { BUSINESS_AREAS, EQUIPMENT_RANGES } from '../data/nav.mjs';
+import { BUSINESS_AREAS } from '../data/nav.mjs';
 import { BRANDS } from '../data/agencies.mjs';
 import { UTHERM_EQUIPMENT } from '../data/utherm-products.mjs';
+import { COMPANY } from '../data/company.mjs';
+
+const yearsOperating = new Date().getFullYear() - Number(COMPANY.founded);
 
 const BUSINESS_CARD_ICON = {
   'Laboratory Services': 'lab',
@@ -63,8 +66,8 @@ const main = `
       <div class="container">
         <div class="stats-strip is-triple reveal-group">
           <div class="stat">
-            <span class="stat-number" data-count-to="${EQUIPMENT_RANGES.length}">${EQUIPMENT_RANGES.length}</span>
-            <span class="stat-label">Equipment Ranges</span>
+            <span class="stat-number" data-count-to="${yearsOperating}">${yearsOperating}</span>
+            <span class="stat-label">Years of Experience</span>
           </div>
           <div class="stat">
             <span class="stat-number" data-count-to="${BRANDS.length}">${BRANDS.length}</span>

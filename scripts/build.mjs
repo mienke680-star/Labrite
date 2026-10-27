@@ -8,8 +8,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { renderPage } from '../src/partials/render.mjs';
-import { EQUIPMENT_RANGES } from '../src/data/nav.mjs';
-import { PRODUCTS, getProductsByRange } from '../src/data/products.mjs';
+import { PRODUCTS } from '../src/data/products.mjs';
 import { SITE_URL } from '../src/data/company.mjs';
 
 import homePage from '../src/pages/home.mjs';
@@ -24,7 +23,6 @@ import privacyPage from '../src/pages/privacy-policy.mjs';
 import termsPage from '../src/pages/terms-of-use.mjs';
 import equipmentIndexPage from '../src/pages/equipment-index.mjs';
 
-import { renderEquipmentCategoryPage } from '../src/templates/equipment-category.mjs';
 import { renderProductPage } from '../src/templates/product-detail.mjs';
 import { renderAgencyBrandPage } from '../src/templates/agency-brand.mjs';
 import { renderAgencyProductPage } from '../src/templates/agency-product.mjs';
@@ -47,10 +45,6 @@ const staticPages = [
   equipmentIndexPage,
 ];
 
-const categoryPages = EQUIPMENT_RANGES.map((range) =>
-  renderEquipmentCategoryPage(range, getProductsByRange(range.key))
-);
-
 const productPages = PRODUCTS.map((product) => renderProductPage(product));
 
 const brandPages = BRANDS.map((brand) => renderAgencyBrandPage(brand));
@@ -62,7 +56,6 @@ const uThermProductPages = UTHERM_EQUIPMENT.filter((item) => item.hasDetail).map
 
 const allPages = [
   ...staticPages,
-  ...categoryPages,
   ...productPages,
   ...brandPages,
   ...uThermProductPages,

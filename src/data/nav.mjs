@@ -22,39 +22,6 @@ export const BUSINESS_AREAS = [
   { label: 'Agencies & Distribution', href: '/agencies.html', desc: 'Brands and manufacturers represented by Labrite.' },
 ];
 
-export const EQUIPMENT_RANGES = [
-  {
-    key: 'weighing-calibration',
-    label: 'Weighing & Calibration',
-    href: '/equipment/weighing-calibration.html',
-    desc: 'Analytical, top pan and platform balances, and calibration weight sets, for laboratory and industrial mass measurement.',
-  },
-  {
-    key: 'moisture-drying',
-    label: 'Moisture & Drying',
-    href: '/equipment/moisture-drying.html',
-    desc: 'Moisture analyzers, drying ovens, drying cabinets and desiccator storage for sample preparation.',
-  },
-  {
-    key: 'sample-preparation',
-    label: 'Sample Preparation & Sieving',
-    href: '/equipment/sample-preparation.html',
-    desc: 'Sample crushers and test sieves used to reduce and grade material ahead of analysis.',
-  },
-  {
-    key: 'testing-analysis',
-    label: 'Testing & Analysis',
-    href: '/equipment/testing-analysis.html',
-    desc: 'Muffle furnaces used in coal and material testing.',
-  },
-  {
-    key: 'laboratory-support',
-    label: 'Laboratory Support',
-    href: '/equipment/laboratory-support.html',
-    desc: 'Labelling, identification and other supporting laboratory equipment.',
-  },
-];
-
 export const FOOTER_LEGAL_LINKS = [
   { label: 'Privacy Policy', href: '/privacy-policy.html' },
   { label: 'Terms of Use', href: '/terms-of-use.html' },

@@ -1,71 +1,25 @@
-// General equipment catalogue. No photography is used here — the only approved
-// equipment photographs on the site are the eight U-Therm images used on their
-// own pages — so these are represented with an icon/text treatment (see
-// productMedia() in partials/render.mjs). Technical specifications (capacity,
-// accuracy, power, dimensions, manufacturer model numbers, certifications) are
-// intentionally left as "not yet supplied" placeholders rather than invented,
-// per the Labrite content rule: never fabricate specs, models or accreditation claims.
+// Equipment Labrite's own laboratory uses — not a product catalogue, and not
+// equipment Labrite sells or rents out. Only items with a genuine supplied
+// photograph are listed here (the 27 Oct 2026 weighing-instruments handoff);
+// everything else that was previously listed as a text/icon-only placeholder
+// (no real photo) has been removed per instruction: show the equipment that
+// has pictures, and nothing else. Technical specifications below (capacity,
+// accuracy, model numbers) come from that same supplied handoff — never
+// fabricate specs, models or accreditation claims.
 
 export const PRODUCTS = [
   {
-    slug: 'analytical-balance',
-    name: 'Analytical Balance',
-    range: 'weighing-calibration',
-    category: 'Weighing & Calibration',
-    tagline: 'Precision laboratory balance',
-    shortDescription: 'High-precision mass measurement for sample preparation, reagent weighing and quality control.',
-    overview:
-      'The analytical balance is used wherever a laboratory result depends on an accurate starting mass. Its enclosed glass draft shield isolates the weighing pan from air movement, while a stable internal mechanism holds a steady reading for repeatable results.',
-    applications: [
-      'Sample and reagent weighing ahead of testing',
-      'Reference and tare weighing during laboratory procedures',
-      'Routine quality control checks on prepared samples',
-    ],
-  },
-  {
-    slug: 'top-loading-balance',
-    name: 'Top-Loading Balance',
-    range: 'weighing-calibration',
-    category: 'Weighing & Calibration',
-    tagline: 'Laboratory bench scale',
-    shortDescription: 'Fast, durable bench weighing for general laboratory and sample-preparation use.',
-    overview:
-      'A top-loading balance trades the enclosed draft shield of an analytical balance for a larger, open platform and faster handling, making it well suited to general bench weighing where samples are heavier or move through the laboratory in higher volumes.',
-    applications: [
-      'General laboratory and bench weighing',
-      'Sample preparation ahead of drying, crushing or analysis',
-      'Weighing of consumables and reference materials',
-    ],
-  },
-  {
-    slug: 'calibration-weight-set',
-    name: 'Calibration Weight Set',
-    range: 'weighing-calibration',
-    category: 'Weighing & Calibration',
-    tagline: 'Mass calibration kit',
-    shortDescription: 'A graded set of reference weights, held in a protective case, for verifying balance accuracy.',
-    overview:
-      'A calibration weight set provides a graded series of known reference masses used to check and adjust the accuracy of laboratory balances. Weights are stored in a padded, fitted case to protect their certified mass between uses.',
-    applications: [
-      'Routine verification of balance accuracy',
-      'Balance calibration and adjustment',
-      'Supporting internal quality-control checks on weighing equipment',
-    ],
-  },
-  // ---- Weighing Instruments (27 Oct 2026 handoff) ----
-  {
     slug: 'wb-series-analytical-balance-external-calibration',
     name: 'WB Series 0.1 mg Analytical Balance (External Calibration)',
-    range: 'weighing-calibration',
     category: 'Analytical Balances',
     tagline: 'High-accuracy electromagnetic-sensor balance',
     shortDescription: 'An electromagnetic-sensor analytical balance with external calibration, linear four-point calibration, counting and unit conversion.',
     overview:
-      'Adopts an electromagnetic balance sensor for high accuracy, linear four-point calibration, counting and unit conversion. A large digital-integration circuit board, in place of a traditional classification board, gives higher stability and reaction speed, with integration and sensitivity adjustable to the user’s needs. Fitted with a standard RS232C data interface for connection to a computer, printer or other device. Used across university, biomedical, enterprise, public-institution and quarantine-inspection laboratories.',
+      'Adopts an electromagnetic balance sensor for high accuracy, linear four-point calibration, counting and unit conversion. A large digital-integration circuit board, in place of a traditional classification board, gives higher stability and reaction speed, with integration and sensitivity adjustable to the user’s needs. Fitted with a standard RS232C data interface for connection to a computer, printer or other device.',
     applications: [
-      'High-accuracy mass measurement in university, biomedical and enterprise laboratories',
-      'Quarantine inspection and public-institution testing',
+      'High-accuracy mass measurement in laboratory analysis',
       'Sample and reagent weighing requiring external calibration',
+      'Routine quality-control checks on prepared samples',
     ],
     image: '/assets/images/products/weighing/wb-series-analytical-balance-external-cal.webp',
     imageAlt: 'WB series 0.1 mg analytical balance with glass draft shield, weights, scale pan and power adapter',
@@ -84,7 +38,6 @@ export const PRODUCTS = [
   {
     slug: 'wb-series-analytical-balance-internal-calibration',
     name: 'WB Series 0.1 mg Internal Calibration Analytical Balance',
-    range: 'weighing-calibration',
     category: 'Analytical Balances',
     tagline: 'Key internal automatic calibration',
     shortDescription: 'An analytical balance with a key internal automatic calibration function for more convenient, stable use.',
@@ -112,15 +65,14 @@ export const PRODUCTS = [
   {
     slug: 'touch-balance',
     name: 'Touch Balance',
-    range: 'weighing-calibration',
     category: 'Analytical Balances',
     tagline: 'Touch-screen precision balance',
     shortDescription: 'A touch-screen intelligent precision balance with wireless induction, multi-language menus and full automatic internal calibration.',
     overview:
-      'A large colour touch screen (5.7", 4-line resistive), convenient patterned interface and intelligent modular design, with a windproof and dustproof separated structure and effective filtering. The display and CPU digital-processing sections are isolated from the mechanical sensor to avoid mutual interference. Features include wireless induction, multi-language menus, large-capacity data storage, multi-client management and full automatic internal calibration. Applications include animal weighing, density weighing, formulation weighing, weight accumulation, check-weighing, percentage weighing, parts counting and target weighing.',
+      'A large colour touch screen (5.7", 4-line resistive), convenient patterned interface and intelligent modular design, with a windproof and dustproof separated structure and effective filtering. The display and CPU digital-processing sections are isolated from the mechanical sensor to avoid mutual interference. Features include wireless induction, multi-language menus, large-capacity data storage, multi-client management and full automatic internal calibration.',
     applications: [
-      'Animal weighing, density weighing and formulation weighing',
-      'Weight accumulation, check-weighing and percentage weighing',
+      'Formulation weighing and weight accumulation',
+      'Check-weighing and percentage weighing',
       'Parts counting and target weighing',
     ],
     image: '/assets/images/products/weighing/touch-balance.webp',
@@ -147,16 +99,15 @@ export const PRODUCTS = [
   {
     slug: 'esj-internal-calibration-analytical-balance',
     name: 'ESJ Internal Calibration Analytical Balances',
-    range: 'weighing-calibration',
     category: 'Analytical Balances',
     tagline: 'Rear-mounted sensor, automatic internal calibration',
     shortDescription: 'A rear-mounted electromagnetic-force-sensor analytical balance with automatic internal, timing and temperature-change calibration.',
     overview:
-      'Uses an internationally recognised, high-sensitivity, high-stability rear-mounted electromagnetic force sensor with a three-door large windshield and spacious weighing chamber. A Δ90 mm stainless-steel weighing plate accepts larger containers, with a built-in standard stainless-steel weight and backlit LCD display. Automatic internal calibration covers timing and temperature-change calibration to eliminate drift errors from temperature, environment and time. Includes overload/underload alarm, temperature compensation, full-range tare, multiple weighing-unit conversion (grams, carats, ounces), counting and percentage weighing, and an RS232 output interface. Optional accessories support density measurement and under-hook weighing.',
+      'Uses an internationally recognised, high-sensitivity, high-stability rear-mounted electromagnetic force sensor with a three-door large windshield and spacious weighing chamber. A Δ90 mm stainless-steel weighing plate accepts larger containers, with a built-in standard stainless-steel weight and backlit LCD display. Automatic internal calibration covers timing and temperature-change calibration to eliminate drift errors from temperature, environment and time. Includes overload/underload alarm, temperature compensation, full-range tare, multiple weighing-unit conversion (grams, carats, ounces), counting and percentage weighing, and an RS232 output interface.',
     applications: [
       'High-precision analytical weighing requiring automatic internal/timing/temperature calibration',
-      'Density measurement (with optional accessory) and under-hook weighing (optional)',
       'Laboratory quality-analysis workflows needing counting or percentage weighing',
+      'Routine mass measurement where drift errors must be minimised',
     ],
     image: '/assets/images/products/weighing/esj-internal-calibration-analytical-balance.webp',
     imageAlt: 'ESJ internal calibration analytical balance with glass draft shield and digital display',
@@ -171,7 +122,6 @@ export const PRODUCTS = [
   {
     slug: 'electronic-top-pan-balance',
     name: 'Electronic Top Pan Balance',
-    range: 'weighing-calibration',
     category: 'Top Pan Balances',
     tagline: 'Smooth-design bench top pan balance',
     shortDescription: 'A smooth-design top pan balance with strong anti-interference performance and dual-mode scanning.',
@@ -179,7 +129,7 @@ export const PRODUCTS = [
       'A smooth, modern-profile top pan balance with a unique metal base and mechanical construction for high stability and anti-interference performance, multiple measuring-unit conversion, counting functions and an RS232C output interface.',
     applications: [
       'General bench weighing where a flat, open pan suits the sample',
-      'Counting and multi-unit weighing in production or laboratory settings',
+      'Counting and multi-unit weighing in laboratory settings',
       'Routine weighing where fast reaction and fixed-point speed matter',
     ],
     image: '/assets/images/products/weighing/electronic-top-pan-balance.webp',
@@ -212,15 +162,14 @@ export const PRODUCTS = [
   {
     slug: 'large-weighing-top-pan-balance',
     name: 'Large Weighing Top Pan Balance',
-    range: 'weighing-calibration',
     category: 'Top Pan Balances',
     tagline: 'Stainless-steel high-capacity top pan balance',
     shortDescription: 'A stainless-steel top pan balance for higher-capacity weighing, with a strain-type sensor for high stability.',
     overview:
       'Stainless-steel construction for strong oxidation resistance, with a strain-type sensor for high stability, multiple measuring-unit conversion, counting functions and an RS232C output interface.',
     applications: [
-      'Higher-capacity bench or floor-adjacent weighing up to 30 kg',
-      'Counting and multi-unit weighing for bulkier laboratory or industrial samples',
+      'Higher-capacity bench weighing up to 30 kg',
+      'Counting and multi-unit weighing for bulkier laboratory samples',
       'Environments needing corrosion-resistant stainless-steel construction',
     ],
     image: '/assets/images/products/weighing/large-weighing-top-pan-balance.webp',
@@ -243,14 +192,13 @@ export const PRODUCTS = [
   {
     slug: 'large-weighing-platform-balance',
     name: 'Large Weighing Platform Balance',
-    range: 'weighing-calibration',
     category: 'Platform Balances',
     tagline: 'Floor-standing platform scale',
     shortDescription: 'A floor-standing platform balance for high-capacity weighing, with a column-mounted digital display.',
     overview:
       'A floor-standing platform balance with a large weighing deck and column-mounted digital indicator, suited to high-capacity weighing up to 300 kg, with multiple measuring-unit conversion and an RS232C output interface.',
     applications: [
-      'High-capacity floor weighing in a laboratory or industrial setting',
+      'High-capacity floor weighing in the laboratory',
       'Weighing of bulk samples, containers or raw material batches',
       'Applications requiring a stable, large-platform floor scale',
     ],
@@ -268,131 +216,7 @@ export const PRODUCTS = [
     ],
     note: 'Power: communication and direct current (all models).',
   },
-  {
-    slug: 'halogen-moisture-analyzer',
-    name: 'Halogen Moisture Analyzer',
-    range: 'moisture-drying',
-    category: 'Moisture & Drying',
-    tagline: 'Rapid moisture testing balance',
-    shortDescription: 'Combines precision weighing with halogen heating to determine sample moisture content quickly.',
-    overview:
-      'A halogen moisture analyzer combines a precision balance with a halogen heating element to dry a sample and calculate moisture content from the weight lost during heating, giving a result in a fraction of the time a conventional oven method requires.',
-    applications: [
-      'Rapid moisture-content determination on laboratory samples',
-      'Process and quality-control moisture checks',
-      'Supporting sample preparation workflows ahead of further analysis',
-    ],
-  },
-  {
-    slug: 'bench-drying-oven',
-    name: 'Bench Drying Oven',
-    range: 'moisture-drying',
-    category: 'Moisture & Drying',
-    tagline: 'Laboratory bench drying oven',
-    shortDescription: 'Compact bench-top drying oven with digital temperature control for sample preparation.',
-    overview:
-      'This bench-top drying oven provides controlled, even heating for laboratory drying tasks where a compact footprint is needed. A digital controller monitors and displays chamber temperature, with an adjustable air door for ventilation control.',
-    applications: [
-      'Drying of samples ahead of weighing or analysis',
-      'Moisture removal as part of sample preparation',
-      'General laboratory heating and drying tasks',
-    ],
-  },
-  {
-    slug: 'drying-cabinet',
-    name: 'Laboratory Drying Cabinet',
-    range: 'moisture-drying',
-    category: 'Moisture & Drying',
-    tagline: 'Large-capacity drying cabinet',
-    shortDescription: 'Large multi-shelf drying cabinet for higher-volume sample throughput.',
-    overview:
-      'Where sample volumes are higher, this large-capacity drying cabinet offers multiple wire shelves within a stainless interior, allowing many samples to be dried evenly in parallel. Castors allow the unit to be repositioned within the laboratory.',
-    applications: [
-      'Higher-volume batch drying of samples',
-      'Moisture removal ahead of weighing, crushing or analysis',
-      'General laboratory drying where capacity is required',
-    ],
-  },
-  {
-    slug: 'desiccator-cabinet',
-    name: 'Desiccator Cabinet',
-    range: 'moisture-drying',
-    category: 'Moisture & Drying',
-    tagline: 'Laboratory dry storage cabinet',
-    shortDescription: 'Controlled dry-storage cabinet that protects prepared samples from ambient moisture.',
-    overview:
-      'A desiccator cabinet holds prepared samples and moisture-sensitive materials in a low-humidity environment between preparation and testing, protecting results from ambient moisture pickup. Humidity and temperature are monitored on a digital display, and the cabinet locks for secure storage.',
-    applications: [
-      'Dry storage of prepared samples ahead of testing',
-      'Protecting moisture-sensitive materials and reference samples',
-      'Supporting consistent, repeatable moisture-analysis results',
-    ],
-  },
-  {
-    slug: 'sample-crusher',
-    name: 'Laboratory Sample Crusher',
-    range: 'sample-preparation',
-    category: 'Sample Preparation',
-    tagline: 'Sample preparation machine',
-    shortDescription: 'Reduces coal and other solid samples to a consistent particle size ahead of testing.',
-    overview:
-      'The sample crusher reduces incoming coal and other solid material to a consistent, manageable particle size, an essential first step before sieving, moisture analysis or further laboratory testing. Material is fed through the top hopper and discharged once crushed.',
-    applications: [
-      'Primary size reduction of coal and solid samples',
-      'Preparing material ahead of sieving or moisture analysis',
-      'Standardising sample particle size prior to testing',
-    ],
-  },
-  {
-    slug: 'test-sieves',
-    name: 'Laboratory Test Sieves',
-    range: 'sample-preparation',
-    category: 'Sieving & Particle Size Analysis',
-    tagline: 'Laboratory sieve set',
-    shortDescription: 'Stacked stainless-steel test sieves used to grade prepared samples by particle size.',
-    overview:
-      'A stacked set of stainless-steel test sieves, each with a defined mesh aperture, separates a prepared sample into particle-size fractions. Sieves are typically stacked coarsest to finest and shaken as a set so material is graded in a single pass.',
-    applications: [
-      'Particle-size grading of crushed or prepared samples',
-      'Quality control on sample preparation consistency',
-      'Supporting coal and material testing procedures',
-    ],
-  },
-  {
-    slug: 'muffle-furnace',
-    name: 'Muffle Furnace',
-    range: 'testing-analysis',
-    category: 'Testing & Analysis',
-    tagline: 'High-temperature laboratory furnace',
-    shortDescription: 'High-temperature furnace used for ashing and combustion-based laboratory test methods.',
-    overview:
-      'The muffle furnace heats samples to high temperatures within an insulated, enclosed chamber, isolated from direct flame contact. A digital controller monitors and displays chamber temperature against the programmed setpoint throughout the test.',
-    applications: [
-      'Ashing and high-temperature laboratory test methods',
-      'Coal and material testing procedures requiring controlled heating',
-      'General high-temperature laboratory processes',
-    ],
-  },
-  {
-    slug: 'label-printer',
-    name: 'Label / Barcode Printer',
-    range: 'laboratory-support',
-    category: 'Laboratory Support',
-    tagline: 'Laboratory barcode printer',
-    shortDescription: 'Thermal label and barcode printer supporting sample tracking and identification.',
-    overview:
-      'A thermal label and barcode printer supports accurate sample identification and tracking as material moves through preparation and testing, printing clear, durable labels on demand at the point of need.',
-    applications: [
-      'Sample identification and chain-of-custody labelling',
-      'Barcode printing for laboratory tracking systems',
-      'General laboratory labelling requirements',
-    ],
-  },
 ];
-
-export function getProductsByRange(rangeKey) {
-  return PRODUCTS.filter((p) => p.range === rangeKey);
-}
 
 export function getProduct(slug) {
   return PRODUCTS.find((p) => p.slug === slug);
