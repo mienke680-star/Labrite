@@ -1,3 +1,5 @@
+import { iconSvg } from '../partials/icons.mjs';
+
 const main = `
     <section class="hero-simple">
       <div class="container hero-content">
@@ -62,7 +64,7 @@ const main = `
         <h3>Specialised Sourcing and Customer Requests</h3>
         <p>Our product offering is not limited to the items listed. Every customer enquiry is individually assessed to determine the most suitable product, specification and application. Where required, Labrite will source specialised chemicals, consumables and related laboratory products through its established network of national and international suppliers. Our objective is to provide customers with reliable, technically appropriate and cost-effective solutions suited to their operational requirements.</p>
 
-        <h3>Personal Protective Equipment</h3>
+        <h3 style="display:flex;align-items:center;gap:var(--space-3);"><span class="icon-inline" style="width:26px;height:26px;color:var(--luxury-red);">${iconSvg('ppe')}</span>Personal Protective Equipment</h3>
         <div class="table-wrap">
           <table class="data-table">
             <tbody>

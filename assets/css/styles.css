@@ -685,6 +685,11 @@ strong { color: var(--white); font-weight: 700; }
 .reach-card { border: 1px solid rgba(0, 0, 0, 0.08); padding: var(--space-8); }
 .reach-card-icon { width: 32px; height: 32px; color: var(--luxury-red); margin-bottom: var(--space-4); }
 .reach-card-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+/* Generic small inline icon — size/colour set per use via inline style,
+   e.g. next to a heading where a full card-icon treatment doesn't apply. */
+.icon-inline { display: inline-flex; flex-shrink: 0; }
+.icon-inline svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .reach-card h4 { font-family: var(--font-display); font-weight: 700; color: var(--black); font-size: 1.25rem; margin: 0 0 var(--space-2); }
 .reach-card p { color: #52525a; font-size: 0.9375rem; margin: 0; }
 
